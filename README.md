@@ -10,15 +10,17 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 
 - 👯 I’m looking to collaborate on **projects involving AI, LLMs, and data analytics.**
 
-- 💬 Ask me about **graph databases,**
+- 💬 Ask me about ** RAG architechure, graph databases, computer vision, or Transformers**
 
 - ⚡ Fun fact: **I'm an avid developer and a technology enthusiast who loves exploring the latest in tech and finance.**
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> List your skills and tools here </p>
 
-![Scott's GitHub stats](https://github-readme-stats.vercel.app/api?username=scottjoyner&show_icons=true&theme=radical)
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=scottjoyner&label=Profile%20views&color=0e75b6&style=flat" alt="scottjoyner" /> </p>
 
 [![Scott's GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=scottjoyner&theme=tokyonight)](https://git.io/streak-stats)
+
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=scottjoyner" alt="scottjoyner" /></a> </p>
 
 <!-- You can add or modify sections according to your preferences -->
