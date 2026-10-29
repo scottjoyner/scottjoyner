@@ -17,6 +17,8 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 
 *These are existing public manuscripts, research PDFs, and implementations. An authored arXiv submission has not been independently verified; see the inventory for status and attribution.*
 
+**Directly measured reranking (2026-10-29):** [Directly timed three-host rerank benchmark](benchmarks/results/2026-10-29-rerank-direct-multihost.json) · [reproduction and caveats](benchmarks/README.md). 45 measured runs across three Linux CPU hosts and 15 distinct synthetic seed/distribution cases. With 160 candidates, exact top-five matches were recovered on all tested cases, while direct end-to-end CPU latency was lower than an exact float32 scan. Quantization setup is measured separately, and **actual dashcam embeddings, GPU and production DB retrieval remain unmeasured**.
+
 **Two-stage reranking study (2026-10-29):** [Six-host, five-seed shortlist results](benchmarks/results/2026-10-29-rerank-multiseed.json) · [clustered/temporal stress results](benchmarks/results/2026-10-29-rerank-stress-multiseed.json) · [benchmark methods](benchmarks/README.md). Reranking 20 int8 candidates restored 100% top-5 recall on independent synthetic vectors but only 97.33% on the clustered control; 160 candidates reached 100% on those five clustered seeds. **Synthetic CPU evidence only, not real dashcam or GPU benchmarks.**
 
 **October 2026: high-dimensional quantization replication.** [**768D multi-seed results (30 runs)**](benchmarks/results/2026-10-29-768d-multiseed.json) · [Methods and GPU readiness](benchmarks/README.md). Five independent synthetic seeds across six Linux hosts; int8 recall@5 averaged 84.0% versus float32. CPU only.
