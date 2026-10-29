@@ -1,0 +1,3969 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_shared_uds_overload_admission",
+  "date": "2026-10-29",
+  "source_sha256": "6fc33c4fb5061d02bae11d9daac5fe4dce3b835905f2ddb601b6bae3a093f694",
+  "design": {
+    "distributions": [
+      "temporal",
+      "clustered"
+    ],
+    "modes": [
+      "ram",
+      "rank",
+      "coalesced"
+    ],
+    "seeds": [
+      20261172,
+      20261173,
+      20261174
+    ],
+    "workers": 1,
+    "queue_limit": 2,
+    "clients": 24,
+    "queries_per_client": 1,
+    "vectors": 32768,
+    "dimensions": 768,
+    "shortlist_m": 160
+  },
+  "results": [
+    {
+      "mode": "ram",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261172,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 22.657946,
+      "completed_qps": 132.403882,
+      "client_p50_ms": 15.127453,
+      "client_p95_ms": 15.127453,
+      "queue_p50_ms": 7.7405,
+      "queue_p95_ms": 7.7405,
+      "compute_p50_ms": 7.325096,
+      "compute_p95_ms": 7.325096,
+      "server_ready_rss_kib": 125072,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.427721,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.011647,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 15.127453,
+          "queued_ms": 7.7405,
+          "compute_ms": 7.26886
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.55155,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.827084,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.381514,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.318355,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.199861,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 7.952319,
+          "queued_ms": 0.034154,
+          "compute_ms": 7.787468
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 22.364674,
+          "queued_ms": 14.981969,
+          "compute_ms": 7.325096
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.621502,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.585884,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.79052,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.90167,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.741979,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.735421,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.325629,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.154606,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.843029,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.775141,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.208448,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.98663,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.907691,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.537328,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "ram",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261173,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 22.297005,
+      "completed_qps": 134.547218,
+      "client_p50_ms": 14.864096,
+      "client_p95_ms": 14.864096,
+      "queue_p50_ms": 7.545051,
+      "queue_p95_ms": 7.545051,
+      "compute_p50_ms": 7.29507,
+      "compute_p95_ms": 7.29507,
+      "server_ready_rss_kib": 125188,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.756125,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.175431,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.605942,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 7.659367,
+          "queued_ms": 0.02651,
+          "compute_ms": 7.541715
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.344014,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.430431,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.154766,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.904775,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.221231,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 14.864096,
+          "queued_ms": 7.545051,
+          "compute_ms": 7.254073
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.276692,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.797032,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.744022,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.333528,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.265104,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 22.065669,
+          "queued_ms": 14.723531,
+          "compute_ms": 7.29507
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.58889,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.712413,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.065609,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.638824,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.957505,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.807261,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.903714,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.249295,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "ram",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261174,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 22.974302,
+      "completed_qps": 130.580681,
+      "client_p50_ms": 15.65724,
+      "client_p95_ms": 15.65724,
+      "queue_p50_ms": 8.146845,
+      "queue_p95_ms": 8.146845,
+      "compute_p50_ms": 7.381232,
+      "compute_p95_ms": 7.381232,
+      "server_ready_rss_kib": 125084,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.655185,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.531051,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 22.709613,
+          "queued_ms": 15.513881,
+          "compute_ms": 7.122394
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.273526,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.558092,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 8.26112,
+          "queued_ms": 0.012163,
+          "compute_ms": 8.163567
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.969327,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.586255,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.66858,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.633875,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 15.65724,
+          "queued_ms": 8.146845,
+          "compute_ms": 7.381232
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.561859,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.575465,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.671807,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.473894,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.837538,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.937227,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.887753,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.634857,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.729685,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.843801,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.722692,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.391939,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.173447,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "rank",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261172,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 23.183847,
+      "completed_qps": 129.40044,
+      "client_p50_ms": 15.512438,
+      "client_p95_ms": 15.512438,
+      "queue_p50_ms": 8.102181,
+      "queue_p95_ms": 8.102181,
+      "compute_p50_ms": 7.396411,
+      "compute_p95_ms": 7.396411,
+      "server_ready_rss_kib": 26940,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.709462,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.950672,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.749403,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.138445,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.879317,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.587538,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.170877,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.642852,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.441643,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 15.512438,
+          "queued_ms": 8.102181,
+          "compute_ms": 7.3535
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.954399,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.148615,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.959158,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.606553,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 22.882549,
+          "queued_ms": 15.397231,
+          "compute_ms": 7.396411
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.039579,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.415062,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.469545,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 8.257544,
+          "queued_ms": 0.011803,
+          "compute_ms": 8.136656
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.653366,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.887112,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.82192,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.343437,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.359612,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "rank",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261173,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.526094,
+      "completed_qps": 193.223099,
+      "client_p50_ms": 10.456849,
+      "client_p95_ms": 10.456849,
+      "queue_p50_ms": 5.198528,
+      "queue_p95_ms": 5.198528,
+      "compute_p50_ms": 5.012277,
+      "compute_p95_ms": 5.012277,
+      "server_ready_rss_kib": 26904,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.240137,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.656237,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.985848,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 10.456849,
+          "queued_ms": 5.198528,
+          "compute_ms": 5.012277
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.535629,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.088361,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.890318,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.786102,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.185915,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.967123,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.161549,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.637641,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.599941,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.767116,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.420202,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.037906,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.840564,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.991309,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.863147,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.999935,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 5.301903,
+          "queued_ms": 0.009748,
+          "compute_ms": 5.216402
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 15.282404,
+          "queued_ms": 10.220985,
+          "compute_ms": 4.974756
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.601343,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.305736,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "rank",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261174,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.339422,
+      "completed_qps": 195.574514,
+      "client_p50_ms": 10.115766,
+      "client_p95_ms": 10.115766,
+      "queue_p50_ms": 5.131832,
+      "queue_p95_ms": 5.131832,
+      "compute_p50_ms": 5.026003,
+      "compute_p95_ms": 5.026003,
+      "server_ready_rss_kib": 26912,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.090275,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 15.073601,
+          "queued_ms": 9.991262,
+          "compute_ms": 5.026003
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.835224,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.480025,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 5.237351,
+          "queued_ms": 0.023554,
+          "compute_ms": 5.150588
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.459146,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.975779,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.321071,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.166699,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.86468,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.203914,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 10.115766,
+          "queued_ms": 5.131832,
+          "compute_ms": 4.89172
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.084734,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.15661,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.921317,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.855933,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.173823,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.29721,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.197627,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.49347,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.621251,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.91746,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.945512,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.218757,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "coalesced",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261172,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.450672,
+      "completed_qps": 194.166312,
+      "client_p50_ms": 10.438084,
+      "client_p95_ms": 10.438084,
+      "queue_p50_ms": 5.547817,
+      "queue_p95_ms": 5.547817,
+      "compute_p50_ms": 4.802071,
+      "compute_p95_ms": 4.802071,
+      "server_ready_rss_kib": 26888,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.093961,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.911568,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.365048,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.266713,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.057513,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.70047,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.980789,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 10.438084,
+          "queued_ms": 5.547817,
+          "compute_ms": 4.795969
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.036484,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.117306,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 15.150095,
+          "queued_ms": 10.317206,
+          "compute_ms": 4.802071
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.656648,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.502918,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 5.682401,
+          "queued_ms": 0.027482,
+          "compute_ms": 5.601698
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.546189,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.366325,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.812341,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.019722,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.742319,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.851209,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.281856,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.856865,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.446171,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.244355,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "coalesced",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261173,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 16.068606,
+      "completed_qps": 186.699456,
+      "client_p50_ms": 11.075636,
+      "client_p95_ms": 11.075636,
+      "queue_p50_ms": 6.224742,
+      "queue_p95_ms": 6.224742,
+      "compute_p50_ms": 4.803814,
+      "compute_p95_ms": 4.803814,
+      "server_ready_rss_kib": 26912,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.850864,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.627673,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.886812,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.224493,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.044999,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.021907,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 6.362342,
+          "queued_ms": 0.006222,
+          "compute_ms": 6.283934
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.556223,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 15.852699,
+          "queued_ms": 10.98246,
+          "compute_ms": 4.803814
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.603037,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.622353,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.070277,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.631571,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.985858,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.3055,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.198589,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 11.075636,
+          "queued_ms": 6.224742,
+          "compute_ms": 4.788045
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.128608,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.971651,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.915054,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.63114,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.533535,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.669482,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.140659,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "coalesced",
+      "distribution": "temporal",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261174,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 16.958514,
+      "completed_qps": 176.902292,
+      "client_p50_ms": 11.900189,
+      "client_p95_ms": 11.900189,
+      "queue_p50_ms": 6.952715,
+      "queue_p95_ms": 6.952715,
+      "compute_p50_ms": 4.849711,
+      "compute_p95_ms": 4.849711,
+      "server_ready_rss_kib": 26908,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.035091,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.370242,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.45625,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.942476,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.673013,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.393807,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.888535,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.786232,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.064296,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 16.668036,
+          "queued_ms": 11.76765,
+          "compute_ms": 4.842797
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 7.115521,
+          "queued_ms": 0.027332,
+          "compute_ms": 7.015352
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.41412,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.448105,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.948568,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.480386,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.80116,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.526286,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.94973,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.160207,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.585889,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.887292,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 11.900189,
+          "queued_ms": 6.952715,
+          "compute_ms": 4.849711
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.524969,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.983473,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "ram",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261172,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 23.649755,
+      "completed_qps": 126.851208,
+      "client_p50_ms": 15.920887,
+      "client_p95_ms": 15.920887,
+      "queue_p50_ms": 8.522573,
+      "queue_p95_ms": 8.522573,
+      "compute_p50_ms": 7.394306,
+      "compute_p95_ms": 7.394306,
+      "server_ready_rss_kib": 125064,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.501109,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.335217,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.805077,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.747028,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.89658,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 15.920887,
+          "queued_ms": 8.522573,
+          "compute_ms": 7.31111
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.388708,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.172339,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.996689,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.19402,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 8.663499,
+          "queued_ms": 0.027882,
+          "compute_ms": 8.521401
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.678068,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.572889,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.588494,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.066991,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.102948,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.128717,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.054868,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.843831,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.421299,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.996749,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 23.288014,
+          "queued_ms": 15.838081,
+          "compute_ms": 7.394306
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.720128,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.673579,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "ram",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261173,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 22.523032,
+      "completed_qps": 133.196987,
+      "client_p50_ms": 14.970476,
+      "client_p95_ms": 14.970476,
+      "queue_p50_ms": 7.564958,
+      "queue_p95_ms": 7.564958,
+      "compute_p50_ms": 7.389248,
+      "compute_p95_ms": 7.389248,
+      "server_ready_rss_kib": 125140,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.887513,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.560817,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.332737,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.991659,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.637075,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.792444,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.81193,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.029701,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.105053,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.859711,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.124209,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.779399,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 14.970476,
+          "queued_ms": 7.564958,
+          "compute_ms": 7.297826
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.865771,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.180946,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.464416,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.313265,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.79019,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.436607,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.905126,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 22.315601,
+          "queued_ms": 14.858145,
+          "compute_ms": 7.389248
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.38774,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.671711,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 7.726954,
+          "queued_ms": 0.007313,
+          "compute_ms": 7.56602
+        }
+      ]
+    },
+    {
+      "mode": "ram",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261174,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 22.692692,
+      "completed_qps": 132.201151,
+      "client_p50_ms": 15.236357,
+      "client_p95_ms": 15.236357,
+      "queue_p50_ms": 7.850908,
+      "queue_p95_ms": 7.850908,
+      "compute_p50_ms": 7.303125,
+      "compute_p95_ms": 7.303125,
+      "server_ready_rss_kib": 125120,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.987181,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.595242,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.773267,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.524398,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.798515,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.52818,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.692515,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.645652,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.385943,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 15.236357,
+          "queued_ms": 7.850908,
+          "compute_ms": 7.303125
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.215396,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.386619,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 7.973298,
+          "queued_ms": 0.014988,
+          "compute_ms": 7.846119
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.253022,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.687606,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.079975,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.231781,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.534317,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.686674,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.768453,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.619022,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.88052,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 22.451296,
+          "queued_ms": 15.134306,
+          "compute_ms": 7.276494
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.95483,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "rank",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261172,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 22.483887,
+      "completed_qps": 133.428886,
+      "client_p50_ms": 14.769067,
+      "client_p95_ms": 14.769067,
+      "queue_p50_ms": 7.387754,
+      "queue_p95_ms": 7.387754,
+      "compute_p50_ms": 7.404346,
+      "compute_p95_ms": 7.404346,
+      "server_ready_rss_kib": 26912,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.764721,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 14.769067,
+          "queued_ms": 7.387754,
+          "compute_ms": 7.325738
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.078293,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.347695,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.338608,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.096617,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.049267,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.528166,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.861233,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.186767,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.868757,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.139788,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 7.542205,
+          "queued_ms": 0.012173,
+          "compute_ms": 7.480269
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.167049,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 22.403657,
+          "queued_ms": 14.702642,
+          "compute_ms": 7.404346
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.659583,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.531401,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.835485,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.735466,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.50713,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.330784,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.01379,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.083702,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.293588,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "rank",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261173,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.45507,
+      "completed_qps": 194.111059,
+      "client_p50_ms": 10.449416,
+      "client_p95_ms": 10.449416,
+      "queue_p50_ms": 5.499125,
+      "queue_p95_ms": 5.499125,
+      "compute_p50_ms": 4.862686,
+      "compute_p95_ms": 4.862686,
+      "server_ready_rss_kib": 26912,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.851505,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.245808,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.145129,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.457482,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.37981,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.391423,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.785631,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.435822,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 10.449416,
+          "queued_ms": 5.499125,
+          "compute_ms": 4.861222
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.432916,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 5.629571,
+          "queued_ms": 0.010149,
+          "compute_ms": 5.552856
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.0984,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.007188,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.413159,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.094262,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.126423,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.424961,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.412462,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.78511,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.583655,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.189593,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 15.265683,
+          "queued_ms": 10.35685,
+          "compute_ms": 4.862686
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.407698,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.637707,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "rank",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261174,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.902884,
+      "completed_qps": 188.645028,
+      "client_p50_ms": 10.786361,
+      "client_p95_ms": 10.786361,
+      "queue_p50_ms": 5.840448,
+      "queue_p95_ms": 5.840448,
+      "compute_p50_ms": 4.861383,
+      "compute_p95_ms": 4.861383,
+      "server_ready_rss_kib": 26892,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.833622,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.522444,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.549771,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.414686,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.670664,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 5.97417,
+          "queued_ms": 0.00516,
+          "compute_ms": 5.888599
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.6263,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.065529,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.272378,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.132364,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.076659,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.292952,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.16178,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.641038,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.82241,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.660435,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.480626,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.233895,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.086738,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.885258,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 15.63,
+          "queued_ms": 10.686763,
+          "compute_ms": 4.861383
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.400475,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 10.786361,
+          "queued_ms": 5.840448,
+          "compute_ms": 4.857836
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.532859,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "coalesced",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261172,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.638144,
+      "completed_qps": 191.838622,
+      "client_p50_ms": 10.583718,
+      "client_p95_ms": 10.583718,
+      "queue_p50_ms": 5.653997,
+      "queue_p95_ms": 5.653997,
+      "compute_p50_ms": 4.871391,
+      "compute_p95_ms": 4.871391,
+      "server_ready_rss_kib": 26904,
+      "responses": [
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 15.574655,
+          "queued_ms": 10.459594,
+          "compute_ms": 4.869598
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.87017,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.753901,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.427626,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.59963,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.409963,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.350145,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.75864,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 10.583718,
+          "queued_ms": 5.653997,
+          "compute_ms": 4.871391
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.365139,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.095745,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.018079,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.622423,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.473252,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.707614,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 5.686337,
+          "queued_ms": 0.028573,
+          "compute_ms": 5.628098
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.214209,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.111205,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.411079,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.709758,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.387491,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.731188,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.73244,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.278805,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "coalesced",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261173,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 23.52494,
+      "completed_qps": 127.524236,
+      "client_p50_ms": 15.601836,
+      "client_p95_ms": 15.601836,
+      "queue_p50_ms": 8.199896,
+      "queue_p95_ms": 8.199896,
+      "compute_p50_ms": 7.699933,
+      "compute_p95_ms": 7.699933,
+      "server_ready_rss_kib": 26944,
+      "responses": [
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.513262,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.601318,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.063574,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.031785,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.291404,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.962935,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.334721,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 0.601323,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.398836,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.256468,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.056851,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.123437,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.031243,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.481061,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.496972,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 15.601836,
+          "queued_ms": 8.199896,
+          "compute_ms": 7.345294
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.29487,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.087279,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.494838,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.667222,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.494526,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 3,
+          "end_to_end_ms": 8.383682,
+          "queued_ms": 0.033804,
+          "compute_ms": 8.205456
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 6,
+          "end_to_end_ms": 23.299966,
+          "queued_ms": 15.516506,
+          "compute_ms": 7.699933
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.101065,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    },
+    {
+      "mode": "coalesced",
+      "distribution": "clustered",
+      "server_workers": 1,
+      "clients": 24,
+      "seed": 20261174,
+      "queue_limit": 2,
+      "queries_per_client": 1,
+      "requests": 24,
+      "accepted": 3,
+      "rejected": 21,
+      "hits": 15,
+      "top5_opportunities": 15,
+      "recall_at5": 1,
+      "client_wall_ms": 15.360862,
+      "completed_qps": 195.30154,
+      "client_p50_ms": 10.300054,
+      "client_p95_ms": 10.300054,
+      "queue_p50_ms": 5.333042,
+      "queue_p95_ms": 5.333042,
+      "compute_p50_ms": 4.882262,
+      "compute_p95_ms": 4.882262,
+      "server_ready_rss_kib": 26908,
+      "responses": [
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 10.300054,
+          "queued_ms": 5.333042,
+          "compute_ms": 4.873435
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.40097,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.610565,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.45933,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.656457,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.870846,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 2.10618,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 9,
+          "end_to_end_ms": 5.468857,
+          "queued_ms": 0.035948,
+          "compute_ms": 5.379659
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.371761,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.014262,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.762482,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.290773,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 0,
+          "hits": 5,
+          "qid": 0,
+          "end_to_end_ms": 15.074843,
+          "queued_ms": 10.105457,
+          "compute_ms": 4.882262
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 0.579823,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.997219,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.913146,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 1.004945,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.719742,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 1.088762,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.517691,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 0,
+          "end_to_end_ms": 0.260801,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 3,
+          "end_to_end_ms": 1.109982,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 6,
+          "end_to_end_ms": 0.704739,
+          "queued_ms": 0,
+          "compute_ms": 0
+        },
+        {
+          "status": 1,
+          "hits": 0,
+          "qid": 9,
+          "end_to_end_ms": 1.74564,
+          "queued_ms": 0,
+          "compute_ms": 0
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "groups": 18,
+    "requests": 432,
+    "accepted": 54,
+    "explicit_busy": 378,
+    "all_successful_retrievals_exact_top5": true
+  },
+  "limitations": [
+    "Deliberately overloaded one-worker/two-queue-slot synthetic Unix socket service",
+    "Repeated seeds across RAM and file-backed modes; not independent relevance cases",
+    "An explicit BUSY status is not a lossless retry mechanism; client retry/backoff not tested",
+    "Connection backlog and Python scheduling influence observed number of rejected requests",
+    "Only synthetic vectors and read-only index; no real traces, fleet API, ROCm or production data"
+  ]
+}
