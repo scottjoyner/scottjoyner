@@ -1,45 +1,49 @@
-# Research papers, technical reports, and reproducible projects
+# Research and publications | Scott Joyner
 
-**Last audited:** 2026-10-28  
-**Scope:** Publicly accessible artifacts in repositories under [`@scottjoyner`](https://github.com/scottjoyner). A repository-hosted manuscript or PDF is **not automatically an arXiv publication**. Authorship, arXiv identifiers, and peer-review status should be verified against the document and primary publication record.
+[← GitHub profile](README.md) · [Machine-readable inventory](RESEARCH_INVENTORY.json) · [Public research implementation](#dashcam-embeddings-and-location-aware-knowledge-graphs)
 
-## arXiv publication verification
+**Audited:** 2026-10-29 · **Coverage:** Publicly reachable artifacts found within accessible `@scottjoyner` GitHub repositories. This is a source-based inventory, not proof that every manuscript ever written has been found.
 
-No independently verified arXiv identifier attributable to this collection's author was found in this audit. The linked `arxiv.org` papers **cited by** code or manuscripts may have other authors and should not be counted as original publications. To add a published paper, include its verified `https://arxiv.org/abs/ID` link, title, authors, version, and source repository.
+## Verified arXiv publications
 
-## Public research manuscripts and paper artifacts
+**None independently verified in this audit.** A paper being written *in arXiv format* or available on GitHub is not the same as an arXiv submission. An arXiv publication must have an attributable arXiv abstract record, ID, authors, and version. Do not infer authorship from repository ownership or from citations to someone else's papers.
 
-| Work | Public artifact | Classification / status |
+The [machine-readable inventory](RESEARCH_INVENTORY.json) tracks `arxiv_id: null` until a primary publication record is confirmed.
+
+## Public papers and manuscripts (arXiv status not confirmed)
+
+| Work | Source, paper, and evidence | Attribution / status |
 | --- | --- | --- |
-| **Vector Embeddings: Foundations, Compression, and Retrieval-Augmented Generation** | [LaTeX manuscript](https://github.com/scottjoyner/generated_text/blob/main/latex/embeddings.tex) | Public source manuscript; the document currently has an empty `\\author{}` field. arXiv posting not verified. |
-| **Geometric Alignment of Compact Language Models: A 1,200-Prompt Multidomain Benchmark** | [LaTeX paper](https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.tex) · [PDF](https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.pdf) · [research repository](https://github.com/scottjoyner/llm-geometry) | March 2026 repository-hosted benchmark manuscript. The source credits “Kipne et al.”; specific authorship and arXiv posting still require verification. |
-| **Dashcam Research** (repository filename) | [Dashcam_Research.pdf](https://github.com/scottjoyner/auto-ingest/blob/main/Dashcam_Research.pdf) · [related pipeline](https://github.com/scottjoyner/auto-ingest) | Public PDF research artifact; its internal title, author credits, and arXiv status were **not** verified in this audit. |
-| **Graph-Based RAG System with Chain-of-Thought Traceability and Multi-Level Caching** | [LaTeX source](https://github.com/scottjoyner/generated_text/blob/main/latex/cot.tex) | Public **patent proposal**, credited to Scott Joyner as inventor. Not categorized as an arXiv paper. |
+| **Vector Embeddings: Foundations, Compression, and Retrieval-Augmented Generation** | [LaTeX manuscript](https://github.com/scottjoyner/generated_text/blob/main/latex/embeddings.tex) | Public source manuscript. `\\author{}` in the source is empty, so authorship metadata still needs correction or confirmation. **No verified arXiv ID.** |
+| **Geometric Alignment of Compact Language Models: A 1,200-Prompt Multidomain Benchmark** | [LaTeX manuscript](https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.tex) · [PDF](https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.pdf) · [abstract](https://github.com/scottjoyner/llm-geometry/blob/main/docs/ABSTRACT_1200.md) · [code](https://github.com/scottjoyner/llm-geometry) | Public March 2026 research manuscript; source lists “Kipne et al.” Author identities and **arXiv posting not independently verified**. |
+| **Dashcam Research** (existing PDF filename) | [Dashcam_Research.pdf](https://github.com/scottjoyner/auto-ingest/blob/main/Dashcam_Research.pdf) · [associated code](https://github.com/scottjoyner/auto-ingest) | Public research PDF artifact. Internal title, attribution, and **arXiv ID remain unverified** because the PDF contents could not be independently inspected in this audit. |
 
-### Other public technical writing
+### Public proposals and other research writing (not arXiv papers)
 
-- **Hugging Face Hub API Integration Proposal:** [LaTeX source](https://github.com/scottjoyner/generated_text/blob/main/latex/hf.tex). An integration and security proposal, not a research publication.
-- **LLM representation geometry research:** [observations](https://github.com/scottjoyner/llm-geometry/blob/main/docs/OBSERVATIONS_1200.md), [Gemma drift cartography](https://github.com/scottjoyner/llm-geometry/blob/main/docs/GEMMA_PART4_DRIFT_CARTOGRAPHY.md), and [operator atlas](https://github.com/scottjoyner/llm-geometry/blob/main/docs/GEMMA_PART5_OPERATOR_ATLAS.md).
+- **Patent Proposal: Graph-Based RAG System with Chain-of-Thought Traceability and Multi-Level Caching** — [LaTeX source](https://github.com/scottjoyner/generated_text/blob/main/latex/cot.tex). Lists Scott Joyner as inventor; this is a **patent proposal**, not a verified filing or research publication.
+- **Hugging Face Hub API Integration Proposal** — [LaTeX source](https://github.com/scottjoyner/generated_text/blob/main/latex/hf.tex). Technical/security integration proposal, not an academic paper.
+- **Geometry follow-up reports:** [observations](https://github.com/scottjoyner/llm-geometry/blob/main/docs/OBSERVATIONS_1200.md) · [Part 2 drift](https://github.com/scottjoyner/llm-geometry/blob/main/docs/PART2_DRIFT_REPORT.md) · [Gemma temporal baseline](https://github.com/scottjoyner/llm-geometry/blob/main/docs/GEMMA_PART3_TEMPORAL_BASELINE.md) · [Part 4 cartography](https://github.com/scottjoyner/llm-geometry/blob/main/docs/GEMMA_PART4_DRIFT_CARTOGRAPHY.md) · [Part 5 operator atlas](https://github.com/scottjoyner/llm-geometry/blob/main/docs/GEMMA_PART5_OPERATOR_ATLAS.md).
 
-## Dashcam embeddings, geospatial alignment, and multimodal graph research
+## Dashcam embeddings and location-aware knowledge graphs
 
-These are **public code and technical artifacts**, rather than verified stand-alone arXiv papers.
+This is the **public research code and methods** related to the dashcam/GPS examples. These links lead to existing source artifacts, not to independently published arXiv papers.
 
-| Research area | Public implementation / documentation | Description |
+| Topic | Public links | What the public source demonstrates |
 | --- | --- | --- |
-| Dashcam object/scene embeddings | [YOLO embedding pipeline](https://github.com/scottjoyner/auto-ingest/blob/main/auto_ingest/dashcam/yolo_embeddings.py) · [structured scene embeddings](https://github.com/scottjoyner/auto-ingest/blob/main/dashcam_yolo_structure_embeddings.py) | Computer-vision features and vector representations for searchable dashcam scenes. |
-| Dashcam visual RAG | [Vision RAG design](https://github.com/scottjoyner/auto-ingest/blob/main/DASHCAM_VISION_PIPELINE.md) · [frame description pipeline](https://github.com/scottjoyner/auto-ingest/blob/main/dashcam_frame_vision.py) | Time-aligned frame descriptions, embeddings, and graph/vector retrieval. |
-| GPS, location events, and trip linkage | [Location graph queries](https://github.com/scottjoyner/auto-ingest/blob/main/location.cy) · [location repair](https://github.com/scottjoyner/auto-ingest/blob/main/patch_missing_locationsv2.py) · [clip-to-trip linking](https://github.com/scottjoyner/auto-ingest/blob/main/scripts/link_clips_to_trips.py) | Time/geospatial association and location quality repair for multimodal records. |
-| Phone geospatial data ingestion | [PhoneLog repository](https://github.com/scottjoyner/phonelog) | Location-event ingestion, idempotent graph upserts, and replay tooling. |
-| Audio, transcripts, and multimodal search | [Auto-Ingest repository](https://github.com/scottjoyner/auto-ingest) · [transcript ingestion](https://github.com/scottjoyner/auto-ingest/blob/main/auto_ingest/ingest/transcripts.py) | Graph-linked transcription, diarization, media metadata, and retrieval. |
-| Embedding geometry across small LLMs | [LLM Geometry research code](https://github.com/scottjoyner/llm-geometry) | Reproducible representation-similarity benchmarks and supporting paper assets. |
+| **Dashcam object/scene embeddings** | [YOLO embeddings](https://github.com/scottjoyner/auto-ingest/blob/main/auto_ingest/dashcam/yolo_embeddings.py) · [structured visual embeddings](https://github.com/scottjoyner/auto-ingest/blob/main/dashcam_yolo_structure_embeddings.py) | Scene/object representation with spatial structure and embeddings for downstream graph retrieval. |
+| **Visual semantic search / dashcam RAG** | [Pipeline design](https://github.com/scottjoyner/auto-ingest/blob/main/DASHCAM_VISION_PIPELINE.md) · [frame extraction & descriptions](https://github.com/scottjoyner/auto-ingest/blob/main/dashcam_frame_vision.py) | Time-aligned video-frame descriptions, graph storage, and `emb_e5_large` text embeddings/vector retrieval. |
+| **GPS/location alignment** | [Location backfill](https://github.com/scottjoyner/auto-ingest/blob/main/patch_missing_locationsv2.py) · [graph location queries](https://github.com/scottjoyner/auto-ingest/blob/main/location.cy) | Linking locations to dashcam entities and repairing missing geospatial associations; source refers to `LocationEvent`, `PhoneLog`, and `DashcamEmbedding`. |
+| **Trip reconstruction / temporal linkage** | [Clip-to-trip linking](https://github.com/scottjoyner/auto-ingest/blob/main/scripts/link_clips_to_trips.py) | Temporal overlap and video-clip continuity used to associate or reconstruct trips. |
+| **Phone location ingestion** | [PhoneLog](https://github.com/scottjoyner/phonelog) | Location-event ingest with Neo4j upserts and WAL replay. |
+| **Audio and transcript graph integration** | [Ingest system](https://github.com/scottjoyner/auto-ingest) · [transcript ingestion](https://github.com/scottjoyner/auto-ingest/blob/main/auto_ingest/ingest/transcripts.py) | Multimodal transcription and graph-linked retrieval infrastructure. |
+| **Compact LLM hidden-state/embedding geometry** | [Research repo](https://github.com/scottjoyner/llm-geometry) · [paper](https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.tex) | A 1,200-prompt representational-geometry benchmark across compact LLMs. |
 
-## Maintenance and publication checklist
+## Record-keeping and source integrity
 
-1. Add a paper to **public research manuscripts** when its title and source/PDF are publicly reachable.
-2. Move it to **verified arXiv publications** only after confirming the arXiv abstract page, ID, author list, and version.
-3. Pin reproducibility details (benchmark data provenance, code commit, configuration, and evaluation limitations).
-4. Do not expose private research repositories, raw dashcam/video/audio recordings, location histories, personal traces, or restricted datasets merely to make a publication link work.
-5. Do not mistake third-party work cited in a repository for an authored publication. In particular, the arXiv paper cited by [`vec2vec`](https://github.com/scottjoyner/vec2vec) is credited in that repository to Jha, Zhang, Shmatikov, and Morris.
+- The machine-readable [`RESEARCH_INVENTORY.json`](RESEARCH_INVENTORY.json) records the public artifacts, source links, type, attribution status, and arXiv verification fields.
+- The citation for **Harnessing the Universal Geometry of Embeddings** (`arXiv:2505.12540`) in [`vec2vec`](https://github.com/scottjoyner/vec2vec) credits Jha, Zhang, Shmatikov, and Morris; **it is not listed here as an authored paper**.
+- Several research drafts or experiments may exist in private/local workspaces. This index does not silently publish or expose them. A private draft becomes a public research artifact only after intentional release and authorship/privacy review.
+- Keep original recordings, personal location traces, credentials, private training data, and raw transcripts out of the public index. Links should point to already-public reviewed code, sanitized reports, and paper sources.
+- Before recording a paper as *arXiv published*, confirm the paper's real `arxiv.org/abs/<ID>` page, exact title, author list, publication/version dates, and code/reproducibility reference.
 
-If a manuscript or preprint later receives a public permanent URL, add it here and link its implementation under the relevant research area.
+**Audit limitation:** This is a verified inventory of artifacts found in accessible GitHub repositories, not a complete scan of every machine, private branch, Library document, or unindexed publication service.
