@@ -3,6 +3,7 @@
 // ./bench_float_storage [n] [d] [queries] [repeats] [seed] [independent|clustered|temporal] [ram|pread_warm|pread_hint|mmap_warm|mmap_hint] [M=20|80|160]
 // Independent processes are required for honest RSS comparisons.
 // "hint" is best-effort fadvise/madvise; it does NOT guarantee a cold cache.
+#define _GNU_SOURCE
 #define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
