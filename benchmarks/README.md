@@ -521,3 +521,48 @@ python3 benchmarks/check_coalesced_reads.py
 ```
 
 **Next integration gate:** measured physical-record order and workload locality on approved real embeddings, write/update/compaction handling for stable IDs, batched asynchronous read strategies, multi-query contention, cgroup+page-cache memory, and controlled cold-cache / direct-I/O testing. Do not deploy against production traces, media or storage without a reversible and audited plan.
+
+## Concurrent file-backed reranking: synchronized synthetic CPU workers (2026-10-29)
+
+**Scope:** 32,768 normalized synthetic vectors at 768 dimensions **per worker**, per-vector absmax int8 shortlist M=160 and exact float32 top-five rerank. This deliberately measures independent low-priority workers sharing the x1-370 host's CPU, page cache and main filesystem. Workers do **not** share one SensorGraft DB, trace source, index, admission-control queue or backing-file object. There is no GPU or actual media/model inference.
+
+**Code and provenance:** [gated C worker](bench_concurrent_reads.c) at commit [`b121ad09`](https://github.com/scottjoyner/scottjoyner/blob/b121ad090df96d3ecc4e9ee4c16ee7aecefdb8c2/benchmarks/bench_concurrent_reads.c) and SHA-256 `445585be11c90f9c81c347d4a5b052f6d3a0b389abcc37e03e5523641dec47cd` · [bounded orchestrator](run_concurrent_reads.py) · [48 synchronized workload groups, 112 worker-process receipts and 10,752 individual query latencies](results/2026-10-29-concurrent-candidate-io.json) · [independent per-query and summary validator](check_concurrent_reads.py). The validator recomputes pooled latency p50/p95, read-call accounting, hits and sums of process RSS. GitHub Actions compiles the worker and tests a gated two-process smoke case.
+
+### Method and execution
+
+Workers independently generate synthetic embeddings, build in-memory int8 vectors and a local temporary float32 file, precompute the full float32 retrieval oracle, warm candidate pages (where applicable), and then signal a readiness marker. The parent releases a file-based start gate only after every worker is ready. Each worker subsequently performs **24 unique queries × 4 timing repetitions = 96 timed queries**, with direct int8 full scan and top-160 float32 reranking. Query-loop wall time excludes generation, index construction, oracle generation, and backing file writes. The externally measured *completed queries per second* includes some gate-release polling, JSON output, process exit and scheduling; it is therefore a conservative completed-query throughput estimate, **not an independently controlled server throughput benchmark**.
+
+Each distribution (temporal, clustered) × four paths (RAM, ranked `pread` warm, coalesced `pread` warm, coalesced `pread` cache-hint) × 1/2/4 workers × two seed-base repeats yielded **48 synchronized groups**, launching **112 short-lived workers**. Each worker has its own 32,768-vector synthetic dataset. The 10,752 query executions consist of repeated simulated queries and do not constitute 10,752 independent production relevance events. All exact-result and sanity checks passed. Workers were `nice -n 15`, with a hard cap of four processes and memory/disk free-space safeguards; no services or real datasets were interrupted.
+
+### Completed-query throughput and pooled p95
+
+<escape>All figures below are medians across two independent seed-base groups per concurrency level, with p95 pooled over worker query durations within each group. Reporting p95 medians is not the same as a combined percentile across every group.</escape>
+
+| Synthetic distribution | Float32 rerank storage | QPS, 1 worker | QPS, 2 workers | QPS, 4 workers | Pooled p95, 4 workers |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Temporal | RAM | 199 | 367 | 703 | 6.34 ms |
+| Temporal | Warm ranked `pread` | 182 | 361 | 733 | 5.94 ms |
+| Temporal | Warm coalesced `pread` | 200 | 362 | 574 | 7.66 ms |
+| Temporal | Cache-hinted coalesced `pread` | 159 | 282 | 567 | 8.65 ms |
+| Clustered | RAM | 201 | 379 | 564 | 7.43 ms |
+| Clustered | Warm ranked `pread` | 196 | 357 | 612 | 7.41 ms |
+| Clustered | Warm coalesced `pread` | 199 | 389 | 688 | 7.14 ms |
+| Clustered | Cache-hinted coalesced `pread` | 57 | 114 | 219 | 21.48 ms |
+
+**Important negative findings:** More workers increase aggregate throughput but are not uniformly linear, and pooled p95 may worsen. Coalescing is not a universal winner: under four temporal workers, warm coalesced reads (574 QPS) trailed warm ranked reads (733 QPS), even though coalescing dramatically reduces I/O syscall count on contiguous candidate IDs. The load/OS cache/CPU scheduling were uncontrolled; there are only two repeats per workload. For clustered data, cold-ish cache-hinted file reads were especially costly (about 219 QPS and 21.5 ms p95 at four workers), compared with 688 QPS and 7.1 ms for warm file-backed coalescing.
+
+### Process memory, not whole-system memory
+
+At four workers the summed post-query process RSS was approximately **501,328 KiB for temporal RAM** versus **110,270 KiB for temporal warm file-backed coalescing**, and **501,340 KiB for clustered RAM** versus **108,348 KiB for clustered warm file-backed coalescing**. These are sums of *per-worker RSS observations after the query loops*, **not a measured simultaneous peak**. They exclude Linux page cache, which may retain all float32 files; private memory use, cgroup memory, page-cache residency, and total system peak were not measured. Each worker independently owns its int8 index and optional file; the benchmark is not measuring a shared read-only index or single service.
+
+### Reproduce
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_concurrent_reads.c -lm -o /tmp/bench_concurrent_reads
+nice -n 15 python3 benchmarks/run_concurrent_reads.py \
+  --binary /tmp/bench_concurrent_reads --source benchmarks/bench_concurrent_reads.c \
+  --output /tmp/concurrent-candidate-io.json
+python3 benchmarks/check_concurrent_reads.py
+```
+
+**Next release gates:** benchmark a real shared, read-only SensorGraft-compatible index served to concurrent clients (not independent process copies); capture end-to-end p50/p95 including queue admission, I/O, backpressure and updates; measure cgroup memory + page cache and actual cold-media accesses under a controlled condition; and validate approved, representative real embedding datasets, ideally also across ROCm-capable fleet nodes. Do not interpret these synthetic throughput numbers as a production scaling guarantee.
