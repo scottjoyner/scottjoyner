@@ -371,7 +371,7 @@ int main(int argc,char**argv){
  // Keep every measured query duration for pooled p50 and p95 across workers.
  printf("QUERY_TIMINGS_US [");
  for(size_t i=0;i<nq*reps;i++)printf("%s%.3f",i?",":"",totals[i]/1000.0);
- printf("]\\n");
+ printf("]\n");
  free(x);free(q);free(x8);free(q8);free(scales);free(truth);
  free(exact_t);free(buf);free(totals);free(scans);free(fetches);
  return sanity?1:0;
