@@ -56,7 +56,7 @@ def check(doc):
         "independent_datasets":len(SEEDS),
         "mean_recall_by_candidates":mean_by_candidates,
         "minimum_candidates_reaching_perfect_recall_on_these_seeds":
-            next((c for j,c in enumerate(CANDIDATES) if all(truth[i][j] >= 1 for i in range(len(SEEDS))), None),
+            next((c for j,c in enumerate(CANDIDATES) if all(truth[i][j] >= 1 for i in range(len(SEEDS)))), None),
         "interpretation":"No guarantees about unseen or non-Gaussian embeddings. Timing component-sums are estimates, not directly measured end-to-end p50.",
     }
 
