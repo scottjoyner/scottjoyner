@@ -1,0 +1,2291 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_quantization_peer_replication",
+  "date": "2026-10-29",
+  "source_sha256": "b95bf19e86cc24f3c360eef782f0e357e6ec63bf61f4cd269070413d5f738e50",
+  "source_commit": "ad6abd06b1ebfb2814044870789f6a03bf420c46",
+  "hosts": [
+    {
+      "node": "deathstar-xps-8920",
+      "compiler": "gcc",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261130,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 6.649792,
+          "float32_exact_p95_ms": 6.937093,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 51.735791,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 1.958011,
+                  "query_p95_ms": 2.108837
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.950206,
+                  "query_p95_ms": 2.098946
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.039757,
+                  "query_p95_ms": 2.245596
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.11362,
+                  "query_p95_ms": 2.309901
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 37.857371,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.956077,
+                  "query_p95_ms": 2.099427
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.985417,
+                  "query_p95_ms": 2.184472
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.955755,
+                  "query_p95_ms": 2.116227
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.105722,
+                  "query_p95_ms": 2.29578
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261131,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 6.538834,
+          "float32_exact_p95_ms": 6.802107,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 42.534007,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.93333333,
+                  "hits": 56,
+                  "query_p50_ms": 1.825431,
+                  "query_p95_ms": 1.963426
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 1.899058,
+                  "query_p95_ms": 2.086232
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.934434,
+                  "query_p95_ms": 2.094981
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.081619,
+                  "query_p95_ms": 2.192602
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 37.93745,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.861118,
+                  "query_p95_ms": 2.077409
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.906126,
+                  "query_p95_ms": 2.080348
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.936246,
+                  "query_p95_ms": 2.098633
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.056488,
+                  "query_p95_ms": 2.272949
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261132,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 6.794133,
+          "float32_exact_p95_ms": 7.059873,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 38.20492,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 1.893135,
+                  "query_p95_ms": 2.137048
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.977186,
+                  "query_p95_ms": 2.199544
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.92225,
+                  "query_p95_ms": 2.198182
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.046737,
+                  "query_p95_ms": 2.296519
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 48.783662,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.828105,
+                  "query_p95_ms": 2.025902
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.952113,
+                  "query_p95_ms": 2.122745
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.907748,
+                  "query_p95_ms": 2.006711
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.113893,
+                  "query_p95_ms": 2.354801
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261133,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 6.708709,
+          "float32_exact_p95_ms": 7.054086,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 38.095698,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 1.93838,
+                  "query_p95_ms": 2.386191
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 1.92627,
+                  "query_p95_ms": 2.1474
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.032787,
+                  "query_p95_ms": 2.418493
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.124023,
+                  "query_p95_ms": 2.466647
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 38.01543,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.942473,
+                  "query_p95_ms": 3.017638
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.01288,
+                  "query_p95_ms": 2.869171
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.078271,
+                  "query_p95_ms": 2.972057
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.13109,
+                  "query_p95_ms": 3.176727
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261134,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 6.536974,
+          "float32_exact_p95_ms": 6.858524,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 38.079717,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.874674,
+                  "query_p95_ms": 2.226247
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.895034,
+                  "query_p95_ms": 2.13451
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.955771,
+                  "query_p95_ms": 2.186448
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.037122,
+                  "query_p95_ms": 2.427132
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 38.780523,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.887522,
+                  "query_p95_ms": 2.182755
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.909486,
+                  "query_p95_ms": 2.473045
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 1.943285,
+                  "query_p95_ms": 2.257357
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.108026,
+                  "query_p95_ms": 2.927009
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261130,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 26.326956,
+          "float32_exact_p95_ms": 27.195232,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 153.890408,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.88333333,
+                  "hits": 53,
+                  "query_p50_ms": 7.535423,
+                  "query_p95_ms": 7.943342
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 7.655368,
+                  "query_p95_ms": 8.3124
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.805771,
+                  "query_p95_ms": 8.171981
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.860033,
+                  "query_p95_ms": 8.439851
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 143.276116,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.687651,
+                  "query_p95_ms": 7.936617
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.761966,
+                  "query_p95_ms": 8.13102
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.831497,
+                  "query_p95_ms": 8.035828
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.928504,
+                  "query_p95_ms": 8.090701
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261131,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 26.662964,
+          "float32_exact_p95_ms": 27.33635,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 162.206571,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.91666667,
+                  "hits": 55,
+                  "query_p50_ms": 7.730417,
+                  "query_p95_ms": 8.193703
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.767817,
+                  "query_p95_ms": 7.996169
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.830011,
+                  "query_p95_ms": 8.186497
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.828708,
+                  "query_p95_ms": 8.276877
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 144.626661,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.701113,
+                  "query_p95_ms": 8.0513
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.859342,
+                  "query_p95_ms": 8.181005
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.755531,
+                  "query_p95_ms": 8.117768
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.813285,
+                  "query_p95_ms": 8.25511
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261132,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 26.596694,
+          "float32_exact_p95_ms": 27.397898,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 160.559919,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.88333333,
+                  "hits": 53,
+                  "query_p50_ms": 7.666785,
+                  "query_p95_ms": 8.095786
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 7.689162,
+                  "query_p95_ms": 8.152773
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.727906,
+                  "query_p95_ms": 8.204792
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.9388,
+                  "query_p95_ms": 8.485196
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 149.811394,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.703327,
+                  "query_p95_ms": 8.066569
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.732762,
+                  "query_p95_ms": 7.979818
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.533546,
+                  "query_p95_ms": 8.107928
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.950369,
+                  "query_p95_ms": 8.315283
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261133,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 25.930272,
+          "float32_exact_p95_ms": 27.013387,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 166.317231,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.95,
+                  "hits": 57,
+                  "query_p50_ms": 7.598724,
+                  "query_p95_ms": 8.661206
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.668385,
+                  "query_p95_ms": 7.992385
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.698101,
+                  "query_p95_ms": 8.301145
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.779114,
+                  "query_p95_ms": 8.190769
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 180.401477,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.595892,
+                  "query_p95_ms": 7.894995
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.610153,
+                  "query_p95_ms": 7.959
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.69286,
+                  "query_p95_ms": 8.139031
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.768945,
+                  "query_p95_ms": 8.245768
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "seed": 20261134,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 26.050149,
+          "float32_exact_p95_ms": 27.916104,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 153.685016,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.9,
+                  "hits": 54,
+                  "query_p50_ms": 7.494547,
+                  "query_p95_ms": 9.156616
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.95,
+                  "hits": 57,
+                  "query_p50_ms": 7.785723,
+                  "query_p95_ms": 8.813658
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 7.728274,
+                  "query_p95_ms": 9.898816
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 7.853194,
+                  "query_p95_ms": 11.688955
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 135.852004,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.53507,
+                  "query_p95_ms": 9.557195
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.543752,
+                  "query_p95_ms": 9.329439
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.691356,
+                  "query_p95_ms": 8.344896
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.87749,
+                  "query_p95_ms": 9.420621
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "node": "scott-lenovo-ideapad-330s-15ikb",
+      "compiler": "gcc",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261130,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 7.413683,
+          "float32_exact_p95_ms": 7.508933,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 37.838548,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 2.138542,
+                  "query_p95_ms": 2.171073
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.156222,
+                  "query_p95_ms": 2.190855
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.214905,
+                  "query_p95_ms": 2.241101
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.353046,
+                  "query_p95_ms": 2.387624
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 35.835612,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.128618,
+                  "query_p95_ms": 2.151126
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.164436,
+                  "query_p95_ms": 2.192268
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.214431,
+                  "query_p95_ms": 2.245689
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.347196,
+                  "query_p95_ms": 2.378212
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261131,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 7.483838,
+          "float32_exact_p95_ms": 7.525723,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 37.735667,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.93333333,
+                  "hits": 56,
+                  "query_p50_ms": 2.143141,
+                  "query_p95_ms": 2.166084
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 2.166638,
+                  "query_p95_ms": 2.191855
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.225761,
+                  "query_p95_ms": 2.255858
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.352183,
+                  "query_p95_ms": 2.373913
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 35.905716,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.133459,
+                  "query_p95_ms": 2.16311
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.16148,
+                  "query_p95_ms": 2.184926
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.214454,
+                  "query_p95_ms": 2.242346
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.346577,
+                  "query_p95_ms": 2.374455
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261132,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 7.492767,
+          "float32_exact_p95_ms": 7.527319,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 37.610732,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 2.13512,
+                  "query_p95_ms": 2.168047
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.155218,
+                  "query_p95_ms": 2.179888
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.224684,
+                  "query_p95_ms": 2.250493
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.349006,
+                  "query_p95_ms": 2.372801
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 36.792511,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.136759,
+                  "query_p95_ms": 2.164598
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.165963,
+                  "query_p95_ms": 2.188928
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.218062,
+                  "query_p95_ms": 2.238136
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.343425,
+                  "query_p95_ms": 2.373377
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261133,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 7.499393,
+          "float32_exact_p95_ms": 7.531586,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 40.435153,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 2.169217,
+                  "query_p95_ms": 2.242312
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 2.18523,
+                  "query_p95_ms": 2.223372
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.238717,
+                  "query_p95_ms": 2.262577
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.369955,
+                  "query_p95_ms": 2.398938
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 38.840162,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.154983,
+                  "query_p95_ms": 2.195823
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.175627,
+                  "query_p95_ms": 2.207749
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.229474,
+                  "query_p95_ms": 2.264652
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.364982,
+                  "query_p95_ms": 2.427361
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261134,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 7.493848,
+          "float32_exact_p95_ms": 7.52065,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 37.551136,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.133835,
+                  "query_p95_ms": 2.150442
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.169896,
+                  "query_p95_ms": 2.192585
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.22428,
+                  "query_p95_ms": 2.246164
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.359108,
+                  "query_p95_ms": 2.378902
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 37.515332,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.147587,
+                  "query_p95_ms": 2.181519
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.164877,
+                  "query_p95_ms": 2.195705
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.22948,
+                  "query_p95_ms": 2.250344
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 2.356483,
+                  "query_p95_ms": 2.393322
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261130,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 30.204309,
+          "float32_exact_p95_ms": 30.397915,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 160.623718,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.88333333,
+                  "hits": 53,
+                  "query_p50_ms": 8.675303,
+                  "query_p95_ms": 8.72071
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 8.682886,
+                  "query_p95_ms": 8.743718
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.744353,
+                  "query_p95_ms": 8.888796
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.875473,
+                  "query_p95_ms": 8.958028
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 151.361382,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.672672,
+                  "query_p95_ms": 8.810249
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.690371,
+                  "query_p95_ms": 8.831956
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.743238,
+                  "query_p95_ms": 8.829215
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.855846,
+                  "query_p95_ms": 8.921922
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261131,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 30.0839,
+          "float32_exact_p95_ms": 31.365484,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 185.635368,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.91666667,
+                  "hits": 55,
+                  "query_p50_ms": 8.661655,
+                  "query_p95_ms": 8.727047
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.680158,
+                  "query_p95_ms": 8.709208
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.719257,
+                  "query_p95_ms": 8.76325
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.860571,
+                  "query_p95_ms": 8.994364
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 152.203974,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.661827,
+                  "query_p95_ms": 8.727464
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.676109,
+                  "query_p95_ms": 8.728164
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.71998,
+                  "query_p95_ms": 8.759351
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.847133,
+                  "query_p95_ms": 8.904023
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261132,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 30.093883,
+          "float32_exact_p95_ms": 30.384107,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 162.38185,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.88333333,
+                  "hits": 53,
+                  "query_p50_ms": 8.671507,
+                  "query_p95_ms": 8.702804
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 8.686494,
+                  "query_p95_ms": 8.727445
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.745779,
+                  "query_p95_ms": 8.790878
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.866406,
+                  "query_p95_ms": 9.03995
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 153.763904,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.664873,
+                  "query_p95_ms": 8.708774
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.677612,
+                  "query_p95_ms": 8.718787
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.743645,
+                  "query_p95_ms": 8.767372
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.866256,
+                  "query_p95_ms": 8.935901
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261133,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 30.094754,
+          "float32_exact_p95_ms": 30.312822,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 172.814636,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.95,
+                  "hits": 57,
+                  "query_p50_ms": 8.667834,
+                  "query_p95_ms": 8.733285
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.688751,
+                  "query_p95_ms": 8.744889
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.739239,
+                  "query_p95_ms": 8.806411
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.862689,
+                  "query_p95_ms": 8.923904
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 163.091774,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.670179,
+                  "query_p95_ms": 8.725213
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.682668,
+                  "query_p95_ms": 8.711504
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.736585,
+                  "query_p95_ms": 8.823367
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.858443,
+                  "query_p95_ms": 8.898977
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "scott-Lenovo-ideapad-330S-15IKB",
+          "compiler": "13.3.0",
+          "seed": 20261134,
+          "distribution": "clustered",
+          "vectors": 32768,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 30.048334,
+          "float32_exact_p95_ms": 30.102597,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 160.804571,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.9,
+                  "hits": 54,
+                  "query_p50_ms": 8.656384,
+                  "query_p95_ms": 8.672687
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.95,
+                  "hits": 57,
+                  "query_p50_ms": 8.687372,
+                  "query_p95_ms": 8.703584
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 8.726619,
+                  "query_p95_ms": 8.745015
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 8.850491,
+                  "query_p95_ms": 8.87525
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 152.896363,
+              "raw_vector_bytes": 25165824,
+              "scale_metadata_bytes": 131072,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.662234,
+                  "query_p95_ms": 8.682251
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.68558,
+                  "query_p95_ms": 8.702235
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.725261,
+                  "query_p95_ms": 8.743034
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 8.855117,
+                  "query_p95_ms": 8.881015
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "node": "raspberrypi",
+      "compiler": "gcc-13",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "seed": 20261130,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 14.772639,
+          "float32_exact_p95_ms": 14.790528,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 67.0889,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 6.918832,
+                  "query_p95_ms": 6.928183
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.974054,
+                  "query_p95_ms": 6.982942
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.113831,
+                  "query_p95_ms": 7.122626
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.445477,
+                  "query_p95_ms": 7.472125
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 74.09488,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.91635,
+                  "query_p95_ms": 6.926961
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.972053,
+                  "query_p95_ms": 6.98122
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.108404,
+                  "query_p95_ms": 7.111867
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.436625,
+                  "query_p95_ms": 7.45405
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "seed": 20261131,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 14.775084,
+          "float32_exact_p95_ms": 14.802046,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 62.850183,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.93333333,
+                  "hits": 56,
+                  "query_p50_ms": 6.919239,
+                  "query_p95_ms": 6.93485
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 6.976127,
+                  "query_p95_ms": 7.01159
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.112812,
+                  "query_p95_ms": 7.124312
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.45581,
+                  "query_p95_ms": 7.499032
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 68.016302,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.915795,
+                  "query_p95_ms": 6.956109
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.972776,
+                  "query_p95_ms": 6.978664
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.107812,
+                  "query_p95_ms": 7.140608
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.443291,
+                  "query_p95_ms": 7.507976
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "seed": 20261132,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 14.771435,
+          "float32_exact_p95_ms": 14.800453,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 60.116662,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 6.917201,
+                  "query_p95_ms": 6.929054
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.977146,
+                  "query_p95_ms": 6.985053
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.121942,
+                  "query_p95_ms": 7.140867
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.449291,
+                  "query_p95_ms": 7.471477
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 77.728933,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.915832,
+                  "query_p95_ms": 6.929053
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.975257,
+                  "query_p95_ms": 6.986238
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.112275,
+                  "query_p95_ms": 7.127682
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.441884,
+                  "query_p95_ms": 7.466829
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "seed": 20261133,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 14.773954,
+          "float32_exact_p95_ms": 14.828028,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 141.808683,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 0.96666667,
+                  "hits": 58,
+                  "query_p50_ms": 6.920961,
+                  "query_p95_ms": 6.98735
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 0.98333333,
+                  "hits": 59,
+                  "query_p50_ms": 6.977794,
+                  "query_p95_ms": 7.023405
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.117349,
+                  "query_p95_ms": 7.130738
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.448736,
+                  "query_p95_ms": 7.475088
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 99.848215,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.919646,
+                  "query_p95_ms": 6.932035
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.976165,
+                  "query_p95_ms": 6.984831
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.112164,
+                  "query_p95_ms": 7.132312
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.45205,
+                  "query_p95_ms": 7.482625
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_fixed127_vs_absmax_int8_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "seed": 20261134,
+          "distribution": "clustered",
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "float32_exact_p50_ms": 14.766676,
+          "float32_exact_p95_ms": 14.802176,
+          "schemes": [
+            {
+              "name": "fixed127",
+              "quantize_precompute_ms": 54.13864,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.919795,
+                  "query_p95_ms": 6.927868
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.978868,
+                  "query_p95_ms": 6.987442
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.113997,
+                  "query_p95_ms": 7.130812
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.441625,
+                  "query_p95_ms": 7.464088
+                }
+              ]
+            },
+            {
+              "name": "per_vector_absmax",
+              "quantize_precompute_ms": 68.064986,
+              "raw_vector_bytes": 6291456,
+              "scale_metadata_bytes": 32768,
+              "topk_results": [
+                {
+                  "candidates": 20,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.914887,
+                  "query_p95_ms": 6.933313
+                },
+                {
+                  "candidates": 40,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 6.973905,
+                  "query_p95_ms": 6.980738
+                },
+                {
+                  "candidates": 80,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.10896,
+                  "query_p95_ms": 7.139182
+                },
+                {
+                  "candidates": 160,
+                  "recall_at5": 1,
+                  "hits": 60,
+                  "query_p50_ms": 7.443347,
+                  "query_p95_ms": 7.464829
+                }
+              ]
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "seeds": [
+    20261130,
+    20261131,
+    20261132,
+    20261133,
+    20261134
+  ],
+  "fixed_design": "8192 clustered on three additional hosts; 32768 clustered on two hosts",
+  "limitations": [
+    "Same seeds replayed on hosts: reproducibility not independent accuracy datasets",
+    "Synthetic normalized vectors, not real embeddings",
+    "CPU only; busy-host timings not a controlled hardware comparison",
+    "One-time quantization excluded from query timing"
+  ]
+}
