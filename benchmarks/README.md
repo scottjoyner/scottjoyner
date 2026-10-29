@@ -414,3 +414,52 @@ python3 benchmarks/check_quant_peers.py
 ```
 
 Next research gate: use **approved, representative real embedding distributions** with privacy and provenance controls, separate holdout periods, adversarial normalization/outliers and CPU-versus-ROCm SIMD measurements. Keep exact float32 search available when recall requirements are strict. Do not conflate these synthetic retrieval-vector results with LFM3 quantization, model-weight compression or neural self-modification.
+
+## Secondary-storage float32 candidate reranking: process memory versus latency
+
+**Study date:** 2026-10-29 · **Status:** Measured on x1-370 with synthetic 768D CPU vectors, research-only. This tests an architectural possibility for SensorGraft **without modifying or benchmarking a production SensorGraft service**.
+
+**Source and evidence:** [bounded C harness](bench_float_storage.c), pinned commit [`a957936c`](https://github.com/scottjoyner/scottjoyner/blob/a957936ce1d9b39e98dff2c9522390320646cced/benchmarks/bench_float_storage.c), SHA-256 `5823f169d9476f5105d41c78a9d77d08a507139240554dd5b1d08f6542f2b1e5` · [100-trial results](results/2026-10-29-float-storage-study.json) · [deterministic runner](run_float_storage.py) · [independent validator](check_float_storage.py). All recorded trials passed the ranking/sanity checks, the validator recomputed timing/RSS summaries, and GitHub Actions runs the same evidence validator.
+
+### Storage configurations
+
+Each new process generates identical normalized synthetic float32 source vectors and clustered queries from the recorded seed, quantizes into **per-vector absmax int8 + float32 scales**, and computes an exact float32 top-five oracle before releasing or retaining the original float32 source. The search selects either **M=20** or **M=160** int8 candidates and then reranks them using full-precision float32 data:
+
+- `ram`: retain the complete original float32 vectors in process heap memory, alongside compressed vectors.
+- `pread_warm`: store float32 vectors in an automatically unlinked temporary regular file, free the complete float32 heap allocation, and fetch each candidate using one complete `pread`; data may be served by the Linux page cache.
+- `pread_hint`: same as `pread_warm`, but `fsync` before queries and request `POSIX_FADV_DONTNEED` for this specific temporary file before each timed query. This is a **cache-drop hint**, not a guarantee of a cold SSD read.
+- `mmap_warm`: use file-backed `mmap` to fetch float32 candidate vectors. Mapping is lazy, but touched mapped pages count toward process RSS.
+- `mmap_hint`: before each query, request `MADV_DONTNEED` and `POSIX_FADV_DONTNEED` for the benchmark's own backing file. Page faults are counted. This is a **cold-ish hint**, not a measured universal cache miss rate.
+
+The fixture is a real, bounded temporary file on the host's normal filesystem; it is unlinked immediately after creation and closed on exit. No real user audio, media, GPS, traces, graph or fleet credentials are written. All modes use the same algorithmic scoring, query vectors and oracle. Trials run at reduced scheduling priority; the underlying drive is already heavily utilized, so other I/O can influence readings. RSS is measured from `/proc/self/status`, and Linux kernel page-cache memory **is not included**.
+
+### Measured results: five seeds per combination, 12 queries × two timed repetitions
+
+| Clustered 768D vectors | Shortlist M | RAM query p50 | Warm pread query p50 | Cache-hinted pread p50 | Warm mmap p50 | Cache-hinted mmap p50 | RAM process RSS | Warm pread process RSS |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 8,192 | 20 | 1.175 ms | 1.186 ms | 2.795 ms | 1.178 ms | 4.417 ms | 32.2 MiB | 8.3 MiB |
+| 8,192 | 160 | 1.310 ms | 1.341 ms | 14.414 ms | 1.298 ms | 26.411 ms | 32.2 MiB | 8.3 MiB |
+| 32,768 | 20 | 4.673 ms | 4.698 ms | 6.700 ms | 4.748 ms | 8.394 ms | 122.3 MiB | 26.4 MiB |
+| 32,768 | 160 | 4.861 ms | 4.903 ms | 14.292 ms | 4.845 ms | 31.258 ms | 122.3 MiB | 26.4 MiB |
+
+Each metric is the **median of five per-seed p50 timings** (for the query p50 column) or median of five process RSS readings. Each trial has 12 unique queries repeated twice for latency. All five storage paths yielded **100% observed exact top-five recall** for each of these synthetic seed/dataset/M combinations; they share the same retrieval results by construction, not 100 independent relevance datasets. There are **100 completed process executions** but only **20 distinct seed/dataset/shortlist accuracy cases**, with five different storage modes per case.
+
+### Engineering conclusions
+
+1. **Warm-cache pread has attractive process-level memory characteristics.** At M20 and 32,768 vectors it used about 26.4 MiB RSS instead of 122.3 MiB, while p50 increased from 4.67 ms to 4.70 ms; at 8,192 vectors, RSS fell from 32.2 MiB to 8.3 MiB. The OS page cache may still hold the original ~96 MiB float32 backing file. This is **not** proof that whole-system RAM fell by the same fraction.
+2. **Cold-ish re-fetching is risky.** The M160 hinted-pread workload took ~14 ms instead of 4.9 ms at 32,768 vectors; mmap with the eviction hint reached ~31 ms. File eviction hints are best-effort, so a properly controlled cold-read/`O_DIRECT` study is still needed.
+3. **Memory-mapping is not automatic savings.** Warm mapped pages contributed near-RAM-baseline RSS after all queries. Hinting away mapped pages reduced RSS but increased latency and page faults.
+4. **Stable IDs and an access pattern matter.** This prototype issues one `pread` per candidate, no batching or sorted offsets. A follow-up should test physical-offset sorting/coalescing, readahead, hybrid hot-cache strategies, simultaneous queries, and update/compaction correctness.
+5. **Float32 results have external storage costs.** The backing file is `vectors × 768 × 4` bytes, plus in-process int8 vectors and float32 scales. The file is written during setup, and its write/fsync time is included in the evidence separately but excluded from query p50. The quantization/embedding cost is likewise separate. Any full system benchmark must include those costs and page-cache accounting.
+
+**Reproduction** (low-priority; synthetic only):
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_float_storage.c -lm -o /tmp/bench_float_storage
+nice -n 15 /tmp/bench_float_storage 8192 768 12 2 20261140 clustered ram 20
+nice -n 15 /tmp/bench_float_storage 8192 768 12 2 20261140 clustered pread_warm 20
+nice -n 15 /tmp/bench_float_storage 8192 768 12 2 20261140 clustered pread_hint 20
+python3 benchmarks/check_float_storage.py
+```
+
+**Do not overgeneralize:** The exercise neither measured Tensor/ROCm inference nor ran real SensorGraft/Neo4j graph retrieval or real dashcam embeddings. It is not a deployment readiness, persistence integrity, privacy, cold-cache guarantee or production SLA claim. The biggest remaining gap is a controlled full-node prototype that writes approved embedding data and measures combined process+page-cache memory and end-to-end query/update overhead.
