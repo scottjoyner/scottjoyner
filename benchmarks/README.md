@@ -566,3 +566,48 @@ python3 benchmarks/check_concurrent_reads.py
 ```
 
 **Next release gates:** benchmark a real shared, read-only SensorGraft-compatible index served to concurrent clients (not independent process copies); capture end-to-end p50/p95 including queue admission, I/O, backpressure and updates; measure cgroup memory + page cache and actual cold-media accesses under a controlled condition; and validate approved, representative real embedding datasets, ideally also across ROCm-capable fleet nodes. Do not interpret these synthetic throughput numbers as a production scaling guarantee.
+
+## Shared read-only Unix-socket synthetic retrieval server: queueing and overload (2026-10-29)
+
+**Progress beyond previous independent-worker studies:** This experiment runs a **single C server with one read-only int8 index and one optional float32 backing file per test group**. Multiple concurrent clients connect over a local Unix-domain socket, submit synthetic query IDs, and receive exact-parity status plus server queue and computation durations. A bounded fixed worker pool drains a FIFO admission queue. The server does not start or modify production SensorGraft, models, Neo4j, fleet services, traces or media.
+
+**Artifact links:** [C Unix-socket shared-index server](bench_shared_server.c) · [synchronized client runner](run_shared_server.py) · [72-group / 4,992-request raw receipts](results/2026-10-29-shared-server-uds.json) · [receipt validator](check_shared_server.py) · [18-group overload runner](run_shared_overload.py) · [432 overload-response receipts](results/2026-10-29-shared-server-overload.json) · [overload validator](check_shared_overload.py). Source pinned at commit [`dc4c6637`](https://github.com/scottjoyner/scottjoyner/blob/dc4c66371e80b43d17ed37092a31362aea6fcef4/benchmarks/bench_shared_server.c), SHA-256 `6fc33c4fb5061d02bae11d9daac5fe4dce3b835905f2ddb601b6bae3a093f694`.
+
+### Experiment
+
+Each server builds **32,768 normalized synthetic 768D vectors**, quantizes per-vector absmax into symmetric int8, and computes exact float32 top-five references for **12 synthetic queries**. It retains one shared int8 index plus scales and either **RAM** float32 originals or an **anonymous unlinked temporary file** from which it fetches top-160 candidates by rank or coalescing adjacent file offsets. Four-worker configurations use four threads on the **same shared index and backing file**, not four replicated indexes. The server speaks a fixed 4-byte query-ID request and 24-byte binary response over Unix sockets; every response includes status, hit count, queue wait time, and worker compute time. The client additionally measures end-to-end socket/request latency, which includes connection, queueing, computation and response.
+
+The bounded baseline matrix includes **2 distributions (temporal/clustered) × 3 storage modes (RAM/rank `pread`/coalesced `pread`) × 2 thread counts (1/4) × 3 client counts (1/4/8) × 2 seeds = 72 groups**. Each client makes 16 sequential requests. This yields **4,992 completed client requests**, not 4,992 independent relevance datasets. The dataset and oracle are synthetic and repeated across clients by design. **All baseline requests were accepted, and all returned the exact top five.** Queue capacity was 8 pending connections; no baseline rejections were expected.
+
+### Eight-client results: median across two test seeds
+
+| Distribution | Storage | Worker threads | Completed QPS | Client-observed p95 | Server queue p95 | Server ready-state VmRSS |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Temporal | RAM | 1 | 193 | 49.40 ms | 43.55 ms | 122.2 MiB |
+| Temporal | Coalesced file | 1 | 198 | 47.38 ms | 42.37 ms | 26.3 MiB |
+| Temporal | RAM | 4 | 684 | 15.48 ms | 7.63 ms | 122.2 MiB |
+| Temporal | Coalesced file | 4 | 656 | 14.71 ms | 7.28 ms | 26.4 MiB |
+| Clustered | RAM | 1 | 190 | 52.21 ms | 45.77 ms | 122.2 MiB |
+| Clustered | Coalesced file | 1 | 186 | 54.37 ms | 47.93 ms | 26.3 MiB |
+| Clustered | RAM | 4 | 686 | 14.57 ms | 7.21 ms | 122.3 MiB |
+| Clustered | Coalesced file | 4 | 666 | 14.81 ms | 7.31 ms | 26.3 MiB |
+
+**What this establishes:** A real, single shared server can expose and measure queueing and worker-pool saturation. One worker serving eight clients was near its ~190–200 QPS CPU throughput ceiling, increasing p95 primarily through queue wait. Four workers delivered roughly 3–4× more completed requests/s at eight clients, with ~14–15 ms end-to-end p95. The file-backed option reduced observed server **process RSS** by ~78%, while roughly preserving warm-cache throughput. These are single-host Unix-socket synthetic results, not production throughput guarantees. Linux page cache may still hold the float32 backing file; ready-state RSS is not system peak memory or page-cache accounting.
+
+### Explicit overload test
+
+A separate, deliberately overloaded matrix used **24 simultaneous clients × 1 request**, with **one worker** and only **two FIFO waiting slots**, on three storage modes × two distributions × three seeds = **18 test groups and 432 total requests**. The server returned **378 explicit `BUSY` replies**, while **54 requests were processed successfully** and all their top-five results matched exact float32. The independent validator checked every raw status and confirmed there were no unaccounted requests *in the tested runs*. This demonstrates bounded admission and explicit rejection, **not** automatic retries, idempotency, client backoff, persistent queues, fair scheduling or production-safe load shedding.
+
+### Reproduction and constraints
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 -pthread benchmarks/bench_shared_server.c -lm -o /tmp/bench_shared_server
+python3 benchmarks/check_shared_server.py
+python3 benchmarks/check_shared_overload.py
+# The complete multi-process benchmark is opt-in and may contend with other work:
+nice -n 15 python3 benchmarks/run_shared_server.py \
+  --binary /tmp/bench_shared_server --source benchmarks/bench_shared_server.c \
+  --output /tmp/shared-server-uds.json
+```
+
+Research caveats: all inputs and results are deterministic synthetic vectors, the Unix socket is local to one host, only 1/4 worker threads and 1/4/8 clients were tested, there are only two seeds per normal configuration, the filesystem cache and system scheduler were uncontrolled, and the float32 file is written at build time before query measurements. Client query requests contain **query IDs**, not arbitrary user-supplied embeddings, and there is no auth, cross-host transport, on-disk crash recovery, eviction-aware memory accounting or full SensorGraft integration. **Do not deploy this microservice as-is.** Next gate: a single protected, shared, read-only SensorGraft-compatible test index, representative approved real embeddings, queue fairness, overload retries and concurrent update isolation.
