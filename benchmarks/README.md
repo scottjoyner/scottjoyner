@@ -150,3 +150,45 @@ On the Raspberry Pi, GCC 13 was used after the system GCC 14 crashed during comp
 - **x1-370:** ROCm device discovery worked, but the hipcc wrapper failed due to missing clang-17 and rocm_agent_enumerator paths. No change to production ROCm configuration.
 
 No GPU throughput, real embedding accuracy, real GPS quality, production Neo4j query latency, memory RSS, ANN performance, or end-to-end RAG benchmark is established by these runs.
+
+## Two-stage int8 shortlist + float32 reranking (2026-10-29)
+
+This research prototype uses the CPU for an int8 **top-160 candidate scan** over 8,192 vectors × 768 dimensions, then rescoring the first 5, 10, 20, 40, 80, or 160 candidate IDs using the original float32 vectors. There is no graph database, ANN index or GPU execution in these tests.
+
+**Evidence:** [30-run, six-host independent-vector study](results/2026-10-29-rerank-multiseed.json) · [30-run, three-host correlated/clustered stress study](results/2026-10-29-rerank-stress-multiseed.json).
+
+**Source and validators:** [C prototype](bench_rerank.c) · [validator](check_rerank.py) · [correlated/clustered C variant](bench_rerank_stress.c) · [stress validator](check_rerank_stress.py). Both validator programs passed on the locally saved evidence.
+
+Mean top-five recall versus exact float32, calculated over **five distinct seeds for each synthetic distribution** (12 query vectors × 2 repeated timings per seed). Identical seeds on multiple machines verify reproducibility, not additional independent data:
+
+| Int8 shortlist reranked | Independent Gaussian | Temporal-correlation control | Clustered-vector control |
+| ---: | ---: | ---: | ---: |
+| 5 | 84.00% | 98.00% | 70.33% |
+| 10 | 98.00% | 100.00% | 87.67% |
+| 20 | 100.00% | 100.00% | 97.33% |
+| 40 | 100.00% | 100.00% | 99.33% |
+| 80 | 100.00% | 100.00% | 99.67% |
+| 160 | 100.00% | 100.00% | 100.00% |
+
+**Finding:** Using 20 candidates restored all exact top-five neighbors in the *independent* and *temporal* synthetic controls, but missed some neighbors in *clustered* synthetic vectors. M=80 reached 99.67% mean recall in the clustered control; M=160 reached 100% on the five tested clustered seeds. **These figures are not a guarantee or a production tuning threshold.**
+
+The shortlisted approximate stage alone measured about 1.2 ms median on x1-370 for 8,192 × 768 vectors in the initial run versus about 3.5 ms for the exact float32 full scan. Reranking the 20-item shortlist added roughly 0.01 ms. The JSON field `approx_plus_rerank_p50_ms_estimate` explicitly denotes **sum of individually measured median components**, *not* a directly measured end-to-end percentile. An initial x1-370 run measured around 19 ms to quantize vectors plus query vectors, which is **excluded** from search latency. Real system evaluation must include indexing, embedding generation, quantization, updates, I/O and request overhead.
+
+Reproduce an independent-vector trial:
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_rerank.c -lm -o /tmp/bench_rerank
+nice -n 15 /tmp/bench_rerank 8192 768 12 2 20261029
+python3 benchmarks/check_rerank.py benchmarks/results/2026-10-29-rerank-multiseed.json
+```
+
+Reproduce the clustered and temporal controls:
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_rerank_stress.c -lm -o /tmp/bench_rerank_stress
+nice -n 15 /tmp/bench_rerank_stress 8192 768 12 2 20261029 clustered
+nice -n 15 /tmp/bench_rerank_stress 8192 768 12 2 20261029 temporal
+python3 benchmarks/check_rerank_stress.py benchmarks/results/2026-10-29-rerank-stress-multiseed.json
+```
+
+**Limitations:** The temporal control consists of locally correlated, normalized synthetic frames; the clustered control consists of 32 seeded synthetic centroids. Neither distribution is validated against real dashcam frame embeddings, GPS traces or user data. Candidate selection pays the full top-160 scan cost even when evaluating smaller M, deliberately holding the first-stage search fixed. It should be benchmarked against separate top-M indexes, exact vector search, ANN, and mixed-precision kernels before deploying an adaptive shortlist. GCC 13 was used on the Raspberry Pi after an unrelated GCC 14 compiler crash. Real retrieval tests require an explicitly approved, de-identified corpus.
