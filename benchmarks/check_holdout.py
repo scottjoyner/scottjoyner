@@ -11,6 +11,8 @@ import math
 import statistics
 from pathlib import Path
 
+from bench_holdout import calibration_policy
+
 SOURCE_SHA = "6d18da89bdba1c07cfbd970c936327903701d81ef3bef542c344c6fc99c27fec"
 CANDIDATES = [5, 10, 20, 40, 80, 160]
 CALIB = [20261029, 20261030, 20261031, 20261032, 20261033]
@@ -34,6 +36,25 @@ def validate(doc):
         raise ValueError("Missing dataset sizes")
     if set(doc.get("policy_fit", {})) != set(SPECS):
         raise ValueError("Policy fit incomplete")
+    # Re-fit from the already published calibration evidence. This detects
+    # invented calibration metrics or a retroactively altered selection.
+    directory = Path(__file__).parent / "results"
+    calibration_paths = {
+        "8192": directory / "2026-10-29-rerank-direct-multihost.json",
+        "32768": directory / "2026-10-29-rerank-direct-32768-x1-370.json",
+    }
+    for count, (modes, _) in SPECS.items():
+        independently_fitted = calibration_policy(calibration_paths[count],
+                                                  int(count), modes)
+        declared_fit = doc["policy_fit"][count]["policy"]
+        if set(declared_fit) != set(independently_fitted):
+            raise ValueError("Published calibration policy has wrong modes")
+        for mode in modes:
+            if (declared_fit[mode]["selected_m"] != independently_fitted[mode]["selected_m"] or
+                any(not near(declared_fit[mode]["calibration_recall_by_m"][str(m)],
+                             independently_fitted[mode]["calibration_recall_by_m"][str(m)], 1e-6)
+                    for m in CANDIDATES)):
+                raise ValueError(f"Published policy does not match primary calibration: {count}/{mode}")
     checks = 0
     results = {}
     for n, (modes, count) in SPECS.items():
