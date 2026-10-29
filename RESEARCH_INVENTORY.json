@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-10-29",
+  "repository": "https://github.com/scottjoyner/scottjoyner",
+  "scope": "Public manuscript and research artifacts found in accessible @scottjoyner repositories; may not include unindexed or out-of-repository work.",
+  "verified_arxiv_publications": [],
+  "artifacts": [
+    {
+      "id": "vector-embeddings-foundations",
+      "title": "Vector Embeddings: Foundations, Compression, and Retrieval-Augmented Generation",
+      "kind": "public_manuscript",
+      "arxiv_id": null,
+      "arxiv_status": "not_verified",
+      "author_status": "unattributed_in_source",
+      "public_source": "https://github.com/scottjoyner/generated_text/blob/main/latex/embeddings.tex",
+      "public_pdf": null,
+      "repository": "https://github.com/scottjoyner/generated_text",
+      "notes": "LaTeX source has an empty author field; cannot establish an arXiv record from repo evidence."
+    },
+    {
+      "id": "compact-llm-geometric-alignment",
+      "title": "Geometric Alignment of Compact Language Models: A 1,200-Prompt Multidomain Benchmark",
+      "kind": "public_manuscript",
+      "arxiv_id": null,
+      "arxiv_status": "not_verified",
+      "author_status": "source_lists_Kipne_et_al",
+      "public_source": "https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.tex",
+      "public_pdf": "https://github.com/scottjoyner/llm-geometry/blob/main/docs/PAPER_1200.pdf",
+      "repository": "https://github.com/scottjoyner/llm-geometry",
+      "notes": "March 2026 research manuscript and benchmark; attribution requires confirmation."
+    },
+    {
+      "id": "dashcam-research-pdf",
+      "title": "Dashcam Research (PDF filename; internal title unverified)",
+      "kind": "public_pdf_unverified_metadata",
+      "arxiv_id": null,
+      "arxiv_status": "not_verified",
+      "author_status": "not_verified",
+      "public_source": null,
+      "public_pdf": "https://github.com/scottjoyner/auto-ingest/blob/main/Dashcam_Research.pdf",
+      "repository": "https://github.com/scottjoyner/auto-ingest",
+      "notes": "Public file exists, but PDF text/authors were not independently inspected."
+    },
+    {
+      "id": "graph-rag-cot-caching-proposal",
+      "title": "Patent Proposal: Graph-Based RAG System with Chain-of-Thought Traceability and Multi-Level Caching",
+      "kind": "patent_proposal_not_research_publication",
+      "arxiv_id": null,
+      "arxiv_status": "not_applicable",
+      "author_status": "Scott_Joyner_listed_as_inventor",
+      "public_source": "https://github.com/scottjoyner/generated_text/blob/main/latex/cot.tex",
+      "public_pdf": null,
+      "repository": "https://github.com/scottjoyner/generated_text",
+      "notes": "Patent proposal, not an arXiv submission."
+    },
+    {
+      "id": "hugging-face-api-proposal",
+      "title": "Hugging Face Hub API Integration Proposal",
+      "kind": "technical_proposal_not_research_publication",
+      "arxiv_id": null,
+      "arxiv_status": "not_applicable",
+      "author_status": "placeholder",
+      "public_source": "https://github.com/scottjoyner/generated_text/blob/main/latex/hf.tex",
+      "public_pdf": null,
+      "repository": "https://github.com/scottjoyner/generated_text",
+      "notes": "Integration/security proposal, not an arXiv submission."
+    }
+  ],
+  "public_project_links": [
+    {
+      "topic": "Dashcam YOLO scene embeddings",
+      "url": "https://github.com/scottjoyner/auto-ingest/blob/main/auto_ingest/dashcam/yolo_embeddings.py"
+    },
+    {
+      "topic": "Dashcam structured representations",
+      "url": "https://github.com/scottjoyner/auto-ingest/blob/main/dashcam_yolo_structure_embeddings.py"
+    },
+    {
+      "topic": "Dashcam vision RAG",
+      "url": "https://github.com/scottjoyner/auto-ingest/blob/main/DASHCAM_VISION_PIPELINE.md"
+    },
+    {
+      "topic": "Spatial location alignment/repair",
+      "url": "https://github.com/scottjoyner/auto-ingest/blob/main/patch_missing_locationsv2.py"
+    },
+    {
+      "topic": "Dashcam clip trip reconstruction",
+      "url": "https://github.com/scottjoyner/auto-ingest/blob/main/scripts/link_clips_to_trips.py"
+    },
+    {
+      "topic": "Phone location ingestion",
+      "url": "https://github.com/scottjoyner/phonelog"
+    },
+    {
+      "topic": "Compact LLM geometry benchmark",
+      "url": "https://github.com/scottjoyner/llm-geometry"
+    }
+  ],
+  "notice": "GitHub-hosted arXiv-style PDFs/LaTeX are not evidence of arXiv publication. Third-party arXiv citations are excluded."
+}
