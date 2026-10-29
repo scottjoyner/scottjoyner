@@ -1,5 +1,5 @@
 // Portable, deterministic CPU vector scan benchmark. No private data or external libraries.
-// Usage: cc -O3 -std=c11 bench_vector.c -lm -o bench_vector && ./bench_vector [N] [D] [Q] [R]
+// Usage: cc -O3 -std=c11 bench_vector.c -lm -o bench_vector && ./bench_vector [N] [D] [Q] [R] [SEED]
 #define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,6 +81,8 @@ int main(int argc,char**argv){
  size_t d=argc>2?strtoul(argv[2],0,10):384;
  size_t nq=argc>3?strtoul(argv[3],0,10):24;
  size_t repeats=argc>4?strtoul(argv[4],0,10):3;
+ uint64_t seed=argc>5?strtoull(argv[5],0,10):20261029ULL;
+ state=seed;
  if(n<K||n>1000000||d<2||d>4096||nq<1||nq>500||repeats<1||repeats>100||n>SIZE_MAX/d){fprintf(stderr,"invalid bounds\n");return 2;}
  size_t cells=n*d,calls=nq*repeats;
  float*float_data=malloc(cells*sizeof(float));
@@ -112,7 +114,7 @@ int main(int argc,char**argv){
  printf("{\n");
  printf("  \"schema_version\": 1,\n  \"benchmark_kind\": \"synthetic_compiled_cpu_vector_scan\",\n");
  printf("  \"host\": \"%s\",\n  \"compiler\": \"%s\",\n",host,__VERSION__);
- printf("  \"seed\": 20261029,\n  \"vectors\": %zu,\n  \"dimensions\": %zu,\n  \"queries\": %zu,\n  \"repeats\": %zu,\n",n,d,nq,repeats);
+ printf("  \"seed\": %llu,\n  \"vectors\": %zu,\n  \"dimensions\": %zu,\n  \"queries\": %zu,\n  \"repeats\": %zu,\n",(unsigned long long)seed,n,d,nq,repeats);
  printf("  \"top_k\": 5,\n  \"total_calls_per_method\": %zu,\n",calls);
  printf("  \"float32_p50_ms\": %.6f,\n  \"float32_p95_ms\": %.6f,\n",percent(tf,calls,.5),percent(tf,calls,.95));
  printf("  \"int8_p50_ms\": %.6f,\n  \"int8_p95_ms\": %.6f,\n",percent(ti,calls,.5),percent(ti,calls,.95));
