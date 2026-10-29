@@ -50,6 +50,9 @@ This is the **public research code and methods** related to the dashcam/GPS exam
 
 ## Reproducible benchmarks
 
+**Eight-host replication:** [Public fleet summary (JSON)](benchmarks/results/2026-10-29-fleet-summary.json) and [C/CPU benchmark methodology](benchmarks/README.md). Eight Linux hosts produced eight Python runs and eleven compiled C vector-scan workloads; int8 recall@5 was 0.908333 in the common 8,192×384 synthetic workload, with 2.05–3.87× int8-vs-float32 median latency speedups in compiled code. This is strictly a **synthetic, CPU-only** result; performance and recall cannot be extrapolated to actual dashcam embeddings, production Neo4j, ROCm or LLM inference.
+
+
 [**Run the reproducible benchmark**](benchmarks/README.md) · [source code](benchmarks/bench_research.py) · [correctness tests](benchmarks/test_bench_research.py) · [machine-readable x1-370 results](benchmarks/results/2026-10-29-x1-370.json)
 
 A **synthetic CPU-only** experiment on x1-370 (2026-10-29) tested nearest-timestamp lookup and float64 versus int8 cosine retrieval. Indexed timestamp lookup matched the linear baseline on all tested queries; at 50,000 events, p50 per-query time was 0.000290 ms indexed versus 1.608799 ms linear. For 48-dimensional synthetic vectors, int8 recall@5 was 0.95–0.97 against float64 exact rankings, but unoptimized Python int8 scans were **slower**, not faster. Six correctness tests passed. These are **not** production Neo4j, dashcam GPS accuracy, ROCm, or published arXiv results; source hashes, seeds, and all timing evidence are linked above.
