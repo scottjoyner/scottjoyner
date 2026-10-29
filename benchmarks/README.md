@@ -224,3 +224,31 @@ python3 benchmarks/check_rerank_direct.py benchmarks/results/2026-10-29-rerank-d
 Pinned implementation: [source commit 845d0604](https://github.com/scottjoyner/scottjoyner/blob/845d0604f7abc672af699424c01ebea9ed9f493d/benchmarks/bench_rerank_direct.c); source SHA-256 `6d18da89bdba1c07cfbd970c936327903701d81ef3bef542c344c6fc99c27fec`. Raspberry Pi used GCC 13 due to an earlier compiler issue with GCC 14. No active model services were stopped.
 
 **Do not generalize this to GPU or vector DB speed:** all results are CPU brute-force retrieval on synthetic vectors. Profile-accurate confidence intervals, full pipeline latency, memory allocation/RSS, read/update throughput, index selection, precision-recall curves on actual data, and ROCm results remain unmeasured.
+
+## 32,768-vector scale-up: directly measured rerank latencies
+
+[Ten raw x1-370 synthetic CPU trials](results/2026-10-29-rerank-direct-32768-x1-370.json) · [validator](check_rerank_scale.py) · [timed source code](bench_rerank_direct.c)
+
+The same seed-enabled C benchmark was rerun on **32,768 normalized synthetic vectors × 768 dimensions**, five independent seeds each for independent and clustered distributions, 12 queries × 2 timing repeats per seed. The source remains pinned at [commit 845d0604](https://github.com/scottjoyner/scottjoyner/blob/845d0604f7abc672af699424c01ebea9ed9f493d/benchmarks/bench_rerank_direct.c) and SHA-256 `6d18da89bdba1c07cfbd970c936327903701d81ef3bef542c344c6fc99c27fec`.
+
+| Metric | Independent vectors | Clustered vectors |
+| --- | ---: | ---: |
+| Exact float32 p50, median of seeds | 14.110 ms | 14.061 ms |
+| Direct int8 scan + float32 rerank 160 p50, median of seeds | 4.898 ms | 4.886 ms |
+| Mean top-5 recall, M=20 | 100.00% | 95.67% |
+| Mean top-5 recall, M=40 | 100.00% | 99.00% |
+| Mean top-5 recall, M=80 | 100.00% | 99.33% |
+| Mean top-5 recall, M=160 | 100.00% | 100.00% |
+| Pre-search vector/query quantization, median | 79.170 ms | 79.189 ms |
+
+At this size the direct M160 query is **about 2.88× faster** in its seeded median than an exact float32 scan, on this one CPU host. The quantization timing is reported separately and excluded from query p50, as are embedding generation, index build/update, database overhead and network costs. Its measured one-time 79 ms cost should be amortized (or explicitly included) before suggesting an end-to-end production speedup.
+
+The evidence validator passed. Independent or clustered synthetic vectors are not real dashcam embeddings, and M160's observed 100% recall is not a universal guarantee. This benchmark is CPU-only and has no published arXiv, ROCm, Neo4j or SensorGraft GPU performance claim.
+
+To reproduce this larger workload:
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_rerank_direct.c -lm -o /tmp/bench_rerank_direct
+nice -n 15 /tmp/bench_rerank_direct 32768 768 12 2 20261029 clustered
+python3 benchmarks/check_rerank_scale.py
+```
