@@ -17,6 +17,8 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 
 *These are existing public manuscripts, research PDFs, and implementations. An authored arXiv submission has not been independently verified; see the inventory for status and attribution.*
 
+**October 2026: high-dimensional quantization replication.** [**768D multi-seed results (30 runs)**](benchmarks/results/2026-10-29-768d-multiseed.json) · [Methods and GPU readiness](benchmarks/README.md). Five independent synthetic seeds across six Linux hosts; int8 recall@5 averaged 84.0% versus float32. CPU only.
+
 **Fleet benchmark replication (2026-10-29)**: [Eight-host results, methods and code](benchmarks/README.md) · [Machine-readable comparison](benchmarks/results/2026-10-29-fleet-summary.json) · [Compiled C benchmark](benchmarks/bench_vector.c). Eight CPU hosts completed the synthetic Python and compiled vector tests; no production location data or GPU inference was benchmarked.
 
 - 🔭 I’m currently working on **an AI-powered Assistant.**
