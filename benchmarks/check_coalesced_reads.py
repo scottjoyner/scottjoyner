@@ -138,6 +138,6 @@ def validate(doc):
 if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("file",nargs="?",type=Path,
-                   default=Path(__file__).parent/"results"/"2026-10-29-coalesced-reads-140-runs.json")
+                   default=Path(__file__).parent/"results"/"2026-10-29-coalesced-reads-280-runs.json")
     args=p.parse_args()
     print(json.dumps(validate(json.loads(args.file.read_text())),indent=2))
