@@ -192,3 +192,35 @@ python3 benchmarks/check_rerank_stress.py benchmarks/results/2026-10-29-rerank-s
 ```
 
 **Limitations:** The temporal control consists of locally correlated, normalized synthetic frames; the clustered control consists of 32 seeded synthetic centroids. Neither distribution is validated against real dashcam frame embeddings, GPS traces or user data. Candidate selection pays the full top-160 scan cost even when evaluating smaller M, deliberately holding the first-stage search fixed. It should be benchmarked against separate top-M indexes, exact vector search, ANN, and mixed-precision kernels before deploying an adaptive shortlist. GCC 13 was used on the Raspberry Pi after an unrelated GCC 14 compiler crash. Real retrieval tests require an explicitly approved, de-identified corpus.
+
+## Directly timed int8 shortlist + float32 reranking (2026-10-29)
+
+**Evidence:** [45 completed synthetic CPU runs over three hosts](results/2026-10-29-rerank-direct-multihost.json) · [end-to-end C timing harness](bench_rerank_direct.c) · [evidence validator](check_rerank_direct.py). The validator passed on x1-370.
+
+This corrects an important limitation of the earlier shortlist study: each candidate count **5/10/20/40/80/160** independently executes a full int8 scan over 8,192 768-dimensional vectors **and** float32 reranking for that query. The benchmark times the full search operation directly, and reports separate stage measurements. Its per-query timing **does not include** one-time quantization, embedding generation, database reads, network transfer, index construction or updates. The quantization step is reported separately in raw JSON.
+
+Three Linux CPU hosts × three synthetic distributions (independent, temporal, clustered) × five seeded datasets yielded **45 successful measured runs representing 15 distinct data cases**. Each case used 12 queries and two timing repetitions; identical seeded datasets across hosts confirm recall reproducibility, not independent recall samples.
+
+### Clustered synthetic vectors: five-seed results
+
+| Host | Exact float32 p50 | Int8 + float32 rerank 20 p50 | Recall@5, M20 | Int8 + float32 rerank 160 p50 | Recall@5, M160 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| x1-370 | 3.559 ms | 1.213 ms | 97.33% | 1.397 ms | 100% |
+| Deathstar XPS | 6.825 ms | 2.013 ms | 97.33% | 2.208 ms | 100% |
+| Raspberry Pi | 14.775 ms | 6.928 ms | 97.33% | 7.482 ms | 100% |
+
+Each latency is the **median of five independent-seed p50 timings** for that method on that host. M160 achieved 100% top-5 ranking overlap **only on these five clustered synthetic seeds**; it is not a claim of perfect accuracy on real media embeddings. Top-160 vs float32 p50 ratios on this study are approximately 2.55×, 3.09× and 1.97× for x1-370, Deathstar and Raspberry Pi respectively.
+
+For the same seeds, the **independent and temporal** cases both achieved 100% recall@5 using M20; the **clustered** case reached only 97.33%. An adaptive policy should therefore be tested on genuinely held-out real embeddings before publication, not be advertised from training-set or small synthetic calibration alone.
+
+### Reproduction
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_rerank_direct.c -lm -o /tmp/bench_rerank_direct
+nice -n 15 /tmp/bench_rerank_direct 8192 768 12 2 20261029 clustered
+python3 benchmarks/check_rerank_direct.py benchmarks/results/2026-10-29-rerank-direct-multihost.json
+```
+
+Pinned implementation: [source commit 845d0604](https://github.com/scottjoyner/scottjoyner/blob/845d0604f7abc672af699424c01ebea9ed9f493d/benchmarks/bench_rerank_direct.c); source SHA-256 `6d18da89bdba1c07cfbd970c936327903701d81ef3bef542c344c6fc99c27fec`. Raspberry Pi used GCC 13 due to an earlier compiler issue with GCC 14. No active model services were stopped.
+
+**Do not generalize this to GPU or vector DB speed:** all results are CPU brute-force retrieval on synthetic vectors. Profile-accurate confidence intervals, full pipeline latency, memory allocation/RSS, read/update throughput, index selection, precision-recall curves on actual data, and ROCm results remain unmeasured.
