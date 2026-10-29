@@ -109,3 +109,44 @@ Pinned compiled C source commit: [`1fbfc9d`](https://github.com/scottjoyner/scot
 The Raspberry Pi's default GCC 14.2.0 crashed inside its AArch64/SVE compiler initialization. Its evidence was successfully produced with **GCC 13.3.0** instead, using the same source and optimization flags. No compiler or package replacement was performed. The MacBook Air could not be accessed with existing passwordless SSH and was excluded. Every benchmark ran at reduced scheduling priority without stopping running models.
 
 Per-host results are exploratory one-session timings on machines with different CPUs, versions of GCC and varying concurrent workloads. They should not be taken as controlled hardware rankings, robust statistical confidence intervals, or paper-ready performance claims without repeatability runs, temperature/power monitoring, and warmup/load controls.
+
+## Five-seed 768-dimensional replication (2026-10-29)
+
+[Six-host, 30-run raw JSON](results/2026-10-29-768d-multiseed.json) · [Seed-enabled C source](bench_vector.c) · [Evidence validator](check_multiseed.py)
+
+**Scope:** Synthetic CPU-only brute-force search, not real dashcam embeddings, SensorGraft/Neo4j or ROCm. Six Linux hosts ran five common SplitMix64 seeds (20261029–20261033) at reduced process priority, giving **30 successful runs but only five independent datasets**. Each seed generated 8,192 normalized 768-dimensional vectors; ranking accuracy used 12 queries × 2 repetitions and top-k=5, with float32 retrieval as the exact baseline.
+
+**Recall@5 by seed:** 0.900000, 0.833333, 0.783333, 0.866667, 0.816667. **Mean 0.840000**, range 0.783333–0.900000. Variation is due to different synthetic data and shows real quantization accuracy cost. A PASS means validation and execution passed, not that retrieval accuracy is sufficient for production.
+
+| CPU node | Float32 median p50 | Int8 median p50 | Ratio |
+| --- | ---: | ---: | ---: |
+| x1-370 | 3.565 ms | 1.189 ms | 3.00× |
+| Deathstar | 6.756 ms | 1.987 ms | 3.40× |
+| Destroyer | 7.999 ms | 2.329 ms | 3.43× |
+| Lenovo 330S | 7.573 ms | 2.159 ms | 3.51× |
+| OptiPlex | 5.363 ms | 2.109 ms | 2.54× |
+| Raspberry Pi | 14.919 ms | 7.021 ms | 2.13× |
+
+Median of five per-seed median latencies, not one pooled timing. Background load and power management are uncontrolled. The identical seed accuracy across hosts is a reproducibility check, not 30 independent evaluations.
+
+**Pinned benchmark source:** [commit 0e9de945](https://github.com/scottjoyner/scottjoyner/blob/0e9de94548b1c6475f5658fe8e72952cf893c45f/benchmarks/bench_vector.c); SHA-256: 439281cc5c46379571596437dc96f9aebc5e6b0ffd85be163a457e7c779caa73.
+
+Reproduction commands:
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_vector.c -lm -o /tmp/bench_vector
+for seed in 20261029 20261030 20261031 20261032 20261033; do
+  nice -n 15 /tmp/bench_vector 8192 768 12 2 "$seed"
+done
+python3 benchmarks/check_multiseed.py benchmarks/results/2026-10-29-768d-multiseed.json
+```
+
+On the Raspberry Pi, GCC 13 was used after the system GCC 14 crashed during compilation; no compiler settings were modified. The joyner host was skipped due to severely constrained available RAM, xwing due to a busy GPU, and MacBook Air due to lack of passwordless SSH access.
+
+### GPU readiness, not GPU benchmarking
+
+- **joyner:** AMD GPU and /dev/kfd exposed, but HIP/ROCm tools were absent in the active shell and host RAM was critically constrained. No GPU tests performed.
+- **xwing:** ROCm tools present but GPU utilization measured at 100%; skipped to avoid contention.
+- **x1-370:** ROCm device discovery worked, but the hipcc wrapper failed due to missing clang-17 and rocm_agent_enumerator paths. No change to production ROCm configuration.
+
+No GPU throughput, real embedding accuracy, real GPS quality, production Neo4j query latency, memory RSS, ANN performance, or end-to-end RAG benchmark is established by these runs.
