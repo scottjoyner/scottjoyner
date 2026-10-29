@@ -536,7 +536,7 @@ Each distribution (temporal, clustered) × four paths (RAM, ranked `pread` warm,
 
 ### Completed-query throughput and pooled p95
 
-<escape>All figures below are medians across two independent seed-base groups per concurrency level, with p95 pooled over worker query durations within each group. Reporting p95 medians is not the same as a combined percentile across every group.</escape>
+*All figures below are medians across two seed-base groups per concurrency level, with p95 pooled over worker query durations within each group. Reporting p95 medians is not the same as a combined percentile across every group.*
 
 | Synthetic distribution | Float32 rerank storage | QPS, 1 worker | QPS, 2 workers | QPS, 4 workers | Pooled p95, 4 workers |
 | --- | --- | ---: | ---: | ---: | ---: |
