@@ -17,6 +17,8 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 
 *These are existing public manuscripts, research PDFs, and implementations. An authored arXiv submission has not been independently verified; see the inventory for status and attribution.*
 
+**Fleet benchmark replication (2026-10-29)**: [Eight-host results, methods and code](benchmarks/README.md) · [Machine-readable comparison](benchmarks/results/2026-10-29-fleet-summary.json) · [Compiled C benchmark](benchmarks/bench_vector.c). Eight CPU hosts completed the synthetic Python and compiled vector tests; no production location data or GPU inference was benchmarked.
+
 - 🔭 I’m currently working on **an AI-powered Assistant.**
 
 - 🌱 I’m currently learning **advanced techniques in graph databases and data modeling.**
