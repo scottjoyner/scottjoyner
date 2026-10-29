@@ -308,3 +308,54 @@ python3 benchmarks/check_policy_v2.py
 ```
 
 **Next validation gate:** explicitly approved real embedding datasets with temporal train/test separation, corrupted GPS/clip cases, a measured distribution-difficulty classifier or distribution-agnostic policy, and a full precompute/update/CPU/GPU/DB cost model. Do not promote the synthetic M20/M80 settings to a production contract.
+
+## Query-only adaptive shortlist: frozen score-margin calibration and unseen seeds (2026-10-29)
+
+**Goal:** Choose M=20, 40, 80, or 160 using **only the quantized top-160 score distribution**. No distribution label, actual video/location data, float32 reference result, or learned classifier is supplied at retrieval time. This replaces the previous oracle-labeled synthetic policy *only in a new standalone benchmark*, not in deployed SensorGraft.
+
+**Source:** [compiled C query policy](bench_score_margin.c) · [frozen threshold calibration receipt](results/2026-10-29-score-margin-calibration.json) · [holdout runner](bench_margin_holdout.py) · [held-out raw evidence](results/2026-10-29-score-margin-holdout.json) · [independent calibration/holdout validator](check_margin_policy.py).
+
+### Policy and calibration
+
+For each query, scan int8 embeddings for its best 160 quantized matches, then inspect the normalized gap between the 5th-ranked and the 20th/40th/80th-ranked int8 scores. Choose the **smallest** M in {20,40,80} whose gap exceeds the frozen threshold; otherwise rerank M=160 candidate vectors in the original float32 representation. The choice uses only quantized scores. The exact float32 top-five oracle is computed separately for *evaluation*, never for the choice.
+
+Original calibration seeds 20261029–20261033 yielded 25 seeded CPU runs and **300 distinct query cases** spanning 8,192- and 32,768-vector synthetic datasets. A grid search over thresholds 0.0000–0.0100 in 0.0001 increments minimized mean M subject to **at least 99.5% aggregate top-five recall** and **at least 99% recall within every dataset-size/distribution group**. The selected and separately committed threshold was **0.0064**, with 99.8% aggregate calibration recall and a mean of 36.53 candidates. The threshold was committed before evaluating new seeds.
+
+### Disjoint synthetic holdout
+
+New seeds 20261100–20261115 had not been used in prior calibration or earlier 202610xx holdouts. Five workload/distribution groups × 16 seeds gave **80 successful CPU executions and 960 query cases** (12 queries per case, 2 timing repetitions; top-k=5). The pinned C source SHA-256 is `ce4fa7173f7237fcdc5460671c9d8643685679bec4f0547dfe3b039bb95ffac0` and commit [5d723b51](https://github.com/scottjoyner/scottjoyner/blob/5d723b513186601ce1b0d0cc25c136da08db81da/benchmarks/bench_score_margin.c). The independent validator recomputed the threshold choice from the raw calibration and checked all 960 held-out decisions.
+
+| Workload (768D synthetic) | Mean chosen M | Top-five recall on unseen seeds | Nominal exact-float32 / adaptive query-speed ratio |
+| --- | ---: | ---: | ---: |
+| 8,192 independent | 20.0 | 100.00% | 2.84× |
+| 8,192 temporal | 20.0 | 100.00% | 2.88× |
+| 8,192 clustered | 43.8 | 100.00% | 2.84× |
+| 32,768 independent | 20.0 | 100.00% | 2.96× |
+| 32,768 clustered | 69.3 | 99.58% | 2.92× |
+
+**Interpretation:** All five *synthetic* workload groups exceeded 99% aggregate recall on the disjoint seeds, but the harder clustered 32,768-vector case still missed several exact top-five results. No guaranteed bound, statistically representative field accuracy, per-query SLA, actual dashcam embedding evaluation, production ANN/index improvement or GPU result was established. Disjoint seeds still use the same toy data-generator families.
+
+### Essential matched control: is adaptation itself actually faster?
+
+[Forty matched seed/workload A/B pairs](results/2026-10-29-score-margin-vs-fixed160.json) · [paired validator](check_margin_comparison.py). Same C kernel, same generator and same seeds, with test order alternated by seed parity. Comparison: frozen adaptive threshold versus a high threshold that **always chooses M=160**. Both methods first compute the same full top-160 int8 scan, so the only possible savings are in the float32 rescoring phase. These are matched *timing controls on seeds already included in the held-out evaluation*, not new independent accuracy evidence.
+
+| Workload | Median paired fixed160/adaptive ratio | Adaptive hits | Fixed160 hits |
+| --- | ---: | ---: | ---: |
+| 8,192 independent | 1.091× | 480/480 | 480/480 |
+| 8,192 temporal | 1.071× | 480/480 | 480/480 |
+| 8,192 clustered | 1.066× | 480/480 | 480/480 |
+| 32,768 independent | 1.027× | 480/480 | 480/480 |
+| 32,768 clustered | 1.019× | 479/480 | 480/480 |
+
+**Negative result / important tradeoff:** Relative to an already-quantized fixed-M160 search, adapting M saved only about **2–9%** in these noisy paired CPU timings and missed one of 480 exact neighbors in the 32,768 clustered timing control, versus zero misses for fixed160. The larger ~2.9× ratios compare adaptive int8 retrieval with **full exact float32 scanning**, not with fixed160. Given modest incremental gain, fixed160 is the simpler candidate for future *evaluation* while a real-world safety/accuracy and profiling gate remains open; **neither should replace production exact search yet**.
+
+### Reproduce
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_score_margin.c -lm -o /tmp/bench_score_margin
+/tmp/bench_score_margin 8192 768 12 2 20261100 clustered 0.0064
+python3 benchmarks/check_margin_policy.py
+python3 benchmarks/check_margin_comparison.py
+```
+
+Live GPU/ROCm, real dashcam/GNSS validation, SensorGraft integration, quantization of actual model-derived embeddings, and end-to-end network/DB latency were **not executed** in this series. All benchmarks ran on synthetic CPU workloads, at reduced process priority, without stopping existing services. Query timing excludes one-time quantization, embedding generation, indexing and persistence. GPU resource contention and disk pressure remain deployment constraints.
