@@ -63,3 +63,49 @@ Theoretical raw vector payload is eight times smaller for int8 than float64 (1 v
 - Preserve failures and negative results. Keep one immutable JSON evidence file per benchmark run. Publication claims must point to the code SHA and primary result evidence.
 
 Related public source: [dashcam vision pipeline](https://github.com/scottjoyner/auto-ingest/blob/main/DASHCAM_VISION_PIPELINE.md) and [location linkage/repair](https://github.com/scottjoyner/auto-ingest/blob/main/patch_missing_locationsv2.py).
+
+## Eight-host fleet replication: compiled 384-dimensional vector scans
+
+**2026-10-29 — eight Linux nodes, 11 compiled runs, all PASS.** [Machine-readable fleet summary](results/2026-10-29-fleet-summary.json) · [Evidence folder](results/) · [C benchmark source](bench_vector.c) · [summary generator](summarize_results.py).
+
+This is a **different and more representative compute implementation** than the pure-Python experiment above. It stores 384-dimensional normalized synthetic vectors as either float32 or quantized int8 and scans them using portable C compiled with `gcc -O3 -Wall -Wextra -std=c11 -lm`. Float32 uses float32 accumulation; int8 uses integer accumulation. Results compare ranking overlap against the same workload's exact float32 scan. **This is still CPU-only brute-force search, not GPU/ROCm, Neo4j, LLM inference or an indexed ANN system.**
+
+| Node | Float32 p50 | Int8 p50 | Int8 speedup | Raw evidence |
+| --- | ---: | ---: | ---: | --- |
+| xwing | 1.498 ms | 0.731 ms | 2.05× | [JSON](results/2026-10-29-xwing-compiled-8192x384.json) |
+| joyner (R9700 host, CPU only) | 1.641 ms | 0.424 ms | 3.87× | [JSON](results/2026-10-29-joyner-compiled-8192x384.json) |
+| x1-370 | 1.663 ms | 0.559 ms | 2.98× | [JSON](results/2026-10-29-x1-370-compiled-8192x384.json) |
+| OptiPlex 9030 | 2.610 ms | 1.064 ms | 2.45× | [JSON](results/2026-10-29-scott-optiplex-9030-aio-compiled-8192x384.json) |
+| Deathstar XPS | 3.573 ms | 1.077 ms | 3.32× | [JSON](results/2026-10-29-deathstar-xps-8920-compiled-8192x384.json) |
+| Lenovo 330S | 3.694 ms | 1.091 ms | 3.39× | [JSON](results/2026-10-29-scott-lenovo-ideapad-330s-15ikb-compiled-8192x384.json) |
+| Destroyer | 4.310 ms | 1.305 ms | 3.30× | [JSON](results/2026-10-29-destroyer-compiled-8192x384.json) |
+| Raspberry Pi | 7.533 ms | 3.619 ms | 2.08× | [JSON](results/2026-10-29-raspberrypi-compiled-8192x384.json) |
+
+The same 8,192-vector, 384-dimensional workload used 24 seeded queries × 3 repetitions with top-k=5. **Int8 recall@5 was 0.908333 on every host** because the inputs were generated deterministically and identically; it is not eight independent accuracy samples. Float32 raw vector payload: 12 MiB; int8: 3 MiB (4× lower raw storage). Actual memory usage, index overhead, and quantization setup costs were not measured.
+
+### Scaling to 32,768 vectors
+
+12 seeded queries × 2 repetitions, 384 dimensions. Recall@5 **0.883333** on all three systems (same deterministic inputs).
+
+| Node | Float32 p50 | Int8 p50 | Speedup | Evidence |
+| --- | ---: | ---: | ---: | --- |
+| xwing | 5.348 ms | 2.600 ms | 2.06× | [JSON](results/2026-10-29-xwing-compiled-32768x384.json) |
+| joyner | 6.566 ms | 1.703 ms | 3.86× | [JSON](results/2026-10-29-joyner-compiled-32768x384.json) |
+| x1-370 | 6.654 ms | 2.210 ms | 3.01× | [JSON](results/2026-10-29-x1-370-compiled-32768x384.json) |
+
+### Reproduction and compiler caveats
+
+From the repository root:
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_vector.c -lm -o /tmp/bench_vector
+nice -n 12 /tmp/bench_vector 8192 384 24 3
+nice -n 12 /tmp/bench_vector 32768 384 12 2
+python3 benchmarks/summarize_results.py --directory benchmarks/results --date 2026-10-29
+```
+
+Pinned compiled C source commit: [`1fbfc9d`](https://github.com/scottjoyner/scottjoyner/blob/1fbfc9d1a343890cc525708379d101da7ba0730d/benchmarks/bench_vector.c); SHA-256 `e443f9e8d794f53f11fe1b3f66dfd5b7013e98a14d3d00dac601691ef7a60aea`. The generator uses SplitMix64 to avoid correlations found in an earlier rejected exploratory LCG run; rejected results were **not published**. The C benchmark also checks top-k ranking validity and duplicate/invalid hits. Int8 accuracy is lower than float32 by design; a PASS indicates that the program ran and passed sanity checks, not that it had perfect retrieval accuracy.
+
+The Raspberry Pi's default GCC 14.2.0 crashed inside its AArch64/SVE compiler initialization. Its evidence was successfully produced with **GCC 13.3.0** instead, using the same source and optimization flags. No compiler or package replacement was performed. The MacBook Air could not be accessed with existing passwordless SSH and was excluded. Every benchmark ran at reduced scheduling priority without stopping running models.
+
+Per-host results are exploratory one-session timings on machines with different CPUs, versions of GCC and varying concurrent workloads. They should not be taken as controlled hardware rankings, robust statistical confidence intervals, or paper-ready performance claims without repeatability runs, temperature/power monitoring, and warmup/load controls.
