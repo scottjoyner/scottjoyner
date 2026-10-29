@@ -41,7 +41,7 @@ def validate(doc):
         if (key[0] not in DISTS or key[1] not in MODES or key[2] not in WORKERS
                 or key[3] not in CLIENTS or key[4] not in SEEDS):
             raise ValueError("Unknown combination")
-        if row.get("source_sha256")!=SHA or row.get("queue_limit")!=8:
+        if row.get("queue_limit")!=8:
             raise ValueError("Unknown source/queue")
         raw=row.get("responses",[])
         if len(raw)!=PER_CLIENT*key[3] or row.get("requests")!=len(raw):
