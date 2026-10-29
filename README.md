@@ -45,3 +45,5 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=scottjoyner" alt="scottjoyner" /></a> </p>
 
 <!-- You can add or modify sections according to your preferences -->
+
+**32,768-vector CPU scale-up (2026-10-29):** [Ten directly timed trials](benchmarks/results/2026-10-29-rerank-direct-32768-x1-370.json) · [validated methodology](benchmarks/README.md). At 768 dimensions, int8 scanning plus float32 reranking of 160 candidates measured ~4.89 ms median versus ~14.06 ms exact float32 on clustered synthetic data, with 100% top-5 recall **on these five seeds only**; quantization incurred ~79 ms one-time cost and is excluded from query latency.
