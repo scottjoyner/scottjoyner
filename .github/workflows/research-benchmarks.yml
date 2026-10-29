@@ -39,10 +39,11 @@ jobs:
           python3 benchmarks/check_policy_v2.py
           python3 benchmarks/check_margin_policy.py
           python3 benchmarks/check_margin_comparison.py
+          python3 benchmarks/check_quant_scales.py
           python3 benchmarks/summarize_results.py --directory benchmarks/results --date 2026-10-29 > /dev/null
       - name: Compile CPU benchmarks
         run: |
-          for name in bench_vector bench_rerank bench_rerank_stress bench_rerank_direct bench_score_margin; do
+          for name in bench_vector bench_rerank bench_rerank_stress bench_rerank_direct bench_score_margin bench_quant_scales; do
             gcc -O3 -Wall -Wextra -std=c11 "benchmarks/${name}.c" -lm -o "/tmp/${name}"
           done
       - name: Small synthetic CPU smoke tests
@@ -52,3 +53,4 @@ jobs:
           /tmp/bench_rerank_stress 256 48 3 1 20261029 clustered | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0'
           /tmp/bench_rerank_direct 256 48 3 1 20261029 temporal | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0'
           /tmp/bench_score_margin 256 48 3 1 20261029 clustered 0.0064 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and len(x["query_details"])==3'
+          /tmp/bench_quant_scales 256 48 3 1 20261029 clustered | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and [s["name"] for s in x["schemes"]]==["fixed127","per_vector_absmax"]'
