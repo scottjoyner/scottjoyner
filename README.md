@@ -6,7 +6,7 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 
 ## Public research and manuscripts
 
-[**Full research and publication inventory**](RESEARCH.md) · [**Structured citation/source inventory**](RESEARCH_INVENTORY.json)
+[**Full research and publication inventory**](RESEARCH.md) · [**Structured citation/source inventory**](RESEARCH_INVENTORY.json) · [**Reproducible benchmarks**](benchmarks/README.md) · [**Raw benchmark evidence**](benchmarks/results/2026-10-29-x1-370.json)
 
 | Research area | Public work |
 | --- | --- |
