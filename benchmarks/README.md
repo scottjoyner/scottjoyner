@@ -463,3 +463,61 @@ python3 benchmarks/check_float_storage.py
 ```
 
 **Do not overgeneralize:** The exercise neither measured Tensor/ROCm inference nor ran real SensorGraft/Neo4j graph retrieval or real dashcam embeddings. It is not a deployment readiness, persistence integrity, privacy, cold-cache guarantee or production SLA claim. The biggest remaining gap is a controlled full-node prototype that writes approved embedding data and measures combined process+page-cache memory and end-to-end query/update overhead.
+
+## Locality-sensitive candidate I/O: rank, sorted and contiguous-coalesced reads (2026-10-29)
+
+**Status: research-only synthetic CPU test** on x1-370; not a production SensorGraft update, not a benchmark of actual dashcam embeddings, and not a controlled SSD device study.
+
+**Artifacts:** [C implementation](bench_coalesced_reads.c) · [frozen synthetic runner](run_coalesced_reads.py) · [280 raw trial receipts](results/2026-10-29-coalesced-reads-280-runs.json) · [independent evidence validator](check_coalesced_reads.py). The executable source was committed first at [`8d811446`](https://github.com/scottjoyner/scottjoyner/blob/8d811446ebc5c36c89844ab307faf37619d190e8/benchmarks/bench_coalesced_reads.c), SHA-256 `d2f4ed078d87bff565dcc26e74f67c3967b801311ac08087b27b915159496c4e`.
+
+### Design
+
+All queries first perform the same 768D per-vector-absmax int8 candidate scan and rerank the selected float32 vectors to exact top-5. For file-backed modes, the float32 source is stored in an automatically unlinked temporary regular file on the controller's main filesystem. Each read strategy changes only the **physical order and number of float32 candidate fetches**, not the final scoring algorithm.
+
+- `ram`: complete original float32 vectors kept in process RAM.
+- `pread_rank_warm` / `pread_rank_hint`: one `pread` per candidate in approximate rank order.
+- `pread_sorted_warm` / `pread_sorted_hint`: sort candidate IDs by float32 file offset, then one `pread` per candidate.
+- `pread_coalesced_warm` / `pread_coalesced_hint`: sort candidate IDs by file offset, merge **consecutive vector IDs** into contiguous runs and issue one `pread` per run, scoring each fetched vector with its original stable ID.
+
+The `_hint` modes use `fsync` before query measurements and best-effort `posix_fadvise(..., DONTNEED)` before each query, which **does not guarantee true cold SSD reads**. The `_warm` modes can benefit from Linux page cache. Timings use 12 queries × 2 repeats; n=8,192 and 32,768; temporal and clustered vector modes; M=20 and M=160; five seeds 20261150–20261154. Each mode ran in a new low-priority process. This is **280 executions** (4 workloads × 2 M × 5 seeds × 7 modes), representing **40 distinct seeded dataset/M cases** for accuracy, not 280 independent datasets. All modes matched the exact float32 top-5 oracle in these cases, with no recorded sanity failures. The separate verifier checks read-call conservation, total bytes fetched, stable top-5 parity, seed coverage, and timing summaries.
+
+### Read amplification: sum of measured candidate pread calls across five seeded cases
+
+| Workload | M | Rank-order calls | Coalesced calls | Read-call reduction |
+| --- | ---: | ---: | ---: | ---: |
+| 8,192 temporal | 20 | 2,400 | 120 | 95.0% |
+| 8,192 temporal | 160 | 19,200 | 150 | 99.22% |
+| 32,768 temporal | 20 | 2,400 | 120 | 95.0% |
+| 32,768 temporal | 160 | 19,200 | 134 | 99.30% |
+| 8,192 clustered | 20 | 2,400 | 2,400 | 0% |
+| 8,192 clustered | 160 | 19,200 | 19,200 | 0% |
+| 32,768 clustered | 20 | 2,400 | 2,400 | 0% |
+| 32,768 clustered | 160 | 19,200 | 19,200 | 0% |
+
+This is **read syscall reduction**, not data-byte reduction: every strategy fetches M float32 vectors per query, so the total candidate vector bytes remain the same. Coalescing works here because synthetic temporal embeddings tend to select consecutive IDs; the synthetic clustered generator does not make its nearby vectors physically adjacent. A real database must explicitly maintain and measure its own embedding-ID locality to benefit.
+
+### Observed median query latencies (ms; medians of seed-specific p50)
+
+| Workload | M | Warm ranked | Warm sorted | Warm coalesced | Hint ranked | Hint coalesced |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 8,192 temporal | 20 | 1.243 | 1.235 | 1.230 | 2.070 | 1.512 |
+| 8,192 temporal | 160 | 1.401 | 1.384 | 1.383 | 4.277 | 2.626 |
+| 32,768 temporal | 20 | 4.977 | 4.908 | 4.871 | 6.047 | 6.261 |
+| 32,768 temporal | 160 | 7.304 | 5.019 | 5.443 | 7.922 | 6.081 |
+| 8,192 clustered | 20 | 1.375 | 1.334 | 1.360 | 3.270 | 3.156 |
+| 8,192 clustered | 160 | 1.522 | 1.547 | 1.749 | 11.575 | 11.545 |
+| 32,768 clustered | 20 | 7.681 | 5.611 | 7.282 | 10.026 | 9.661 |
+| 32,768 clustered | 160 | 6.273 | 5.845 | 5.659 | 22.706 | 23.221 |
+
+**Interpretation:** Contiguous coalescing is structurally valuable when retrieval candidates are also physically close. It can reduce read calls by >99%, but this does **not guarantee latency gain**: the compressed int8 candidate scan, process scheduling, kernel page cache, and I/O contention dominate many timings. Some workload medians reversed order under variable load; this is not sufficient to rank implementations by microsecond differences. Coalescing offered no read-count improvement on scattered clustered IDs and sometimes added sorting/merging overhead. The hint-only performance is not a true physical-media cold-run measurement.
+
+### Reproduce
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_coalesced_reads.c -lm -o /tmp/bench_coalesced_reads
+nice -n 15 /tmp/bench_coalesced_reads 8192 768 12 2 20261150 temporal pread_rank_warm 160
+nice -n 15 /tmp/bench_coalesced_reads 8192 768 12 2 20261150 temporal pread_coalesced_warm 160
+python3 benchmarks/check_coalesced_reads.py
+```
+
+**Next integration gate:** measured physical-record order and workload locality on approved real embeddings, write/update/compaction handling for stable IDs, batched asynchronous read strategies, multi-query contention, cgroup+page-cache memory, and controlled cold-cache / direct-I/O testing. Do not deploy against production traces, media or storage without a reversible and audited plan.
