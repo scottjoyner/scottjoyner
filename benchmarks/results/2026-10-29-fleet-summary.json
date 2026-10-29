@@ -1,0 +1,239 @@
+{
+  "compiled_run_count": 11,
+  "compiled_runs": [
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-deathstar-xps-8920-compiled-8192x384.json",
+      "float32_p50_ms": 3.572605,
+      "host": "deathstar-XPS-8920",
+      "int8_p50_ms": 1.077491,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 3.316,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "15.2.0",
+      "dimensions": 384,
+      "file": "2026-10-29-destroyer-compiled-8192x384.json",
+      "float32_p50_ms": 4.30995,
+      "host": "destroyer",
+      "int8_p50_ms": 1.304778,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 3.303,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-joyner-compiled-8192x384.json",
+      "float32_p50_ms": 1.640873,
+      "host": "joyner",
+      "int8_p50_ms": 0.423856,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 3.871,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-raspberrypi-compiled-8192x384.json",
+      "float32_p50_ms": 7.53271,
+      "host": "raspberrypi",
+      "int8_p50_ms": 3.618876,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 2.082,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-scott-lenovo-ideapad-330s-15ikb-compiled-8192x384.json",
+      "float32_p50_ms": 3.694038,
+      "host": "scott-Lenovo-ideapad-330S-15IKB",
+      "int8_p50_ms": 1.090907,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 3.386,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-scott-optiplex-9030-aio-compiled-8192x384.json",
+      "float32_p50_ms": 2.610213,
+      "host": "scott-OptiPlex-9030-AIO",
+      "int8_p50_ms": 1.064424,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 2.452,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-x1-370-compiled-8192x384.json",
+      "float32_p50_ms": 1.66301,
+      "host": "x1-370",
+      "int8_p50_ms": 0.558979,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 2.975,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "15.2.0",
+      "dimensions": 384,
+      "file": "2026-10-29-xwing-compiled-8192x384.json",
+      "float32_p50_ms": 1.498323,
+      "host": "xwing",
+      "int8_p50_ms": 0.731043,
+      "int8_recall_at_5": 0.908333,
+      "int8_speedup_x": 2.05,
+      "queries": 24,
+      "repeats": 3,
+      "vectors": 8192
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-joyner-compiled-32768x384.json",
+      "float32_p50_ms": 6.566007,
+      "host": "joyner",
+      "int8_p50_ms": 1.70278,
+      "int8_recall_at_5": 0.883333,
+      "int8_speedup_x": 3.856,
+      "queries": 12,
+      "repeats": 2,
+      "vectors": 32768
+    },
+    {
+      "compiler": "13.3.0",
+      "dimensions": 384,
+      "file": "2026-10-29-x1-370-compiled-32768x384.json",
+      "float32_p50_ms": 6.653843,
+      "host": "x1-370",
+      "int8_p50_ms": 2.209976,
+      "int8_recall_at_5": 0.883333,
+      "int8_speedup_x": 3.011,
+      "queries": 12,
+      "repeats": 2,
+      "vectors": 32768
+    },
+    {
+      "compiler": "15.2.0",
+      "dimensions": 384,
+      "file": "2026-10-29-xwing-compiled-32768x384.json",
+      "float32_p50_ms": 5.347529,
+      "host": "xwing",
+      "int8_p50_ms": 2.599601,
+      "int8_recall_at_5": 0.883333,
+      "int8_speedup_x": 2.057,
+      "queries": 12,
+      "repeats": 2,
+      "vectors": 32768
+    }
+  ],
+  "date": "2026-10-29",
+  "limitations": [
+    "Synthetic deterministic workloads, not production data or Neo4j.",
+    "CPU-only; no GPU, NPU, ROCm or MLX inference was measured.",
+    "Float32 and int8 metrics refer to compiled brute-force scan, not indexed ANN.",
+    "Cold/warm system load, compiler differences and architecture affect timing.",
+    "Recall is a function of the common synthetic seed and should not be generalized."
+  ],
+  "provenance": {
+    "compilation": "gcc -O3 -Wall -Wextra -std=c11 -lm (GCC 13 fallback on Raspberry Pi)",
+    "compiled_c_source_commit": "1fbfc9d1a343890cc525708379d101da7ba0730d",
+    "compiled_c_source_sha256": "e443f9e8d794f53f11fe1b3f66dfd5b7013e98a14d3d00dac601691ef7a60aea",
+    "python_source_sha256": "21cceec9904967d6a41c652f69752ca0e793adec9a6f6d8500930c63984914cc"
+  },
+  "python_by_host": {
+    "deathstar-XPS-8920": {
+      "file": "2026-10-29-deathstar-xps-8920.json",
+      "geo_50k_index_p50_ms": 0.000764,
+      "geo_50k_linear_p50_ms": 5.850524,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 38.823704,
+      "vector_8192_int8_p50_ms": 107.614067,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "destroyer": {
+      "file": "2026-10-29-destroyer.json",
+      "geo_50k_index_p50_ms": 0.001044,
+      "geo_50k_linear_p50_ms": 4.047128,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 34.061978,
+      "vector_8192_int8_p50_ms": 59.541817,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "joyner": {
+      "file": "2026-10-29-joyner.json",
+      "geo_50k_index_p50_ms": 0.00027,
+      "geo_50k_linear_p50_ms": 1.847265,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 13.272522,
+      "vector_8192_int8_p50_ms": 35.393862,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "raspberrypi": {
+      "file": "2026-10-29-raspberrypi.json",
+      "geo_50k_index_p50_ms": 0.002407,
+      "geo_50k_linear_p50_ms": 13.763385,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 101.146653,
+      "vector_8192_int8_p50_ms": 154.954066,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "scott-Lenovo-ideapad-330S-15IKB": {
+      "file": "2026-10-29-scott-lenovo-ideapad-330s-15ikb.json",
+      "geo_50k_index_p50_ms": 0.000635,
+      "geo_50k_linear_p50_ms": 4.391657,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 26.35196,
+      "vector_8192_int8_p50_ms": 83.999639,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "scott-OptiPlex-9030-AIO": {
+      "file": "2026-10-29-scott-optiplex-9030-aio.json",
+      "geo_50k_index_p50_ms": 0.000575,
+      "geo_50k_linear_p50_ms": 3.878586,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 26.093658,
+      "vector_8192_int8_p50_ms": 78.19713,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "x1-370": {
+      "file": "2026-10-29-x1-370.json",
+      "geo_50k_index_p50_ms": 0.00029,
+      "geo_50k_linear_p50_ms": 1.608799,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 15.267256,
+      "vector_8192_int8_p50_ms": 30.195822,
+      "vector_8192_int8_recall_at_5": 0.96
+    },
+    "xwing": {
+      "file": "2026-10-29-xwing.json",
+      "geo_50k_index_p50_ms": 0.00036,
+      "geo_50k_linear_p50_ms": 1.488214,
+      "geo_50k_mismatches": 0,
+      "vector_8192_float64_p50_ms": 13.191976,
+      "vector_8192_int8_p50_ms": 24.989213,
+      "vector_8192_int8_recall_at_5": 0.96
+    }
+  },
+  "python_host_count": 8,
+  "schema_version": 1,
+  "type": "synthetic_fleet_cpu_benchmark_summary"
+}
