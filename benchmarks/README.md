@@ -359,3 +359,58 @@ python3 benchmarks/check_margin_comparison.py
 ```
 
 Live GPU/ROCm, real dashcam/GNSS validation, SensorGraft integration, quantization of actual model-derived embeddings, and end-to-end network/DB latency were **not executed** in this series. All benchmarks ran on synthetic CPU workloads, at reduced process priority, without stopping existing services. Query timing excludes one-time quantization, embedding generation, indexing and persistence. GPU resource contention and disk pressure remain deployment constraints.
+
+## Per-vector 8-bit scaling: held-out synthetic CPU comparison (2026-10-29)
+
+The earlier retrieval prototype quantized normalized vectors as `round(x * 127)` with the same fixed scale for every vector. At 768 dimensions, many normalized components are much smaller than 1.0, making this a needlessly coarse quantization scheme. This new study compares that baseline against **symmetric int8 per-vector absmax scaling**, `scale = max(abs(x_i)) / 127`, with each normalized vector's own 4-byte float32 scale. Search uses the int8 dot product *multiplied by the candidate vector's scale*. The query's scale is constant for all candidates in that query, so it is omitted from the relative-score comparison. The original float32 vectors remain available for exact candidate reranking. This is not an LLM-weight quantization result.
+
+### Recorded results
+
+Source: [C implementation](bench_quant_scales.c) at [commit ad6abd06](https://github.com/scottjoyner/scottjoyner/blob/ad6abd06b1ebfb2814044870789f6a03bf420c46/benchmarks/bench_quant_scales.c), SHA-256 `b95bf19e86cc24f3c360eef782f0e357e6ec63bf61f4cd269070413d5f738e50`.
+
+Evidence: [60 seeded x1-370 trials](results/2026-10-29-quant-scales-60case-holdout.json) · [25 CPU peer-replication trials](results/2026-10-29-quant-scales-peer.json) · [single-host data validator](check_quant_scales.py) · [peer-replication validator](check_quant_peers.py) · [frozen trial runner](run_quant_scales.py). Both validators passed. The same ten fresh seeds (20261120–20261129) were used for the six primary CPU workloads, with 12 queries × two latency repetitions per seed. Each group had 600 top-five hit opportunities. For peer replication, five new seeds (20261130–20261134) were replayed across three other machines; repeated copies of an identical seed do not constitute new independent datasets.
+
+| 768D synthetic workload | Fixed global-scale int8 + float32 rerank 20 recall@5 | Per-vector absmax int8 + float32 rerank 20 recall@5 | Per-vector direct query p50* |
+| --- | ---: | ---: | ---: |
+| 8,192 independent | 100.00% | **100.00%** | 1.211 ms |
+| 8,192 temporal | 100.00% | **100.00%** | 1.210 ms |
+| 8,192 clustered | 96.83% | **100.00%** | 1.215 ms |
+| 32,768 independent | 100.00% | **100.00%** | 7.205 ms |
+| 32,768 temporal | 100.00% | **100.00%** | 4.892 ms |
+| 32,768 clustered | 95.50% | **100.00%** | 4.865 ms |
+
+`*` Median across seed-specific p50 timings, not a controlled system-wide timing distribution; 32,768-independent timings were affected by variable host load. Each M value uses an independently timed **int8 top-M full scan plus float32 reranking**, not the sum of two separate medians. Results are exploratory, not a production SLA. Per-vector scaling added no material median latency in the observed pairs but may have different SIMD/GPU behavior.
+
+Peer replication with 20 candidates, all CPU-only:
+
+| Clustered 768D workload | Fixed int8 recall@5 | Per-vector absmax recall@5 | Hosts |
+| --- | ---: | ---: | --- |
+| 8,192 vectors | 97.33% | **100.00%** | Deathstar, Lenovo 330S, Raspberry Pi |
+| 32,768 vectors | 90.67% | **100.00%** | Deathstar, Lenovo 330S |
+
+The 25 peer trial executions span **10 independent seeded workload cases**, because the same seed/dataset is executed on multiple machines. Cross-host deterministic hit totals match, even across x86_64 and aarch64. This is CPU code portability/reproducibility evidence, not representative production recall.
+
+### Storage and preparation: the crucial caveat
+
+For **768-dimensional vectors**:
+
+| Representation | Bytes/vector |
+| --- | ---: |
+| Float32 only | 3,072 B |
+| Standalone per-vector int8 plus float32 scale | 772 B |
+| Float32 original **plus** per-vector int8 and scale (the benchmark's reranking design) | **3,844 B** |
+
+At 32,768 vectors, this means approximately **96 MiB of original float32**, plus **24 MiB of int8** and **0.125 MiB of scale metadata**, totaling **120.125 MiB**, i.e. ~25.1% more than float32 alone. A 4× smaller *int8 vector payload* does **not** imply a 4× smaller full retrieval system. To save RAM, a real implementation would need a compressed/remote/secondary float32 store or a different reranking design, with its I/O cost measured. Metadata/IDs/index overhead and resident RSS are not included.
+
+The CPU harness reports one-time quantization and allocation separately. Primary x1-370 per-vector quantization/preparation medians were roughly **23 ms for 8,192 clustered vectors** and **80 ms for 32,768 clustered vectors**, excluding synthetic embedding generation and disk I/O. These costs must be amortized across enough queries or included in cold-start metrics. No production database was modified.
+
+### Reproduce
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_quant_scales.c -lm -o /tmp/bench_quant_scales
+nice -n 15 /tmp/bench_quant_scales 8192 768 12 2 20261120 clustered
+python3 benchmarks/check_quant_scales.py
+python3 benchmarks/check_quant_peers.py
+```
+
+Next research gate: use **approved, representative real embedding distributions** with privacy and provenance controls, separate holdout periods, adversarial normalization/outliers and CPU-versus-ROCm SIMD measurements. Keep exact float32 search available when recall requirements are strict. Do not conflate these synthetic retrieval-vector results with LFM3 quantization, model-weight compression or neural self-modification.
