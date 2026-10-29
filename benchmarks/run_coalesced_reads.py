@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run synthetic CPU float32 candidate-IO comparison with read-count parity.
+"""Run 280 synthetic CPU candidate-IO trials with read-count parity.
 
 Fresh low-priority processes per seed/mode; source data and query vectors
 are synthetic, the float32 file is anonymous and unlinked on creation.
@@ -145,7 +145,7 @@ def run(args):
         "summary": summarize(results),
         "limitations": [
             "CPU synthetic distributions and self-contained temporary files only",
-            "Same five seeds repeated across seven storage modes; 140 executions are 20 distinct seed/distribution/size cases, times two M choices",
+            "Same five seeds repeated across seven storage modes; 280 executions are 20 distinct seed/distribution/size cases, times two M choices",
             "Warm paths may be served from the Linux kernel page cache",
             "Eviction-hint paths do not guarantee cold SSD I/O",
             "Process RSS excludes Linux page cache and system-wide memory",
