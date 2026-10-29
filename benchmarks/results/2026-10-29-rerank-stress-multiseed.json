@@ -1,0 +1,1787 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_correlated_and_clustered_rerank_multihost",
+  "date": "2026-10-29",
+  "source_sha256": "9ab57c8be2869271e22ae75b5878b55d67b89f14491eedd5aebbf5226e0bf0b9",
+  "source_commit": "80b493d1c87f659e641b38bb30e33e36132c47df",
+  "seeds": [
+    20261029,
+    20261030,
+    20261031,
+    20261032,
+    20261033
+  ],
+  "modes": [
+    "temporal",
+    "clustered"
+  ],
+  "hosts": [
+    {
+      "node": "x1-370",
+      "compiler_binary": "gcc",
+      "host": "x1-370",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 19.792506,
+          "exact_float32_p50_ms": 3.509406,
+          "int8_shortlist_top160_p50_ms": 1.217445,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.003226,
+              "approx_plus_rerank_p50_ms_estimate": 1.220671
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.005039,
+              "approx_plus_rerank_p50_ms_estimate": 1.222484
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.009768,
+              "approx_plus_rerank_p50_ms_estimate": 1.227213
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.018936,
+              "approx_plus_rerank_p50_ms_estimate": 1.236381
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.037341,
+              "approx_plus_rerank_p50_ms_estimate": 1.254786
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.075001,
+              "approx_plus_rerank_p50_ms_estimate": 1.292446
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 19.687237,
+          "exact_float32_p50_ms": 3.475874,
+          "int8_shortlist_top160_p50_ms": 1.202477,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.002985,
+              "approx_plus_rerank_p50_ms_estimate": 1.205462
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.004859,
+              "approx_plus_rerank_p50_ms_estimate": 1.207336
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.009428,
+              "approx_plus_rerank_p50_ms_estimate": 1.211905
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.018355,
+              "approx_plus_rerank_p50_ms_estimate": 1.220832
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.036269,
+              "approx_plus_rerank_p50_ms_estimate": 1.238746
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.072627,
+              "approx_plus_rerank_p50_ms_estimate": 1.275104
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 19.926348,
+          "exact_float32_p50_ms": 3.584528,
+          "int8_shortlist_top160_p50_ms": 1.244767,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.002915,
+              "approx_plus_rerank_p50_ms_estimate": 1.247682
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.004939,
+              "approx_plus_rerank_p50_ms_estimate": 1.249706
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.009788,
+              "approx_plus_rerank_p50_ms_estimate": 1.254555
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.018855,
+              "approx_plus_rerank_p50_ms_estimate": 1.263622
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.03713,
+              "approx_plus_rerank_p50_ms_estimate": 1.281897
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.073719,
+              "approx_plus_rerank_p50_ms_estimate": 1.318486
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 19.702797,
+          "exact_float32_p50_ms": 3.489379,
+          "int8_shortlist_top160_p50_ms": 1.215191,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.95,
+              "rerank_only_p50_ms": 0.002985,
+              "approx_plus_rerank_p50_ms_estimate": 1.218176
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.004879,
+              "approx_plus_rerank_p50_ms_estimate": 1.22007
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.009709,
+              "approx_plus_rerank_p50_ms_estimate": 1.2249
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.018685,
+              "approx_plus_rerank_p50_ms_estimate": 1.233876
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.037611,
+              "approx_plus_rerank_p50_ms_estimate": 1.252802
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.074911,
+              "approx_plus_rerank_p50_ms_estimate": 1.290102
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 29.927694,
+          "exact_float32_p50_ms": 3.516469,
+          "int8_shortlist_top160_p50_ms": 1.231351,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.002926,
+              "approx_plus_rerank_p50_ms_estimate": 1.234277
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.004899,
+              "approx_plus_rerank_p50_ms_estimate": 1.23625
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.009468,
+              "approx_plus_rerank_p50_ms_estimate": 1.240819
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.018755,
+              "approx_plus_rerank_p50_ms_estimate": 1.250106
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.03759,
+              "approx_plus_rerank_p50_ms_estimate": 1.268941
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.074852,
+              "approx_plus_rerank_p50_ms_estimate": 1.306203
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 18.392747,
+          "exact_float32_p50_ms": 3.471024,
+          "int8_shortlist_top160_p50_ms": 1.208909,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.666667,
+              "rerank_only_p50_ms": 0.003045,
+              "approx_plus_rerank_p50_ms_estimate": 1.211954
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "rerank_only_p50_ms": 0.00526,
+              "approx_plus_rerank_p50_ms_estimate": 1.214169
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.95,
+              "rerank_only_p50_ms": 0.010219,
+              "approx_plus_rerank_p50_ms_estimate": 1.219128
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.020318,
+              "approx_plus_rerank_p50_ms_estimate": 1.229227
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.040386,
+              "approx_plus_rerank_p50_ms_estimate": 1.249295
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.080672,
+              "approx_plus_rerank_p50_ms_estimate": 1.289581
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 18.503436,
+          "exact_float32_p50_ms": 3.475613,
+          "int8_shortlist_top160_p50_ms": 1.211444,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.616667,
+              "rerank_only_p50_ms": 0.003066,
+              "approx_plus_rerank_p50_ms_estimate": 1.21451
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.816667,
+              "rerank_only_p50_ms": 0.00524,
+              "approx_plus_rerank_p50_ms_estimate": 1.216684
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.0104,
+              "approx_plus_rerank_p50_ms_estimate": 1.221844
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.020629,
+              "approx_plus_rerank_p50_ms_estimate": 1.232073
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.040145,
+              "approx_plus_rerank_p50_ms_estimate": 1.251589
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.078738,
+              "approx_plus_rerank_p50_ms_estimate": 1.290182
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 27.978118,
+          "exact_float32_p50_ms": 3.466767,
+          "int8_shortlist_top160_p50_ms": 1.20423,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.733333,
+              "rerank_only_p50_ms": 0.003246,
+              "approx_plus_rerank_p50_ms_estimate": 1.207476
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "rerank_only_p50_ms": 0.00543,
+              "approx_plus_rerank_p50_ms_estimate": 1.20966
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.01069,
+              "approx_plus_rerank_p50_ms_estimate": 1.21492
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.020659,
+              "approx_plus_rerank_p50_ms_estimate": 1.224889
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.040546,
+              "approx_plus_rerank_p50_ms_estimate": 1.244776
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.082045,
+              "approx_plus_rerank_p50_ms_estimate": 1.286275
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 28.008375,
+          "exact_float32_p50_ms": 3.469962,
+          "int8_shortlist_top160_p50_ms": 1.208649,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "rerank_only_p50_ms": 0.003276,
+              "approx_plus_rerank_p50_ms_estimate": 1.211925
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "rerank_only_p50_ms": 0.00527,
+              "approx_plus_rerank_p50_ms_estimate": 1.213919
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.01047,
+              "approx_plus_rerank_p50_ms_estimate": 1.219119
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.020989,
+              "approx_plus_rerank_p50_ms_estimate": 1.229638
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.040557,
+              "approx_plus_rerank_p50_ms_estimate": 1.249206
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.081654,
+              "approx_plus_rerank_p50_ms_estimate": 1.290303
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 22.400172,
+          "exact_float32_p50_ms": 3.480862,
+          "int8_shortlist_top160_p50_ms": 1.213157,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "rerank_only_p50_ms": 0.003327,
+              "approx_plus_rerank_p50_ms_estimate": 1.216484
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "rerank_only_p50_ms": 0.005371,
+              "approx_plus_rerank_p50_ms_estimate": 1.218528
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.010891,
+              "approx_plus_rerank_p50_ms_estimate": 1.224048
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.02101,
+              "approx_plus_rerank_p50_ms_estimate": 1.234167
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.041408,
+              "approx_plus_rerank_p50_ms_estimate": 1.254565
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.084399,
+              "approx_plus_rerank_p50_ms_estimate": 1.297556
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "node": "deathstar-xps-8920",
+      "compiler_binary": "gcc",
+      "host": "deathstar-XPS-8920",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 36.698484,
+          "exact_float32_p50_ms": 6.153158,
+          "int8_shortlist_top160_p50_ms": 1.867432,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.004171,
+              "approx_plus_rerank_p50_ms_estimate": 1.871603
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.007731,
+              "approx_plus_rerank_p50_ms_estimate": 1.875163
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.015156,
+              "approx_plus_rerank_p50_ms_estimate": 1.882588
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.030012,
+              "approx_plus_rerank_p50_ms_estimate": 1.897444
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.059867,
+              "approx_plus_rerank_p50_ms_estimate": 1.927299
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.120365,
+              "approx_plus_rerank_p50_ms_estimate": 1.987797
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 35.945555,
+          "exact_float32_p50_ms": 6.126891,
+          "int8_shortlist_top160_p50_ms": 1.828517,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.004143,
+              "approx_plus_rerank_p50_ms_estimate": 1.83266
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.007718,
+              "approx_plus_rerank_p50_ms_estimate": 1.836235
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.015111,
+              "approx_plus_rerank_p50_ms_estimate": 1.843628
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.030002,
+              "approx_plus_rerank_p50_ms_estimate": 1.858519
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.059715,
+              "approx_plus_rerank_p50_ms_estimate": 1.888232
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.118971,
+              "approx_plus_rerank_p50_ms_estimate": 1.947488
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 36.791594,
+          "exact_float32_p50_ms": 6.112021,
+          "int8_shortlist_top160_p50_ms": 1.842264,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.004091,
+              "approx_plus_rerank_p50_ms_estimate": 1.846355
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.007686,
+              "approx_plus_rerank_p50_ms_estimate": 1.84995
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.015335,
+              "approx_plus_rerank_p50_ms_estimate": 1.857599
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.029992,
+              "approx_plus_rerank_p50_ms_estimate": 1.872256
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.059632,
+              "approx_plus_rerank_p50_ms_estimate": 1.901896
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.118825,
+              "approx_plus_rerank_p50_ms_estimate": 1.961089
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 38.339342,
+          "exact_float32_p50_ms": 6.163482,
+          "int8_shortlist_top160_p50_ms": 1.871909,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.95,
+              "rerank_only_p50_ms": 0.004132,
+              "approx_plus_rerank_p50_ms_estimate": 1.876041
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.007732,
+              "approx_plus_rerank_p50_ms_estimate": 1.879641
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.015266,
+              "approx_plus_rerank_p50_ms_estimate": 1.887175
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.030001,
+              "approx_plus_rerank_p50_ms_estimate": 1.90191
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.060012,
+              "approx_plus_rerank_p50_ms_estimate": 1.931921
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.119627,
+              "approx_plus_rerank_p50_ms_estimate": 1.991536
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 36.279066,
+          "exact_float32_p50_ms": 6.120325,
+          "int8_shortlist_top160_p50_ms": 1.848081,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.004106,
+              "approx_plus_rerank_p50_ms_estimate": 1.852187
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.007697,
+              "approx_plus_rerank_p50_ms_estimate": 1.855778
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.015165,
+              "approx_plus_rerank_p50_ms_estimate": 1.863246
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.029942,
+              "approx_plus_rerank_p50_ms_estimate": 1.878023
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.059506,
+              "approx_plus_rerank_p50_ms_estimate": 1.907587
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.119592,
+              "approx_plus_rerank_p50_ms_estimate": 1.967673
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 34.921182,
+          "exact_float32_p50_ms": 6.275765,
+          "int8_shortlist_top160_p50_ms": 1.829163,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.666667,
+              "rerank_only_p50_ms": 0.004376,
+              "approx_plus_rerank_p50_ms_estimate": 1.833539
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "rerank_only_p50_ms": 0.00815,
+              "approx_plus_rerank_p50_ms_estimate": 1.837313
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.95,
+              "rerank_only_p50_ms": 0.016169,
+              "approx_plus_rerank_p50_ms_estimate": 1.845332
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.031885,
+              "approx_plus_rerank_p50_ms_estimate": 1.861048
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.063745,
+              "approx_plus_rerank_p50_ms_estimate": 1.892908
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.127275,
+              "approx_plus_rerank_p50_ms_estimate": 1.956438
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 34.921555,
+          "exact_float32_p50_ms": 6.111475,
+          "int8_shortlist_top160_p50_ms": 1.825555,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.616667,
+              "rerank_only_p50_ms": 0.004319,
+              "approx_plus_rerank_p50_ms_estimate": 1.829874
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.816667,
+              "rerank_only_p50_ms": 0.007989,
+              "approx_plus_rerank_p50_ms_estimate": 1.833544
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.015958,
+              "approx_plus_rerank_p50_ms_estimate": 1.841513
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.031685,
+              "approx_plus_rerank_p50_ms_estimate": 1.85724
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.062367,
+              "approx_plus_rerank_p50_ms_estimate": 1.887922
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.125174,
+              "approx_plus_rerank_p50_ms_estimate": 1.950729
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 36.355872,
+          "exact_float32_p50_ms": 6.113555,
+          "int8_shortlist_top160_p50_ms": 1.825378,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.733333,
+              "rerank_only_p50_ms": 0.004359,
+              "approx_plus_rerank_p50_ms_estimate": 1.829737
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "rerank_only_p50_ms": 0.008091,
+              "approx_plus_rerank_p50_ms_estimate": 1.833469
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.016035,
+              "approx_plus_rerank_p50_ms_estimate": 1.841413
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.031781,
+              "approx_plus_rerank_p50_ms_estimate": 1.857159
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.063448,
+              "approx_plus_rerank_p50_ms_estimate": 1.888826
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.126229,
+              "approx_plus_rerank_p50_ms_estimate": 1.951607
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 34.764557,
+          "exact_float32_p50_ms": 6.128046,
+          "int8_shortlist_top160_p50_ms": 1.834158,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "rerank_only_p50_ms": 0.004302,
+              "approx_plus_rerank_p50_ms_estimate": 1.83846
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "rerank_only_p50_ms": 0.007956,
+              "approx_plus_rerank_p50_ms_estimate": 1.842114
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.015959,
+              "approx_plus_rerank_p50_ms_estimate": 1.850117
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.031586,
+              "approx_plus_rerank_p50_ms_estimate": 1.865744
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.06265,
+              "approx_plus_rerank_p50_ms_estimate": 1.896808
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.126164,
+              "approx_plus_rerank_p50_ms_estimate": 1.960322
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 34.693792,
+          "exact_float32_p50_ms": 6.09699,
+          "int8_shortlist_top160_p50_ms": 1.823855,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "rerank_only_p50_ms": 0.004314,
+              "approx_plus_rerank_p50_ms_estimate": 1.828169
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "rerank_only_p50_ms": 0.00805,
+              "approx_plus_rerank_p50_ms_estimate": 1.831905
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.016065,
+              "approx_plus_rerank_p50_ms_estimate": 1.83992
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.031807,
+              "approx_plus_rerank_p50_ms_estimate": 1.855662
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.062663,
+              "approx_plus_rerank_p50_ms_estimate": 1.886518
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.126141,
+              "approx_plus_rerank_p50_ms_estimate": 1.949996
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "node": "raspberrypi",
+      "compiler_binary": "gcc-13",
+      "host": "raspberrypi",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 132.765144,
+          "exact_float32_p50_ms": 14.779944,
+          "int8_shortlist_top160_p50_ms": 7.12902,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.014185,
+              "approx_plus_rerank_p50_ms_estimate": 7.143205
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.019815,
+              "approx_plus_rerank_p50_ms_estimate": 7.148835
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.039462,
+              "approx_plus_rerank_p50_ms_estimate": 7.168482
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.07874,
+              "approx_plus_rerank_p50_ms_estimate": 7.20776
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.157518,
+              "approx_plus_rerank_p50_ms_estimate": 7.286538
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.320312,
+              "approx_plus_rerank_p50_ms_estimate": 7.449332
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 133.111511,
+          "exact_float32_p50_ms": 14.782352,
+          "int8_shortlist_top160_p50_ms": 7.105705,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.013722,
+              "approx_plus_rerank_p50_ms_estimate": 7.119427
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.020444,
+              "approx_plus_rerank_p50_ms_estimate": 7.126149
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.039333,
+              "approx_plus_rerank_p50_ms_estimate": 7.145038
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.077574,
+              "approx_plus_rerank_p50_ms_estimate": 7.183279
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.156425,
+              "approx_plus_rerank_p50_ms_estimate": 7.26213
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.315571,
+              "approx_plus_rerank_p50_ms_estimate": 7.421276
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 132.683367,
+          "exact_float32_p50_ms": 14.788148,
+          "int8_shortlist_top160_p50_ms": 7.168093,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.014389,
+              "approx_plus_rerank_p50_ms_estimate": 7.182482
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.019963,
+              "approx_plus_rerank_p50_ms_estimate": 7.188056
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.039073,
+              "approx_plus_rerank_p50_ms_estimate": 7.207166
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.081111,
+              "approx_plus_rerank_p50_ms_estimate": 7.249204
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.158203,
+              "approx_plus_rerank_p50_ms_estimate": 7.326296
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.318886,
+              "approx_plus_rerank_p50_ms_estimate": 7.486979
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 133.366843,
+          "exact_float32_p50_ms": 14.774055,
+          "int8_shortlist_top160_p50_ms": 7.150631,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.95,
+              "rerank_only_p50_ms": 0.013982,
+              "approx_plus_rerank_p50_ms_estimate": 7.164613
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.020241,
+              "approx_plus_rerank_p50_ms_estimate": 7.170872
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.039185,
+              "approx_plus_rerank_p50_ms_estimate": 7.189816
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.079129,
+              "approx_plus_rerank_p50_ms_estimate": 7.22976
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.156869,
+              "approx_plus_rerank_p50_ms_estimate": 7.3075
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.315924,
+              "approx_plus_rerank_p50_ms_estimate": 7.466555
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 53.344485,
+          "exact_float32_p50_ms": 14.78087,
+          "int8_shortlist_top160_p50_ms": 7.155965,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.013797,
+              "approx_plus_rerank_p50_ms_estimate": 7.169762
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.020018,
+              "approx_plus_rerank_p50_ms_estimate": 7.175983
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.038907,
+              "approx_plus_rerank_p50_ms_estimate": 7.194872
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.078629,
+              "approx_plus_rerank_p50_ms_estimate": 7.234594
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.159091,
+              "approx_plus_rerank_p50_ms_estimate": 7.315056
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.316683,
+              "approx_plus_rerank_p50_ms_estimate": 7.472648
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 132.743496,
+          "exact_float32_p50_ms": 14.773129,
+          "int8_shortlist_top160_p50_ms": 7.104909,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.666667,
+              "rerank_only_p50_ms": 0.013537,
+              "approx_plus_rerank_p50_ms_estimate": 7.118446
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "rerank_only_p50_ms": 0.019926,
+              "approx_plus_rerank_p50_ms_estimate": 7.124835
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.95,
+              "rerank_only_p50_ms": 0.039703,
+              "approx_plus_rerank_p50_ms_estimate": 7.144612
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.078981,
+              "approx_plus_rerank_p50_ms_estimate": 7.18389
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.158758,
+              "approx_plus_rerank_p50_ms_estimate": 7.263667
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.326702,
+              "approx_plus_rerank_p50_ms_estimate": 7.431611
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 136.309285,
+          "exact_float32_p50_ms": 14.772833,
+          "int8_shortlist_top160_p50_ms": 7.098965,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.616667,
+              "rerank_only_p50_ms": 0.013685,
+              "approx_plus_rerank_p50_ms_estimate": 7.11265
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.816667,
+              "rerank_only_p50_ms": 0.019889,
+              "approx_plus_rerank_p50_ms_estimate": 7.118854
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.039796,
+              "approx_plus_rerank_p50_ms_estimate": 7.138761
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.07924,
+              "approx_plus_rerank_p50_ms_estimate": 7.178205
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.15837,
+              "approx_plus_rerank_p50_ms_estimate": 7.257335
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.320201,
+              "approx_plus_rerank_p50_ms_estimate": 7.419166
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 91.804066,
+          "exact_float32_p50_ms": 14.777592,
+          "int8_shortlist_top160_p50_ms": 7.110983,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.733333,
+              "rerank_only_p50_ms": 0.014056,
+              "approx_plus_rerank_p50_ms_estimate": 7.125039
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "rerank_only_p50_ms": 0.019851,
+              "approx_plus_rerank_p50_ms_estimate": 7.130834
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "rerank_only_p50_ms": 0.039519,
+              "approx_plus_rerank_p50_ms_estimate": 7.150502
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.079,
+              "approx_plus_rerank_p50_ms_estimate": 7.189983
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.157999,
+              "approx_plus_rerank_p50_ms_estimate": 7.268982
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.318387,
+              "approx_plus_rerank_p50_ms_estimate": 7.42937
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 146.072026,
+          "exact_float32_p50_ms": 14.773074,
+          "int8_shortlist_top160_p50_ms": 7.107928,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "rerank_only_p50_ms": 0.013833,
+              "approx_plus_rerank_p50_ms_estimate": 7.121761
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "rerank_only_p50_ms": 0.019871,
+              "approx_plus_rerank_p50_ms_estimate": 7.127799
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.03974,
+              "approx_plus_rerank_p50_ms_estimate": 7.147668
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.079203,
+              "approx_plus_rerank_p50_ms_estimate": 7.187131
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.158777,
+              "approx_plus_rerank_p50_ms_estimate": 7.266705
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.327442,
+              "approx_plus_rerank_p50_ms_estimate": 7.43537
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 145.474493,
+          "exact_float32_p50_ms": 14.773444,
+          "int8_shortlist_top160_p50_ms": 7.097316,
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "rerank_only_p50_ms": 0.013778,
+              "approx_plus_rerank_p50_ms_estimate": 7.111094
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "rerank_only_p50_ms": 0.019851,
+              "approx_plus_rerank_p50_ms_estimate": 7.117167
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.983333,
+              "rerank_only_p50_ms": 0.039592,
+              "approx_plus_rerank_p50_ms_estimate": 7.136908
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.079055,
+              "approx_plus_rerank_p50_ms_estimate": 7.176371
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.158277,
+              "approx_plus_rerank_p50_ms_estimate": 7.255593
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "rerank_only_p50_ms": 0.326146,
+              "approx_plus_rerank_p50_ms_estimate": 7.423462
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Synthetic CPU-only vector distributions; not dashcam embeddings",
+    "Same seed/mode repeated on nodes is not an independent dataset",
+    "Latency estimates sum per-k rescoring and one common top160 scan",
+    "GPU, ANN and real user traces not evaluated"
+  ]
+}
