@@ -24,3 +24,9 @@ As a dedicated software engineer, I thrive at the intersection of data, technolo
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=scottjoyner" alt="scottjoyner" /></a> </p>
 
 <!-- You can add or modify sections according to your preferences -->
+
+## Research & publications
+
+Explore the [public research and manuscripts inventory](RESEARCH.md), including **dashcam/video embeddings**, **location-aware knowledge graphs**, multimodal retrieval, and compact LLM representation geometry.
+
+The inventory distinguishes **public manuscripts**, **technical proposals**, **source code**, and **verified arXiv publications**; repository-hosted drafts are not represented as published arXiv papers.
