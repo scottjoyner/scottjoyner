@@ -1,0 +1,2933 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_direct_timed_shortlist_multihost",
+  "date": "2026-10-29",
+  "source_sha256": "6d18da89bdba1c07cfbd970c936327903701d81ef3bef542c344c6fc99c27fec",
+  "source_commit": "845d0604f7abc672af699424c01ebea9ed9f493d",
+  "distribution_modes": [
+    "independent",
+    "temporal",
+    "clustered"
+  ],
+  "seed_values": [
+    20261029,
+    20261030,
+    20261031,
+    20261032,
+    20261033
+  ],
+  "vectors": 8192,
+  "dimensions": 768,
+  "queries_per_case": 12,
+  "repeats": 2,
+  "runs": [
+    {
+      "node": "x1-370",
+      "compiler": "gcc",
+      "host": "x1-370",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 20.634396,
+          "exact_float32_p50_ms": 3.534646,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 1.175286,
+              "rerank_only_p50_ms": 0.004067,
+              "end_to_end_p50_ms": 1.180516
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.17692,
+              "rerank_only_p50_ms": 0.007073,
+              "end_to_end_p50_ms": 1.183341
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.179064,
+              "rerank_only_p50_ms": 0.013305,
+              "end_to_end_p50_ms": 1.19308
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.183041,
+              "rerank_only_p50_ms": 0.026931,
+              "end_to_end_p50_ms": 1.212517
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.197609,
+              "rerank_only_p50_ms": 0.05321,
+              "end_to_end_p50_ms": 1.255838
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.2298,
+              "rerank_only_p50_ms": 0.106511,
+              "end_to_end_p50_ms": 1.347271
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 19.678723,
+          "exact_float32_p50_ms": 3.545627,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.833333,
+              "int8_scan_p50_ms": 1.174646,
+              "rerank_only_p50_ms": 0.004238,
+              "end_to_end_p50_ms": 1.179685
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.174616,
+              "rerank_only_p50_ms": 0.006833,
+              "end_to_end_p50_ms": 1.181408
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.180707,
+              "rerank_only_p50_ms": 0.014287,
+              "end_to_end_p50_ms": 1.194183
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.185646,
+              "rerank_only_p50_ms": 0.028414,
+              "end_to_end_p50_ms": 1.213889
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.199772,
+              "rerank_only_p50_ms": 0.054021,
+              "end_to_end_p50_ms": 1.254256
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.229409,
+              "rerank_only_p50_ms": 0.109216,
+              "end_to_end_p50_ms": 1.344425
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 28.883432,
+          "exact_float32_p50_ms": 3.556849,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.783333,
+              "int8_scan_p50_ms": 1.294482,
+              "rerank_only_p50_ms": 0.004819,
+              "end_to_end_p50_ms": 1.2987
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.183432,
+              "rerank_only_p50_ms": 0.007824,
+              "end_to_end_p50_ms": 1.190776
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.420339,
+              "rerank_only_p50_ms": 0.016871,
+              "end_to_end_p50_ms": 1.437291
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.200724,
+              "rerank_only_p50_ms": 0.033192,
+              "end_to_end_p50_ms": 1.231683
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.212146,
+              "rerank_only_p50_ms": 0.06391,
+              "end_to_end_p50_ms": 1.274945
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.252071,
+              "rerank_only_p50_ms": 0.129214,
+              "end_to_end_p50_ms": 1.398427
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 19.897647,
+          "exact_float32_p50_ms": 3.548522,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.866667,
+              "int8_scan_p50_ms": 1.176038,
+              "rerank_only_p50_ms": 0.004369,
+              "end_to_end_p50_ms": 1.181338
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.175718,
+              "rerank_only_p50_ms": 0.007594,
+              "end_to_end_p50_ms": 1.183672
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.181217,
+              "rerank_only_p50_ms": 0.015369,
+              "end_to_end_p50_ms": 1.196417
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.190415,
+              "rerank_only_p50_ms": 0.030748,
+              "end_to_end_p50_ms": 1.21974
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.202378,
+              "rerank_only_p50_ms": 0.060474,
+              "end_to_end_p50_ms": 1.268242
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.23556,
+              "rerank_only_p50_ms": 0.130787,
+              "end_to_end_p50_ms": 1.368691
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 29.577622,
+          "exact_float32_p50_ms": 5.276952,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.816667,
+              "int8_scan_p50_ms": 1.764898,
+              "rerank_only_p50_ms": 0.004829,
+              "end_to_end_p50_ms": 1.77105
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.769507,
+              "rerank_only_p50_ms": 0.008105,
+              "end_to_end_p50_ms": 1.777943
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.774236,
+              "rerank_only_p50_ms": 0.01572,
+              "end_to_end_p50_ms": 1.790486
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.78173,
+              "rerank_only_p50_ms": 0.035828,
+              "end_to_end_p50_ms": 1.81868
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.799003,
+              "rerank_only_p50_ms": 0.071114,
+              "end_to_end_p50_ms": 1.867652
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.845431,
+              "rerank_only_p50_ms": 0.141357,
+              "end_to_end_p50_ms": 1.99339
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 32.259549,
+          "exact_float32_p50_ms": 3.554334,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.183652,
+              "rerank_only_p50_ms": 0.004709,
+              "end_to_end_p50_ms": 1.188672
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.188041,
+              "rerank_only_p50_ms": 0.007003,
+              "end_to_end_p50_ms": 1.195064
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.186898,
+              "rerank_only_p50_ms": 0.013205,
+              "end_to_end_p50_ms": 1.202848
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.192198,
+              "rerank_only_p50_ms": 0.025368,
+              "end_to_end_p50_ms": 1.215192
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.202839,
+              "rerank_only_p50_ms": 0.051227,
+              "end_to_end_p50_ms": 1.249747
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.224759,
+              "rerank_only_p50_ms": 0.088878,
+              "end_to_end_p50_ms": 1.327804
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 21.384811,
+          "exact_float32_p50_ms": 3.607443,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.193941,
+              "rerank_only_p50_ms": 0.004298,
+              "end_to_end_p50_ms": 1.198299
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.212687,
+              "rerank_only_p50_ms": 0.007835,
+              "end_to_end_p50_ms": 1.220001
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.250067,
+              "rerank_only_p50_ms": 0.015369,
+              "end_to_end_p50_ms": 1.26763
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.205554,
+              "rerank_only_p50_ms": 0.028243,
+              "end_to_end_p50_ms": 1.229659
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.207938,
+              "rerank_only_p50_ms": 0.053802,
+              "end_to_end_p50_ms": 1.260928
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.251761,
+              "rerank_only_p50_ms": 0.111881,
+              "end_to_end_p50_ms": 1.363331
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 28.410601,
+          "exact_float32_p50_ms": 3.541379,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.190194,
+              "rerank_only_p50_ms": 0.003617,
+              "end_to_end_p50_ms": 1.194793
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.188692,
+              "rerank_only_p50_ms": 0.006282,
+              "end_to_end_p50_ms": 1.196997
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.19826,
+              "rerank_only_p50_ms": 0.012393,
+              "end_to_end_p50_ms": 1.210032
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.202808,
+              "rerank_only_p50_ms": 0.023524,
+              "end_to_end_p50_ms": 1.228267
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.209551,
+              "rerank_only_p50_ms": 0.045245,
+              "end_to_end_p50_ms": 1.260087
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.239057,
+              "rerank_only_p50_ms": 0.091473,
+              "end_to_end_p50_ms": 1.33607
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 37.862747,
+          "exact_float32_p50_ms": 5.293293,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.95,
+              "int8_scan_p50_ms": 1.77615,
+              "rerank_only_p50_ms": 0.004609,
+              "end_to_end_p50_ms": 1.781169
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.788974,
+              "rerank_only_p50_ms": 0.007975,
+              "end_to_end_p50_ms": 1.79699
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.780598,
+              "rerank_only_p50_ms": 0.015079,
+              "end_to_end_p50_ms": 1.795576
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.790357,
+              "rerank_only_p50_ms": 0.029456,
+              "end_to_end_p50_ms": 1.821846
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.811296,
+              "rerank_only_p50_ms": 0.059362,
+              "end_to_end_p50_ms": 1.873693
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.851952,
+              "rerank_only_p50_ms": 0.118724,
+              "end_to_end_p50_ms": 1.979163
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 31.113048,
+          "exact_float32_p50_ms": 5.266041,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.733158,
+              "rerank_only_p50_ms": 0.004248,
+              "end_to_end_p50_ms": 1.738328
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.729342,
+              "rerank_only_p50_ms": 0.007414,
+              "end_to_end_p50_ms": 1.736706
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.731625,
+              "rerank_only_p50_ms": 0.014428,
+              "end_to_end_p50_ms": 1.746644
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.72885,
+              "rerank_only_p50_ms": 0.027702,
+              "end_to_end_p50_ms": 1.756452
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.732357,
+              "rerank_only_p50_ms": 0.054502,
+              "end_to_end_p50_ms": 1.788382
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.74429,
+              "rerank_only_p50_ms": 0.109116,
+              "end_to_end_p50_ms": 1.857533
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 24.402181,
+          "exact_float32_p50_ms": 3.558972,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.666667,
+              "int8_scan_p50_ms": 1.190245,
+              "rerank_only_p50_ms": 0.005029,
+              "end_to_end_p50_ms": 1.195344
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "int8_scan_p50_ms": 1.189393,
+              "rerank_only_p50_ms": 0.008666,
+              "end_to_end_p50_ms": 1.199882
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.95,
+              "int8_scan_p50_ms": 1.19331,
+              "rerank_only_p50_ms": 0.016441,
+              "end_to_end_p50_ms": 1.212547
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.202829,
+              "rerank_only_p50_ms": 0.030738,
+              "end_to_end_p50_ms": 1.23566
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.215252,
+              "rerank_only_p50_ms": 0.064471,
+              "end_to_end_p50_ms": 1.286305
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.249797,
+              "rerank_only_p50_ms": 0.138241,
+              "end_to_end_p50_ms": 1.396755
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 29.299548,
+          "exact_float32_p50_ms": 3.555966,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.616667,
+              "int8_scan_p50_ms": 1.183733,
+              "rerank_only_p50_ms": 0.004158,
+              "end_to_end_p50_ms": 1.188782
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.816667,
+              "int8_scan_p50_ms": 1.18246,
+              "rerank_only_p50_ms": 0.007724,
+              "end_to_end_p50_ms": 1.189123
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.190084,
+              "rerank_only_p50_ms": 0.015108,
+              "end_to_end_p50_ms": 1.204982
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.193341,
+              "rerank_only_p50_ms": 0.028844,
+              "end_to_end_p50_ms": 1.221303
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.207187,
+              "rerank_only_p50_ms": 0.055915,
+              "end_to_end_p50_ms": 1.266338
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.236452,
+              "rerank_only_p50_ms": 0.112823,
+              "end_to_end_p50_ms": 1.350668
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 20.183876,
+          "exact_float32_p50_ms": 3.523075,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.733333,
+              "int8_scan_p50_ms": 1.169626,
+              "rerank_only_p50_ms": 0.004298,
+              "end_to_end_p50_ms": 1.174816
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 1.170057,
+              "rerank_only_p50_ms": 0.007614,
+              "end_to_end_p50_ms": 1.178152
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.173883,
+              "rerank_only_p50_ms": 0.014697,
+              "end_to_end_p50_ms": 1.188782
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.180346,
+              "rerank_only_p50_ms": 0.029686,
+              "end_to_end_p50_ms": 1.211314
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.194353,
+              "rerank_only_p50_ms": 0.060353,
+              "end_to_end_p50_ms": 1.257621
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.226674,
+              "rerank_only_p50_ms": 0.123873,
+              "end_to_end_p50_ms": 1.355827
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 29.17872,
+          "exact_float32_p50_ms": 5.276391,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "int8_scan_p50_ms": 1.758075,
+              "rerank_only_p50_ms": 0.004729,
+              "end_to_end_p50_ms": 1.762744
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 1.760771,
+              "rerank_only_p50_ms": 0.008536,
+              "end_to_end_p50_ms": 1.769958
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.761782,
+              "rerank_only_p50_ms": 0.016541,
+              "end_to_end_p50_ms": 1.779095
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.77078,
+              "rerank_only_p50_ms": 0.033794,
+              "end_to_end_p50_ms": 1.805355
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.787611,
+              "rerank_only_p50_ms": 0.065784,
+              "end_to_end_p50_ms": 1.858806
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.830713,
+              "rerank_only_p50_ms": 0.134183,
+              "end_to_end_p50_ms": 1.970306
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "x1-370",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 30.403139,
+          "exact_float32_p50_ms": 5.27055,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "int8_scan_p50_ms": 1.745512,
+              "rerank_only_p50_ms": 0.004609,
+              "end_to_end_p50_ms": 1.750922
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "int8_scan_p50_ms": 1.748016,
+              "rerank_only_p50_ms": 0.008155,
+              "end_to_end_p50_ms": 1.755851
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.752024,
+              "rerank_only_p50_ms": 0.016391,
+              "end_to_end_p50_ms": 1.767734
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.760991,
+              "rerank_only_p50_ms": 0.032311,
+              "end_to_end_p50_ms": 1.795366
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.778835,
+              "rerank_only_p50_ms": 0.065053,
+              "end_to_end_p50_ms": 1.846403
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.820564,
+              "rerank_only_p50_ms": 0.131237,
+              "end_to_end_p50_ms": 1.955959
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "node": "deathstar-xps-8920",
+      "compiler": "gcc",
+      "host": "deathstar-XPS-8920",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 42.826351,
+          "exact_float32_p50_ms": 7.020173,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 1.970641,
+              "rerank_only_p50_ms": 0.004477,
+              "end_to_end_p50_ms": 1.975305
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 2.026562,
+              "rerank_only_p50_ms": 0.008753,
+              "end_to_end_p50_ms": 2.036
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.033509,
+              "rerank_only_p50_ms": 0.017342,
+              "end_to_end_p50_ms": 2.051729
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.982406,
+              "rerank_only_p50_ms": 0.034558,
+              "end_to_end_p50_ms": 2.018199
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.043535,
+              "rerank_only_p50_ms": 0.068968,
+              "end_to_end_p50_ms": 2.11455
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.102934,
+              "rerank_only_p50_ms": 0.143788,
+              "end_to_end_p50_ms": 2.26756
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 45.081343,
+          "exact_float32_p50_ms": 6.86628,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.833333,
+              "int8_scan_p50_ms": 2.00208,
+              "rerank_only_p50_ms": 0.004488,
+              "end_to_end_p50_ms": 2.006841
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.947172,
+              "rerank_only_p50_ms": 0.008789,
+              "end_to_end_p50_ms": 1.955937
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.953338,
+              "rerank_only_p50_ms": 0.017308,
+              "end_to_end_p50_ms": 1.971095
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.977018,
+              "rerank_only_p50_ms": 0.034495,
+              "end_to_end_p50_ms": 2.012295
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.983328,
+              "rerank_only_p50_ms": 0.079281,
+              "end_to_end_p50_ms": 2.065931
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.021919,
+              "rerank_only_p50_ms": 0.138655,
+              "end_to_end_p50_ms": 2.199957
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 46.426685,
+          "exact_float32_p50_ms": 6.896735,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.783333,
+              "int8_scan_p50_ms": 1.974517,
+              "rerank_only_p50_ms": 0.004447,
+              "end_to_end_p50_ms": 1.979108
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.920513,
+              "rerank_only_p50_ms": 0.008888,
+              "end_to_end_p50_ms": 1.933082
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.956564,
+              "rerank_only_p50_ms": 0.017471,
+              "end_to_end_p50_ms": 1.974014
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.952839,
+              "rerank_only_p50_ms": 0.034963,
+              "end_to_end_p50_ms": 1.989741
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.99731,
+              "rerank_only_p50_ms": 0.070697,
+              "end_to_end_p50_ms": 2.07947
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.027991,
+              "rerank_only_p50_ms": 0.14056,
+              "end_to_end_p50_ms": 2.173537
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 41.998878,
+          "exact_float32_p50_ms": 6.747227,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.866667,
+              "int8_scan_p50_ms": 1.921126,
+              "rerank_only_p50_ms": 0.004429,
+              "end_to_end_p50_ms": 1.925945
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.933567,
+              "rerank_only_p50_ms": 0.008763,
+              "end_to_end_p50_ms": 1.94292
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.938065,
+              "rerank_only_p50_ms": 0.017214,
+              "end_to_end_p50_ms": 1.955319
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.956292,
+              "rerank_only_p50_ms": 0.034719,
+              "end_to_end_p50_ms": 1.992618
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.97803,
+              "rerank_only_p50_ms": 0.06929,
+              "end_to_end_p50_ms": 2.048557
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.009124,
+              "rerank_only_p50_ms": 0.138773,
+              "end_to_end_p50_ms": 2.184746
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 46.080034,
+          "exact_float32_p50_ms": 6.844494,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.816667,
+              "int8_scan_p50_ms": 1.98651,
+              "rerank_only_p50_ms": 0.004589,
+              "end_to_end_p50_ms": 1.990971
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.983698,
+              "rerank_only_p50_ms": 0.00879,
+              "end_to_end_p50_ms": 1.99766
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.954307,
+              "rerank_only_p50_ms": 0.017776,
+              "end_to_end_p50_ms": 1.972578
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.997725,
+              "rerank_only_p50_ms": 0.035069,
+              "end_to_end_p50_ms": 2.034549
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.989827,
+              "rerank_only_p50_ms": 0.069374,
+              "end_to_end_p50_ms": 2.06999
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.046686,
+              "rerank_only_p50_ms": 0.151756,
+              "end_to_end_p50_ms": 2.220051
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 43.946971,
+          "exact_float32_p50_ms": 6.757995,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.930281,
+              "rerank_only_p50_ms": 0.004146,
+              "end_to_end_p50_ms": 1.934842
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.947529,
+              "rerank_only_p50_ms": 0.008069,
+              "end_to_end_p50_ms": 1.962037
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.914269,
+              "rerank_only_p50_ms": 0.015773,
+              "end_to_end_p50_ms": 1.930488
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.94436,
+              "rerank_only_p50_ms": 0.031144,
+              "end_to_end_p50_ms": 1.975808
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.897553,
+              "rerank_only_p50_ms": 0.062282,
+              "end_to_end_p50_ms": 1.994488
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.007186,
+              "rerank_only_p50_ms": 0.1366,
+              "end_to_end_p50_ms": 2.14377
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 46.017525,
+          "exact_float32_p50_ms": 6.812795,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.974023,
+              "rerank_only_p50_ms": 0.004231,
+              "end_to_end_p50_ms": 1.978309
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.921725,
+              "rerank_only_p50_ms": 0.008153,
+              "end_to_end_p50_ms": 1.930612
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.92835,
+              "rerank_only_p50_ms": 0.015988,
+              "end_to_end_p50_ms": 1.944365
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.968072,
+              "rerank_only_p50_ms": 0.031317,
+              "end_to_end_p50_ms": 1.999878
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.971132,
+              "rerank_only_p50_ms": 0.06279,
+              "end_to_end_p50_ms": 2.037522
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.005281,
+              "rerank_only_p50_ms": 0.12717,
+              "end_to_end_p50_ms": 2.145967
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 47.745095,
+          "exact_float32_p50_ms": 6.793508,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.949912,
+              "rerank_only_p50_ms": 0.004183,
+              "end_to_end_p50_ms": 1.954435
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.940777,
+              "rerank_only_p50_ms": 0.008126,
+              "end_to_end_p50_ms": 1.948856
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.933554,
+              "rerank_only_p50_ms": 0.015931,
+              "end_to_end_p50_ms": 1.950031
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.944127,
+              "rerank_only_p50_ms": 0.031225,
+              "end_to_end_p50_ms": 1.975472
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.946171,
+              "rerank_only_p50_ms": 0.062253,
+              "end_to_end_p50_ms": 2.019872
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.979149,
+              "rerank_only_p50_ms": 0.126648,
+              "end_to_end_p50_ms": 2.122225
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 43.235461,
+          "exact_float32_p50_ms": 6.798724,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.95,
+              "int8_scan_p50_ms": 1.932464,
+              "rerank_only_p50_ms": 0.004152,
+              "end_to_end_p50_ms": 1.937134
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.940214,
+              "rerank_only_p50_ms": 0.007987,
+              "end_to_end_p50_ms": 1.948696
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.901576,
+              "rerank_only_p50_ms": 0.015858,
+              "end_to_end_p50_ms": 1.917599
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.916141,
+              "rerank_only_p50_ms": 0.031616,
+              "end_to_end_p50_ms": 1.947499
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.933711,
+              "rerank_only_p50_ms": 0.061815,
+              "end_to_end_p50_ms": 2.013343
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.032308,
+              "rerank_only_p50_ms": 0.128946,
+              "end_to_end_p50_ms": 2.177332
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 56.238141,
+          "exact_float32_p50_ms": 6.843365,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.961211,
+              "rerank_only_p50_ms": 0.004195,
+              "end_to_end_p50_ms": 1.965732
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.978267,
+              "rerank_only_p50_ms": 0.008056,
+              "end_to_end_p50_ms": 1.98734
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.96272,
+              "rerank_only_p50_ms": 0.015949,
+              "end_to_end_p50_ms": 1.978369
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.95917,
+              "rerank_only_p50_ms": 0.031239,
+              "end_to_end_p50_ms": 1.990843
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.936296,
+              "rerank_only_p50_ms": 0.062255,
+              "end_to_end_p50_ms": 2.005012
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.004077,
+              "rerank_only_p50_ms": 0.124146,
+              "end_to_end_p50_ms": 2.150821
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 40.605909,
+          "exact_float32_p50_ms": 6.794061,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.666667,
+              "int8_scan_p50_ms": 2.002447,
+              "rerank_only_p50_ms": 0.004569,
+              "end_to_end_p50_ms": 2.007129
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "int8_scan_p50_ms": 1.991936,
+              "rerank_only_p50_ms": 0.009011,
+              "end_to_end_p50_ms": 2.00126
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.95,
+              "int8_scan_p50_ms": 1.957923,
+              "rerank_only_p50_ms": 0.018301,
+              "end_to_end_p50_ms": 1.97787
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.96912,
+              "rerank_only_p50_ms": 0.036435,
+              "end_to_end_p50_ms": 2.009467
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.95222,
+              "rerank_only_p50_ms": 0.075105,
+              "end_to_end_p50_ms": 2.024414
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.044986,
+              "rerank_only_p50_ms": 0.1495,
+              "end_to_end_p50_ms": 2.207852
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 41.506377,
+          "exact_float32_p50_ms": 6.850144,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.616667,
+              "int8_scan_p50_ms": 1.998164,
+              "rerank_only_p50_ms": 0.004519,
+              "end_to_end_p50_ms": 2.003038
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.816667,
+              "int8_scan_p50_ms": 1.969347,
+              "rerank_only_p50_ms": 0.009046,
+              "end_to_end_p50_ms": 1.981638
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 2.038297,
+              "rerank_only_p50_ms": 0.017783,
+              "end_to_end_p50_ms": 2.058711
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.988699,
+              "rerank_only_p50_ms": 0.03559,
+              "end_to_end_p50_ms": 2.041427
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.994153,
+              "rerank_only_p50_ms": 0.070656,
+              "end_to_end_p50_ms": 2.073924
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.040728,
+              "rerank_only_p50_ms": 0.14423,
+              "end_to_end_p50_ms": 2.18429
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 50.63572,
+          "exact_float32_p50_ms": 6.824681,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.733333,
+              "int8_scan_p50_ms": 2.000273,
+              "rerank_only_p50_ms": 0.004641,
+              "end_to_end_p50_ms": 2.004853
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 1.966231,
+              "rerank_only_p50_ms": 0.00899,
+              "end_to_end_p50_ms": 1.975627
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 1.984159,
+              "rerank_only_p50_ms": 0.017947,
+              "end_to_end_p50_ms": 2.007654
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.968602,
+              "rerank_only_p50_ms": 0.035378,
+              "end_to_end_p50_ms": 2.003301
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.000352,
+              "rerank_only_p50_ms": 0.072085,
+              "end_to_end_p50_ms": 2.075822
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.06405,
+              "rerank_only_p50_ms": 0.150293,
+              "end_to_end_p50_ms": 2.221194
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 50.484966,
+          "exact_float32_p50_ms": 7.06259,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "int8_scan_p50_ms": 2.009774,
+              "rerank_only_p50_ms": 0.00458,
+              "end_to_end_p50_ms": 2.01433
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 2.055745,
+              "rerank_only_p50_ms": 0.008848,
+              "end_to_end_p50_ms": 2.065274
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.005689,
+              "rerank_only_p50_ms": 0.017779,
+              "end_to_end_p50_ms": 2.02479
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.027293,
+              "rerank_only_p50_ms": 0.035335,
+              "end_to_end_p50_ms": 2.080205
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.054489,
+              "rerank_only_p50_ms": 0.070481,
+              "end_to_end_p50_ms": 2.132085
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.09102,
+              "rerank_only_p50_ms": 0.143913,
+              "end_to_end_p50_ms": 2.286755
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "deathstar-XPS-8920",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 49.470283,
+          "exact_float32_p50_ms": 6.793522,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "int8_scan_p50_ms": 1.953252,
+              "rerank_only_p50_ms": 0.004568,
+              "end_to_end_p50_ms": 1.957899
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "int8_scan_p50_ms": 1.962852,
+              "rerank_only_p50_ms": 0.00902,
+              "end_to_end_p50_ms": 1.972639
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 1.995721,
+              "rerank_only_p50_ms": 0.017569,
+              "end_to_end_p50_ms": 2.013228
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.949479,
+              "rerank_only_p50_ms": 0.035191,
+              "end_to_end_p50_ms": 1.983722
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 1.918419,
+              "rerank_only_p50_ms": 0.069574,
+              "end_to_end_p50_ms": 1.994411
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 2.040049,
+              "rerank_only_p50_ms": 0.141178,
+              "end_to_end_p50_ms": 2.193794
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "node": "raspberrypi",
+      "compiler": "gcc-13",
+      "host": "raspberrypi",
+      "trials": [
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 137.228489,
+          "exact_float32_p50_ms": 14.778262,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 6.873978,
+              "rerank_only_p50_ms": 0.014111,
+              "end_to_end_p50_ms": 6.888348
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.874238,
+              "rerank_only_p50_ms": 0.024518,
+              "end_to_end_p50_ms": 6.898793
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.883237,
+              "rerank_only_p50_ms": 0.045814,
+              "end_to_end_p50_ms": 6.929867
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.897497,
+              "rerank_only_p50_ms": 0.087518,
+              "end_to_end_p50_ms": 6.987569
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.949996,
+              "rerank_only_p50_ms": 0.171776,
+              "end_to_end_p50_ms": 7.129143
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.104032,
+              "rerank_only_p50_ms": 0.339645,
+              "end_to_end_p50_ms": 7.474954
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 136.661087,
+          "exact_float32_p50_ms": 14.78428,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.833333,
+              "int8_scan_p50_ms": 6.874663,
+              "rerank_only_p50_ms": 0.014314,
+              "end_to_end_p50_ms": 6.88946
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.873015,
+              "rerank_only_p50_ms": 0.024389,
+              "end_to_end_p50_ms": 6.898737
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.880886,
+              "rerank_only_p50_ms": 0.045758,
+              "end_to_end_p50_ms": 6.927644
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.898181,
+              "rerank_only_p50_ms": 0.088017,
+              "end_to_end_p50_ms": 6.989162
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.951607,
+              "rerank_only_p50_ms": 0.172054,
+              "end_to_end_p50_ms": 7.131458
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.110199,
+              "rerank_only_p50_ms": 0.339867,
+              "end_to_end_p50_ms": 7.476862
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 139.653061,
+          "exact_float32_p50_ms": 14.776633,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.783333,
+              "int8_scan_p50_ms": 6.874181,
+              "rerank_only_p50_ms": 0.014148,
+              "end_to_end_p50_ms": 6.888663
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 6.875496,
+              "rerank_only_p50_ms": 0.024537,
+              "end_to_end_p50_ms": 6.900737
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.88033,
+              "rerank_only_p50_ms": 0.045518,
+              "end_to_end_p50_ms": 6.926829
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.899107,
+              "rerank_only_p50_ms": 0.087666,
+              "end_to_end_p50_ms": 6.989237
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.946588,
+              "rerank_only_p50_ms": 0.171888,
+              "end_to_end_p50_ms": 7.125939
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.100846,
+              "rerank_only_p50_ms": 0.338997,
+              "end_to_end_p50_ms": 7.466399
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 144.2023,
+          "exact_float32_p50_ms": 14.774355,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.866667,
+              "int8_scan_p50_ms": 6.87507,
+              "rerank_only_p50_ms": 0.014,
+              "end_to_end_p50_ms": 6.889496
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.875664,
+              "rerank_only_p50_ms": 0.024333,
+              "end_to_end_p50_ms": 6.900459
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.879923,
+              "rerank_only_p50_ms": 0.045147,
+              "end_to_end_p50_ms": 6.926496
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.898515,
+              "rerank_only_p50_ms": 0.087629,
+              "end_to_end_p50_ms": 6.98881
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.948533,
+              "rerank_only_p50_ms": 0.171739,
+              "end_to_end_p50_ms": 7.128216
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.101328,
+              "rerank_only_p50_ms": 0.339534,
+              "end_to_end_p50_ms": 7.471806
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "independent",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 143.646639,
+          "exact_float32_p50_ms": 14.774874,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.816667,
+              "int8_scan_p50_ms": 6.87496,
+              "rerank_only_p50_ms": 0.014222,
+              "end_to_end_p50_ms": 6.889496
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.8742,
+              "rerank_only_p50_ms": 0.024444,
+              "end_to_end_p50_ms": 6.899015
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.882515,
+              "rerank_only_p50_ms": 0.045573,
+              "end_to_end_p50_ms": 6.928774
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.898811,
+              "rerank_only_p50_ms": 0.087499,
+              "end_to_end_p50_ms": 6.988921
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.953774,
+              "rerank_only_p50_ms": 0.171795,
+              "end_to_end_p50_ms": 7.133938
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.111476,
+              "rerank_only_p50_ms": 0.339664,
+              "end_to_end_p50_ms": 7.478047
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 147.717716,
+          "exact_float32_p50_ms": 14.77428,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.881015,
+              "rerank_only_p50_ms": 0.014666,
+              "end_to_end_p50_ms": 6.895903
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.883793,
+              "rerank_only_p50_ms": 0.024629,
+              "end_to_end_p50_ms": 6.908866
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.89333,
+              "rerank_only_p50_ms": 0.044981,
+              "end_to_end_p50_ms": 6.939107
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.913478,
+              "rerank_only_p50_ms": 0.088666,
+              "end_to_end_p50_ms": 7.004144
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.985181,
+              "rerank_only_p50_ms": 0.175017,
+              "end_to_end_p50_ms": 7.172864
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.132901,
+              "rerank_only_p50_ms": 0.344275,
+              "end_to_end_p50_ms": 7.513565
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 147.661031,
+          "exact_float32_p50_ms": 14.7738,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.878441,
+              "rerank_only_p50_ms": 0.013926,
+              "end_to_end_p50_ms": 6.893404
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.878164,
+              "rerank_only_p50_ms": 0.024278,
+              "end_to_end_p50_ms": 6.902496
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.887848,
+              "rerank_only_p50_ms": 0.046185,
+              "end_to_end_p50_ms": 6.935533
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.914163,
+              "rerank_only_p50_ms": 0.088796,
+              "end_to_end_p50_ms": 7.006865
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.960755,
+              "rerank_only_p50_ms": 0.174665,
+              "end_to_end_p50_ms": 7.147142
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.113957,
+              "rerank_only_p50_ms": 0.346201,
+              "end_to_end_p50_ms": 7.486232
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 151.260833,
+          "exact_float32_p50_ms": 14.778373,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 6.880423,
+              "rerank_only_p50_ms": 0.013834,
+              "end_to_end_p50_ms": 6.893941
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.883033,
+              "rerank_only_p50_ms": 0.024777,
+              "end_to_end_p50_ms": 6.908792
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.889515,
+              "rerank_only_p50_ms": 0.046056,
+              "end_to_end_p50_ms": 6.93757
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.913274,
+              "rerank_only_p50_ms": 0.089074,
+              "end_to_end_p50_ms": 7.00357
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.98007,
+              "rerank_only_p50_ms": 0.173925,
+              "end_to_end_p50_ms": 7.166402
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.142921,
+              "rerank_only_p50_ms": 0.340294,
+              "end_to_end_p50_ms": 7.506084
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 150.367212,
+          "exact_float32_p50_ms": 14.765966,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.95,
+              "int8_scan_p50_ms": 6.877478,
+              "rerank_only_p50_ms": 0.013667,
+              "end_to_end_p50_ms": 6.892145
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.878478,
+              "rerank_only_p50_ms": 0.024444,
+              "end_to_end_p50_ms": 6.904218
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.889311,
+              "rerank_only_p50_ms": 0.045389,
+              "end_to_end_p50_ms": 6.935645
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.910626,
+              "rerank_only_p50_ms": 0.088759,
+              "end_to_end_p50_ms": 7.00207
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.990273,
+              "rerank_only_p50_ms": 0.175461,
+              "end_to_end_p50_ms": 7.176198
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.148495,
+              "rerank_only_p50_ms": 0.346089,
+              "end_to_end_p50_ms": 7.525695
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "temporal",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 63.700751,
+          "exact_float32_p50_ms": 14.769503,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.878904,
+              "rerank_only_p50_ms": 0.013925,
+              "end_to_end_p50_ms": 6.893182
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.884627,
+              "rerank_only_p50_ms": 0.024185,
+              "end_to_end_p50_ms": 6.907497
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.893312,
+              "rerank_only_p50_ms": 0.045777,
+              "end_to_end_p50_ms": 6.939348
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.923496,
+              "rerank_only_p50_ms": 0.088703,
+              "end_to_end_p50_ms": 7.012977
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.993089,
+              "rerank_only_p50_ms": 0.175332,
+              "end_to_end_p50_ms": 7.172069
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.163383,
+              "rerank_only_p50_ms": 0.345164,
+              "end_to_end_p50_ms": 7.559139
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261029,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 137.423305,
+          "exact_float32_p50_ms": 14.775429,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.666667,
+              "int8_scan_p50_ms": 6.874182,
+              "rerank_only_p50_ms": 0.014203,
+              "end_to_end_p50_ms": 6.888515
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "int8_scan_p50_ms": 6.873015,
+              "rerank_only_p50_ms": 0.024129,
+              "end_to_end_p50_ms": 6.897533
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.95,
+              "int8_scan_p50_ms": 6.880552,
+              "rerank_only_p50_ms": 0.045388,
+              "end_to_end_p50_ms": 6.92746
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.899459,
+              "rerank_only_p50_ms": 0.087777,
+              "end_to_end_p50_ms": 6.990514
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.94644,
+              "rerank_only_p50_ms": 0.172703,
+              "end_to_end_p50_ms": 7.126476
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.120735,
+              "rerank_only_p50_ms": 0.342978,
+              "end_to_end_p50_ms": 7.489825
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261030,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 136.980642,
+          "exact_float32_p50_ms": 14.775762,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.616667,
+              "int8_scan_p50_ms": 6.871349,
+              "rerank_only_p50_ms": 0.014352,
+              "end_to_end_p50_ms": 6.887348
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.816667,
+              "int8_scan_p50_ms": 6.874552,
+              "rerank_only_p50_ms": 0.024426,
+              "end_to_end_p50_ms": 6.89859
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 6.879663,
+              "rerank_only_p50_ms": 0.045925,
+              "end_to_end_p50_ms": 6.927052
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.898107,
+              "rerank_only_p50_ms": 0.088166,
+              "end_to_end_p50_ms": 6.990404
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.948737,
+              "rerank_only_p50_ms": 0.173776,
+              "end_to_end_p50_ms": 7.129642
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.102013,
+              "rerank_only_p50_ms": 0.345886,
+              "end_to_end_p50_ms": 7.47701
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261031,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 83.533711,
+          "exact_float32_p50_ms": 14.769337,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.733333,
+              "int8_scan_p50_ms": 6.875145,
+              "rerank_only_p50_ms": 0.014073,
+              "end_to_end_p50_ms": 6.889719
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 6.87683,
+              "rerank_only_p50_ms": 0.024482,
+              "end_to_end_p50_ms": 6.901292
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.966667,
+              "int8_scan_p50_ms": 6.883627,
+              "rerank_only_p50_ms": 0.045685,
+              "end_to_end_p50_ms": 6.930792
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.900145,
+              "rerank_only_p50_ms": 0.08798,
+              "end_to_end_p50_ms": 6.990514
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.951033,
+              "rerank_only_p50_ms": 0.172832,
+              "end_to_end_p50_ms": 7.131828
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.106828,
+              "rerank_only_p50_ms": 0.34346,
+              "end_to_end_p50_ms": 7.482362
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261032,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 137.156437,
+          "exact_float32_p50_ms": 14.774614,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "int8_scan_p50_ms": 6.872515,
+              "rerank_only_p50_ms": 0.014241,
+              "end_to_end_p50_ms": 6.887089
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.9,
+              "int8_scan_p50_ms": 6.874534,
+              "rerank_only_p50_ms": 0.024574,
+              "end_to_end_p50_ms": 6.899571
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.881515,
+              "rerank_only_p50_ms": 0.045888,
+              "end_to_end_p50_ms": 6.928218
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.898626,
+              "rerank_only_p50_ms": 0.088444,
+              "end_to_end_p50_ms": 6.989718
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.949903,
+              "rerank_only_p50_ms": 0.17348,
+              "end_to_end_p50_ms": 7.129254
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.109568,
+              "rerank_only_p50_ms": 0.34396,
+              "end_to_end_p50_ms": 7.482066
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        },
+        {
+          "schema_version": 1,
+          "kind": "synthetic_cpu_int8_direct_shortlist_float32_rerank",
+          "host": "raspberrypi",
+          "compiler": "13.3.0",
+          "distribution": "clustered",
+          "seed": 20261033,
+          "vectors": 8192,
+          "dimensions": 768,
+          "queries": 12,
+          "repeats": 2,
+          "top_k": 5,
+          "raw_float32_bytes": 25165824,
+          "raw_int8_bytes": 6291456,
+          "quantize_vectors_and_queries_ms": 136.623646,
+          "exact_float32_p50_ms": 14.768078,
+          "timing_definition": "each candidate size independently scans all N int8 vectors then reranks top-M in float32; end_to_end_p50 is directly measured query time excluding prequantization",
+          "options": [
+            {
+              "candidates": 5,
+              "recall_at_5": 0.75,
+              "int8_scan_p50_ms": 6.873311,
+              "rerank_only_p50_ms": 0.013963,
+              "end_to_end_p50_ms": 6.887718
+            },
+            {
+              "candidates": 10,
+              "recall_at_5": 0.883333,
+              "int8_scan_p50_ms": 6.874756,
+              "rerank_only_p50_ms": 0.024389,
+              "end_to_end_p50_ms": 6.900015
+            },
+            {
+              "candidates": 20,
+              "recall_at_5": 0.983333,
+              "int8_scan_p50_ms": 6.883219,
+              "rerank_only_p50_ms": 0.045685,
+              "end_to_end_p50_ms": 6.930071
+            },
+            {
+              "candidates": 40,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.899182,
+              "rerank_only_p50_ms": 0.088018,
+              "end_to_end_p50_ms": 6.9897
+            },
+            {
+              "candidates": 80,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 6.949385,
+              "rerank_only_p50_ms": 0.17248,
+              "end_to_end_p50_ms": 7.129587
+            },
+            {
+              "candidates": 160,
+              "recall_at_5": 1,
+              "int8_scan_p50_ms": 7.107606,
+              "rerank_only_p50_ms": 0.342312,
+              "end_to_end_p50_ms": 7.478529
+            }
+          ],
+          "sanity_failures": 0,
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Fully synthetic CPU brute-force scans; no real embeddings, GPU, database or ANN index",
+    "15 distinct seed/distribution cases repeated over 3 hosts; only 15 independent synthetic datasets",
+    "End-to-end timings start after vectors and queries are quantized; quantization cost logged separately",
+    "No controlled CPU clock/power or thermal profiling; medians from one run per seed and host",
+    "Candidate selection is topM int8 brute force for each M, then original float32 rescoring"
+  ]
+}
