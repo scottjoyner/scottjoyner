@@ -48,8 +48,8 @@ def validate_trial(rec, n, mode, seed, storage, m):
     else:
         if rec["backing_file_size_bytes"] != n * DIM * 4 or rec["float32_resident_in_heap"]:
             raise ValueError("File-backed trial storage mismatch")
-        if storage.startswith("pread") and rec["read_calls"] != REPS * QUERIES * m + m:
-            raise ValueError("Pread count must include warmup and search reads")
+        if storage.startswith("pread") and rec["read_calls"] != REPS * QUERIES * m:
+            raise ValueError("Pread count must match timed query reads; warmup is excluded")
         if storage.startswith("mmap") and rec["read_calls"] != 0:
             raise ValueError("Mapped file should not call pread")
     return rec
