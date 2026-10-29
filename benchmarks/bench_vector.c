@@ -12,9 +12,15 @@
 #include <limits.h>
 
 #define K 5
-static uint32_t state=20261029u;
-static uint32_t next_rng(void){state=1664525u*state+1013904223u;return state;}
-static float rand_float(void){return (float)(next_rng() & 65535u)/32767.5f-1.0f;}
+static uint64_t state=20261029ULL;
+// SplitMix64 avoids the short-period low-bit correlations of a simple LCG.
+static uint64_t next_rng(void){
+ uint64_t z=(state+=0x9e3779b97f4a7c15ULL);
+ z=(z^(z>>30))*0xbf58476d1ce4e5b9ULL;
+ z=(z^(z>>27))*0x94d049bb133111ebULL;
+ return z^(z>>31);
+}
+static float rand_float(void){return (float)(next_rng()>>40)/8388607.5f-1.0f;}
 static long long now_ns(void){struct timespec t;clock_gettime(CLOCK_MONOTONIC,&t);return (long long)t.tv_sec*1000000000LL+t.tv_nsec;}
 static int cmp_long(const void*a,const void*b){long long x=*(const long long*)a,y=*(const long long*)b;return(x>y)-(x<y);}
 typedef struct {double score;size_t id;} Hit;
@@ -45,7 +51,8 @@ static void isearch(const int8_t*base,const int8_t*q,size_t n,size_t d,Hit*h){
 }
 static int8_t quant(float x){
  long k=lroundf(x*127.f);
- if(k>127)k=127;if(k< -127)k=-127;
+ if(k>127) k=127;
+ if(k< -127) k=-127;
  return(int8_t)k;
 }
 static void fill_unit(float *v,int8_t *v8,size_t d){
