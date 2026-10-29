@@ -33,11 +33,20 @@ static void add_hit(Hit *h,double score,size_t id){
  }
 }
 static void reset(Hit *h){for(int k=0;k<K;k++)h[k]=(Hit){-DBL_MAX,SIZE_MAX};}
+static int valid_hits(const Hit*h,size_t n){
+ for(int j=0;j<K;j++){
+  if(h[j].id>=n || !isfinite(h[j].score))return 0;
+  for(int k=0;k<j;k++)if(h[k].id==h[j].id)return 0;
+  if(j>0 && (h[j].score>h[j-1].score ||
+      (h[j].score==h[j-1].score && h[j].id<=h[j-1].id)))return 0;
+ }
+ return 1;
+}
 static void fsearch(const float*base,const float*q,size_t n,size_t d,Hit*h){
  reset(h);
  for(size_t i=0;i<n;i++){
-  const float*v=base+i*d;double acc=0;
-  for(size_t j=0;j<d;j++)acc+=(double)v[j]*(double)q[j];
+  const float*v=base+i*d;float acc=0.f;
+  for(size_t j=0;j<d;j++)acc+=v[j]*q[j];
   add_hit(h,acc,i);
  }
 }
@@ -96,7 +105,7 @@ int main(int argc,char**argv){
     for(int k=0;k<K;k++){if(a[j].id==b[k].id){agree++;break;}}
    }
    overlaps+=agree/(double)K;
-   if(agree<0||agree>K)mismatches++;
+   if(!valid_hits(a,n)||!valid_hits(b,n))mismatches++;
   }
  }
  char host[128]="unknown";gethostname(host,sizeof(host)-1);host[sizeof(host)-1]=0;
@@ -108,7 +117,7 @@ int main(int argc,char**argv){
  printf("  \"float32_p50_ms\": %.6f,\n  \"float32_p95_ms\": %.6f,\n",percent(tf,calls,.5),percent(tf,calls,.95));
  printf("  \"int8_p50_ms\": %.6f,\n  \"int8_p95_ms\": %.6f,\n",percent(ti,calls,.5),percent(ti,calls,.95));
  printf("  \"int8_recall_at_5\": %.6f,\n  \"raw_float32_bytes\": %zu,\n  \"raw_int8_bytes\": %zu,\n",overlaps/calls,cells*4,cells);
- printf("  \"sanity_mismatches\": %d,\n  \"status\": \"%s\"\n}\n",mismatches,mismatches?"FAIL":"PASS");
+ printf("  \"sanity_failures\": %d,\n  \"status\": \"%s\"\n}\n",mismatches,mismatches?"FAIL":"PASS");
  free(float_data);free(int_data);free(query);free(query8);free(tf);free(ti);
  return mismatches?1:0;
 }
