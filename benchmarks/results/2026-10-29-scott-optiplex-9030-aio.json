@@ -1,0 +1,151 @@
+{
+  "benchmark_kind": "synthetic_python_cpu_not_production_data",
+  "cpu": "x86_64",
+  "geo": [
+    {
+      "baseline": {
+        "p50_ms": 0.073812,
+        "p95_ms": 0.082183,
+        "total_calls": 600,
+        "total_measured_ms": 44.403
+      },
+      "events": 1000,
+      "indexed": {
+        "p50_ms": 0.000439,
+        "p95_ms": 0.00049,
+        "total_calls": 600,
+        "total_measured_ms": 0.281
+      },
+      "method": "linear scan vs sorted timestamp bisect; exact event-index equality",
+      "mismatches": 0,
+      "p50_speedup": 168.14,
+      "queries": 200,
+      "repeats": 3
+    },
+    {
+      "baseline": {
+        "p50_ms": 0.788537,
+        "p95_ms": 0.896633,
+        "total_calls": 600,
+        "total_measured_ms": 474.805
+      },
+      "events": 10000,
+      "indexed": {
+        "p50_ms": 0.00054,
+        "p95_ms": 0.000614,
+        "total_calls": 600,
+        "total_measured_ms": 0.332
+      },
+      "method": "linear scan vs sorted timestamp bisect; exact event-index equality",
+      "mismatches": 0,
+      "p50_speedup": 1460.25,
+      "queries": 200,
+      "repeats": 3
+    },
+    {
+      "baseline": {
+        "p50_ms": 3.878586,
+        "p95_ms": 4.44501,
+        "total_calls": 600,
+        "total_measured_ms": 2347.908
+      },
+      "events": 50000,
+      "indexed": {
+        "p50_ms": 0.000575,
+        "p95_ms": 0.000665,
+        "total_calls": 600,
+        "total_measured_ms": 0.354
+      },
+      "method": "linear scan vs sorted timestamp bisect; exact event-index equality",
+      "mismatches": 0,
+      "p50_speedup": 6745.37,
+      "queries": 200,
+      "repeats": 3
+    }
+  ],
+  "host": "scott-OptiPlex-9030-AIO",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "schema_version": 1,
+  "seed": 20261029,
+  "source_sha256": "21cceec9904967d6a41c652f69752ca0e793adec9a6f6d8500930c63984914cc",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-29T04:19:09.800416+00:00",
+  "vectors": [
+    {
+      "dimensions": 48,
+      "float64_exact_scan": {
+        "p50_ms": 1.596439,
+        "p95_ms": 1.65603,
+        "total_calls": 60,
+        "total_measured_ms": 96.14
+      },
+      "int8_quantized_scan": {
+        "p50_ms": 4.816586,
+        "p95_ms": 5.474718,
+        "total_calls": 60,
+        "total_measured_ms": 297.057
+      },
+      "int8_recall_at_k_vs_float64": 0.97,
+      "note": "Both use Python brute-force scans. Payload sizes exclude Python object/index overhead.",
+      "queries": 20,
+      "repeats": 3,
+      "theoretical_raw_payload_bytes": {
+        "float64": 196608,
+        "int8": 24576
+      },
+      "top_k": 5,
+      "vectors": 512
+    },
+    {
+      "dimensions": 48,
+      "float64_exact_scan": {
+        "p50_ms": 6.366002,
+        "p95_ms": 6.922007,
+        "total_calls": 60,
+        "total_measured_ms": 387.243
+      },
+      "int8_quantized_scan": {
+        "p50_ms": 19.207858,
+        "p95_ms": 21.653499,
+        "total_calls": 60,
+        "total_measured_ms": 1171.764
+      },
+      "int8_recall_at_k_vs_float64": 0.95,
+      "note": "Both use Python brute-force scans. Payload sizes exclude Python object/index overhead.",
+      "queries": 20,
+      "repeats": 3,
+      "theoretical_raw_payload_bytes": {
+        "float64": 786432,
+        "int8": 98304
+      },
+      "top_k": 5,
+      "vectors": 2048
+    },
+    {
+      "dimensions": 48,
+      "float64_exact_scan": {
+        "p50_ms": 26.093658,
+        "p95_ms": 28.615577,
+        "total_calls": 60,
+        "total_measured_ms": 1589.218
+      },
+      "int8_quantized_scan": {
+        "p50_ms": 78.19713,
+        "p95_ms": 84.600416,
+        "total_calls": 60,
+        "total_measured_ms": 4750.381
+      },
+      "int8_recall_at_k_vs_float64": 0.96,
+      "note": "Both use Python brute-force scans. Payload sizes exclude Python object/index overhead.",
+      "queries": 20,
+      "repeats": 3,
+      "theoretical_raw_payload_bytes": {
+        "float64": 3145728,
+        "int8": 393216
+      },
+      "top_k": 5,
+      "vectors": 8192
+    }
+  ]
+}
