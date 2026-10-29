@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "benchmark_kind": "synthetic_compiled_cpu_vector_scan",
+  "host": "x1-370",
+  "compiler": "13.3.0",
+  "seed": 20261029,
+  "vectors": 32768,
+  "dimensions": 384,
+  "queries": 12,
+  "repeats": 2,
+  "top_k": 5,
+  "total_calls_per_method": 24,
+  "float32_p50_ms": 6.653843,
+  "float32_p95_ms": 6.779628,
+  "int8_p50_ms": 2.209976,
+  "int8_p95_ms": 2.279387,
+  "int8_recall_at_5": 0.883333,
+  "raw_float32_bytes": 50331648,
+  "raw_int8_bytes": 12582912,
+  "sanity_failures": 0,
+  "status": "PASS"
+}
