@@ -1,6 +1,6 @@
 // Synthetic CPU float32 vs int8 retrieval with fixed and per-vector scales.
 // Build: gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_quant_scales.c -lm -o /tmp/bench_quant_scales
-// Run: /tmp/bench_quant_scales [n=8192] [dim=768] [queries=12] [repeats=2] [seed=20261029] [independent|temporal|clustered]
+// Each top-M option measures its own full int8 scan plus float32 rerank.\n// Run: /tmp/bench_quant_scales [n=8192] [dim=768] [queries=12] [repeats=2] [seed=20261029] [independent|temporal|clustered]
 #define _POSIX_C_SOURCE 200809L
 #include <stdint.h>
 #include <stdio.h>
@@ -88,12 +88,12 @@ static void exact(const float*v,const float*q,size_t n,size_t d,Hit*out){
  init(out,K);
  for(size_t i=0;i<n;i++)add(out,K,dot32(v+i*d,q,d),i);
 }
-static void approx(const Scheme*s,const int8_t*q,size_t n,size_t d,Hit*out){
- init(out,MAX_M);
+static void approx(const Scheme*s,const int8_t*q,size_t n,size_t d,Hit*out,int m){
+ init(out,m);
  for(size_t i=0;i<n;i++){
-  // q scale is common for all candidates of this query; can be omitted.
+  // Query scale is common across candidates; per-vector scale is not.
   double score=(double)dot8(s->v+i*d,q,d)*(double)s->scales[i];
-  add(out,MAX_M,score,i);
+  add(out,m,score,i);
  }
 }
 static void rerank(Hit*shortlist,int m,const float*v,const float*q,size_t d,Hit*out){
@@ -189,7 +189,7 @@ int main(int argc,char**argv){
  }
  Hit truth[K],neighbors[MAX_M],reranked[K];
  exact(v,q,n,d,truth);
- for(int z=0;z<2;z++)approx(&schemes[z],schemes[z].q,n,d,neighbors);
+ for(int z=0;z<2;z++)approx(&schemes[z],schemes[z].q,n,d,neighbors,MAX_M);
  int failures=0;
  for(size_t rep=0;rep<reps;rep++)for(size_t qi=0;qi<nq;qi++){
   size_t index=rep*nq+qi;
@@ -201,17 +201,13 @@ int main(int argc,char**argv){
   for(int pass=0;pass<2;pass++){
    int z=(int)((pass+rep+qi)%2);
    Scheme*s=&schemes[z];
-   start=ns();
-   approx(s,s->q+qi*d,n,d,neighbors);
-   long long scan_done=ns();
-   if(!valid(neighbors,MAX_M,n))failures++;
    for(int m=0;m<NC;m++){
-    // Timed directly from start of the scan; the same shortlist scan feeds all options.
-    long long begin_rerank=ns();
+    // Directly time a fresh top-M int8 scan followed by float32 top-5 reranking.
+    long long start_query=ns();
+    approx(s,s->q+qi*d,n,d,neighbors,ms[m]);
     rerank(neighbors,ms[m],v,query,d,reranked);
-    long long done=ns();
-    if(!valid(reranked,K,n))failures++;
-    s->times[m][index]=(scan_done-start)+(done-begin_rerank);
+    s->times[m][index]=ns()-start_query;
+    if(!valid(neighbors,ms[m],n)||!valid(reranked,K,n))failures++;
     if(rep==0)s->recall_hits[m]+=hits(truth,reranked);
    }
   }
