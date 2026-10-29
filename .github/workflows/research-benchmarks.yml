@@ -35,6 +35,7 @@ jobs:
           python3 benchmarks/check_rerank_stress.py
           python3 benchmarks/check_rerank_direct.py
           python3 benchmarks/check_rerank_scale.py
+          python3 benchmarks/check_holdout.py
           python3 benchmarks/summarize_results.py --directory benchmarks/results --date 2026-10-29 > /dev/null
       - name: Compile CPU benchmarks
         run: |
