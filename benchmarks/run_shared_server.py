@@ -74,7 +74,12 @@ def run_group(binary, mode, dist, threads, clients, seed, queries=QUERIES_PER_CL
                     with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as conn:
                         conn.settimeout(TIMEOUT_SECONDS)
                         conn.connect(sockpath)
-                        conn.sendall(struct.pack("<I",qid))
+                        try:
+                            conn.sendall(struct.pack("<I",qid))
+                        except (BrokenPipeError, ConnectionResetError):
+                            # Admission may reject without reading the request.
+                            # Still require and decode the explicit BUSY response.
+                            pass
                         response=recv_all(conn,24)
                     elapsed=time.perf_counter_ns()-begin
                     status,hits,queue_ns,compute_ns=struct.unpack("<IIQQ",response)
