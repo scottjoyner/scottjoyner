@@ -252,3 +252,59 @@ gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_rerank_direct.c -lm -o /tmp/benc
 nice -n 15 /tmp/bench_rerank_direct 32768 768 12 2 20261029 clustered
 python3 benchmarks/check_rerank_scale.py
 ```
+
+## Held-out policy validation: two-stage evaluation (2026-10-29)
+
+This sequence intentionally records **failures and revisions**, rather than tuning on test data while reporting the same scores as confirmation.
+
+**Primary artifacts:** [80-trial first held-out dataset](results/2026-10-29-holdout-frozen-policy.json) · [40-trial second held-out dataset](results/2026-10-29-policy-v2-second-holdout.json) · [calibration/first holdout runner](bench_holdout.py) · [V2 second-holdout runner](bench_policy_v2.py) · [independent validators](check_holdout.py) and [V2 validator](check_policy_v2.py). Validators recompute outcomes from recorded per-trial evidence; the first validator also reconstructs the selected policy from the previously committed calibration files.
+
+### Phase 1: freeze 99% recall thresholds from original five seeds
+
+The original calibration used seeds 20261029–20261033. For each workload/distribution, the policy chose the **smallest** shortlist M whose exact top-five hit count reached at least **99% aggregate calibration recall**. The policy was then frozen, before using the first held-out seeds beginning at 20261034.
+
+| Dataset | Calibration-selected M | First held-out tests | Held-out recall@5 | 99% target |
+| --- | ---: | ---: | ---: | --- |
+| 8,192 independent vectors | 20 | 20 distinct seeds | 100.00% | Pass |
+| 8,192 temporally correlated vectors | 10 | 20 distinct seeds | 100.00% | Pass |
+| 8,192 clustered vectors | 40 | 20 distinct seeds | 99.33% | Pass |
+| 32,768 independent vectors | 10 | 10 distinct seeds | **98.67%** | **FAIL** |
+| 32,768 clustered vectors | 40 | 10 distinct seeds | **98.33%** | **FAIL** |
+
+All **80 synthetic CPU trial executions passed correctness/sanity checks**, but the two large-workload selection policies failed their desired *accuracy* target. These are intentionally different checks. The first holdout used 20 seeds at 8,192 vectors × 3 distributions plus 10 seeds at 32,768 vectors × 2 distributions. The five original calibration seeds were excluded. Each trial used 12 queries × 2 timing repeats and top-k=5.
+
+### Phase 2: more conservative policy, then a second untouched holdout
+
+After observing the first holdout, a more conservative V2 policy was fixed **before** evaluating seeds 20261054–20261073. This second set contains 20 seeds per mode at 32,768 vectors × 768 dimensions, giving 40 newly run synthetic CPU trials.
+
+| 32,768-vector distribution | Prior M (second set) | Prior recall@5 | Revised fixed M | Revised recall@5 | V2 passes 99%? |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Independent | 10 | 98.50% | 20 | **99.83%** | Yes |
+| Clustered | 40 | 99.08% | 80 | **99.92%** | Yes |
+
+The revised policy measured approximate **3.07×** and **2.89×** median synthetic CPU query speedups versus the full float32 scan for independent and clustered vectors. These are nominal ratios of observed per-seed p50 medians on one host, not controlled performance confidence bounds. One-time vector/query quantization, embedding generation, persistence, network transfer and database indexing are excluded from query latency and should be included in end-to-end planning.
+
+**Research interpretation:** A calibration set of five seeds was inadequate to ensure 99% recall on the first large held-out set. Enlarging M and testing on a **new, disjoint second holdout** provided better evidence of acceptable synthetic recall, but the new setting is not proven safe on real embeddings or unseen distributions. The simulated distribution class is supplied as an oracle label; this work **does not implement an automatic per-query distribution classifier**, a production adaptive router or an online safety/recall guarantee. The top-five hit count is not a statistically independent sample of actual dashcam retrieval quality.
+
+Reproduce the first trial series (requires the two pinned, previously published calibration receipts):
+
+```bash
+gcc -O3 -Wall -Wextra -std=c11 benchmarks/bench_rerank_direct.c -lm -o /tmp/bench_rerank_direct
+nice -n 15 python3 benchmarks/bench_holdout.py --binary /tmp/bench_rerank_direct \
+  --c-source benchmarks/bench_rerank_direct.c \
+  --small-calibration benchmarks/results/2026-10-29-rerank-direct-multihost.json \
+  --large-calibration benchmarks/results/2026-10-29-rerank-direct-32768-x1-370.json \
+  --small-seeds 20 --large-seeds 10 --output /tmp/bench-holdout.json
+python3 benchmarks/check_holdout.py
+```
+
+Reproduce the *separately fixed* revised policy on the second seed range:
+
+```bash
+nice -n 15 python3 benchmarks/bench_policy_v2.py \
+  --binary /tmp/bench_rerank_direct --source benchmarks/bench_rerank_direct.c \
+  --count 20 --out /tmp/bench-policy-v2.json
+python3 benchmarks/check_policy_v2.py
+```
+
+**Next validation gate:** explicitly approved real embedding datasets with temporal train/test separation, corrupted GPS/clip cases, a measured distribution-difficulty classifier or distribution-agnostic policy, and a full precompute/update/CPU/GPU/DB cost model. Do not promote the synthetic M20/M80 settings to a production contract.
