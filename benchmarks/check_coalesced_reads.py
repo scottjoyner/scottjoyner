@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent auditor of 140 synthetic CPU candidate-read locality experiments.
+"""Independent auditor of 280 synthetic CPU candidate-read locality experiments.
 
 Reconstructs read byte counts, coalesced run counts, recall parity,
 per-seed coverage, latency medians, process memory and ratios from receipts.
@@ -37,7 +37,7 @@ def validate(doc):
     if design.get("workloads")!=[{"vectors":n,"distribution":d}for n,d in WORKLOADS]:
         raise ValueError("Unexpected workloads")
     rows=doc.get("runs",[])
-    if len(rows)!=140:
+    if len(rows)!=280:
         raise ValueError("Missing the expected 140 executed trials")
     records={}
     parity={}
