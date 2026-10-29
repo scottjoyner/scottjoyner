@@ -42,10 +42,11 @@ jobs:
           python3 benchmarks/check_quant_scales.py
           python3 benchmarks/check_quant_peers.py
           python3 benchmarks/check_float_storage.py
+          python3 benchmarks/check_coalesced_reads.py
           python3 benchmarks/summarize_results.py --directory benchmarks/results --date 2026-10-29 > /dev/null
       - name: Compile CPU benchmarks
         run: |
-          for name in bench_vector bench_rerank bench_rerank_stress bench_rerank_direct bench_score_margin bench_quant_scales bench_float_storage; do
+          for name in bench_vector bench_rerank bench_rerank_stress bench_rerank_direct bench_score_margin bench_quant_scales bench_float_storage bench_coalesced_reads; do
             gcc -O3 -Wall -Wextra -std=c11 "benchmarks/${name}.c" -lm -o "/tmp/${name}"
           done
       - name: Small synthetic CPU smoke tests
@@ -58,3 +59,5 @@ jobs:
           /tmp/bench_quant_scales 256 48 3 1 20261029 clustered | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and [s["name"] for s in x["schemes"]]==["fixed127","per_vector_absmax"]'
           /tmp/bench_float_storage 256 48 3 1 20261140 clustered ram 20 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and x["mode"]=="ram"'
           /tmp/bench_float_storage 256 48 3 1 20261140 clustered pread_warm 20 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and x["read_calls"]==60 and x["backing_file_size_bytes"]==256*48*4'
+          /tmp/bench_coalesced_reads 256 48 3 1 20261150 temporal pread_sorted_warm 20 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and x["read_calls"]==60 and x["hits"]<=15'
+          /tmp/bench_coalesced_reads 256 48 3 1 20261150 temporal pread_coalesced_warm 20 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and x["read_calls"]+x["adjacent_pairs"]==60'
