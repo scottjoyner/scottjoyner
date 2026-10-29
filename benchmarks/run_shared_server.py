@@ -184,7 +184,7 @@ def main():
         "schema_version":1,"kind":"synthetic_shared_uds_index_bounded_queue_cpu",
         "date":"2026-10-29",
         "source_sha256":SOURCE_SHA,
-        "source_commit":"b121ad090df96d3ecc4e9ee4c16ee7aecefdb8c2",
+        "source_commit":"dc4c66371e80b43d17ed37092a31362aea6fcef4",
         "design":{"vectors":N,"dimensions":D,"queries_in_index":NQ,
                   "shortlist":M,"queries_per_client":QUERIES_PER_CLIENT,
                   "queue_limit":QUEUE_LIMIT,"server_workers":THREADS,
