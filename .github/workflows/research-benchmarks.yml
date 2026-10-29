@@ -44,12 +44,15 @@ jobs:
           python3 benchmarks/check_float_storage.py
           python3 benchmarks/check_coalesced_reads.py
           python3 benchmarks/check_concurrent_reads.py
+          python3 benchmarks/check_shared_server.py
+          python3 benchmarks/check_shared_overload.py
           python3 benchmarks/summarize_results.py --directory benchmarks/results --date 2026-10-29 > /dev/null
       - name: Compile CPU benchmarks
         run: |
           for name in bench_vector bench_rerank bench_rerank_stress bench_rerank_direct bench_score_margin bench_quant_scales bench_float_storage bench_coalesced_reads bench_concurrent_reads; do
             gcc -O3 -Wall -Wextra -std=c11 "benchmarks/${name}.c" -lm -o "/tmp/${name}"
           done
+          gcc -O3 -Wall -Wextra -std=c11 -pthread benchmarks/bench_shared_server.c -lm -o /tmp/bench_shared_server
       - name: Small synthetic CPU smoke tests
         run: |
           /tmp/bench_vector 256 48 3 1 20261029 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0'
@@ -64,3 +67,4 @@ jobs:
           /tmp/bench_coalesced_reads 256 48 3 1 20261150 temporal pread_coalesced_warm 20 | python3 -c 'import json,sys; x=json.load(sys.stdin); assert x["status"]=="PASS" and x["sanity_failures"]==0 and x["read_calls"]+x["adjacent_pairs"]==60'
           /tmp/bench_concurrent_reads 256 48 3 1 20261160 temporal pread_coalesced_warm 20 | python3 -c 'import json,sys; rows=sys.stdin.read().splitlines(); x=json.loads(rows[0]); q=json.loads(rows[1].removeprefix("QUERY_TIMINGS_US ")); assert x["status"]=="PASS" and x["sanity_failures"]==0 and len(q)==3 and x["total_query_count"]==3'
           python3 -c 'import sys; from pathlib import Path; sys.path.insert(0,"benchmarks"); import run_concurrent_reads as m; m.N=256; m.DIM=48; m.NQ=3; m.REPEATS=1; m.M=20; r=m.run_group(Path("/tmp/bench_concurrent_reads"),"temporal","pread_coalesced_warm",2,20261160); assert r["query_count"]==6 and r["recall_at5"]==1 and r["total_read_calls"]+r["total_adjacent_pairs"]==120'
+          python3 -c 'import sys; from pathlib import Path; sys.path.insert(0,"benchmarks"); import run_shared_server as m; m.N=256; m.D=48; m.NQ=3; m.M=160; r=m.run_group(Path("/tmp/bench_shared_server"),"coalesced","temporal",2,4,20261170,queries=2,queue=8); assert r["accepted"]==8 and r["rejected"]==0 and r["recall_at5"]==1'
